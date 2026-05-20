@@ -1,0 +1,100 @@
+<section class="use-case-section" id="use-case">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+        </svg>
+        Use Case & API Scope
+      </div>
+      <h2 class="section-title">Exactly what we access,<br><span class="gradient-text">and why</span></h2>
+      <p class="section-subtitle">
+        SyncBridge is an order and inventory management tool for multi-channel sellers.
+        We use the Etsy Open API v3 with clearly scoped access — here's the full breakdown.
+      </p>
+    </div>
+
+    <div class="use-case-body">
+      <div class="problem-solution">
+        <div class="block problem-block glass-card">
+          <div class="block-icon">⚠️</div>
+          <h3>The Problem We Solve</h3>
+          <p>
+            Sellers running both an Etsy shop and a Shopify store face a constant challenge:
+            keeping inventory, orders, and product listings in sync manually. When a product
+            sells on Etsy, the Shopify stock doesn't update — leading to overselling, angry
+            customers, and Etsy policy violations. Manually switching between dashboards wastes
+            hours each week and introduces human error.
+          </p>
+        </div>
+        <div class="block solution-block glass-card">
+          <div class="block-icon">✅</div>
+          <h3>How SyncBridge Fixes It</h3>
+          <p>
+            SyncBridge acts as a real-time bridge between the Etsy Open API v3 and Shopify's
+            API. When a sale happens on either platform, our system automatically adjusts
+            inventory on both sides and consolidates the order into a unified queue. Sellers
+            fulfill from one screen; we handle the API calls to both platforms simultaneously.
+          </p>
+        </div>
+      </div>
+
+      <div class="data-access-table">
+        <h3 class="table-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke="#8B5CF6" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          Etsy API Scopes Requested
+        </h3>
+        <div class="scopes-grid">
+          @for (scope of dataScopes; track scope.name) {
+            <div class="scope-card" [class.read-only]="scope.readOnly">
+              <div class="scope-header">
+                <span class="scope-icon">{{ scope.icon }}</span>
+                <span class="scope-name">{{ scope.name }}</span>
+                <span class="scope-badge" [class.read]="scope.readOnly">
+                  {{ scope.access }}
+                </span>
+              </div>
+              <p class="scope-purpose">{{ scope.purpose }}</p>
+            </div>
+          }
+        </div>
+        <p class="scope-note">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+            <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          We do <strong>not</strong> request or access payment information, financial data, buyer personal details beyond shipping addresses, or any scope outside the above list.
+        </p>
+      </div>
+
+      <div class="benefits-section">
+        <h3 class="benefits-title">How This Benefits the Etsy Ecosystem</h3>
+        <div class="benefits-grid">
+          @for (benefit of benefits; track benefit.text) {
+            <div class="benefit-item glass-card">
+              <span class="benefit-icon">{{ benefit.icon }}</span>
+              <p>{{ benefit.text }}</p>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="compliance-banner">
+        <div class="compliance-icon">⚖️</div>
+        <div class="compliance-content">
+          <h3>Etsy API Terms of Use Compliance</h3>
+          <p>
+            SyncBridge operates strictly within
+            <a href="https://www.etsy.com/legal/api" target="_blank" rel="noopener">Etsy's API Terms of Use</a>
+            and the <a href="https://developer.etsy.com/documentation/" target="_blank" rel="noopener">Etsy Open API v3 documentation</a>.
+            API keys are generated solely for integrating our own order management platform —
+            not on behalf of any third-party app. Each seller authorizes their own account
+            independently via OAuth. We operate as a legitimate integration partner with a
+            clearly defined scope, transparent data handling, and no data resale.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

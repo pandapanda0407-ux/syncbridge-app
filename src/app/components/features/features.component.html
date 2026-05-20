@@ -1,0 +1,40 @@
+<section class="features-section" id="features">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/>
+        </svg>
+        Core Features
+      </div>
+      <h2 class="section-title">Everything you need to run<br><span class="gradient-text">multi-channel commerce</span></h2>
+      <p class="section-subtitle">
+        SyncBridge uses the official Etsy Open API v3 and Shopify API to read, sync,
+        and manage your store data — transparently and securely.
+      </p>
+    </div>
+
+    <div class="features-grid">
+      @for (feature of features; track feature.title) {
+        <div class="feature-card glass-card" [class]="'color-' + feature.color">
+          <div class="feature-icon">{{ feature.icon }}</div>
+          <div class="feature-tag">{{ feature.tag }}</div>
+          <h3 class="feature-title">{{ feature.title }}</h3>
+          <p class="feature-desc">{{ feature.description }}</p>
+        </div>
+      }
+    </div>
+
+    <div class="api-note">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="10" stroke="#06B6D4" stroke-width="1.5"/>
+        <path d="M12 8v4M12 16h.01" stroke="#06B6D4" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span>
+        SyncBridge uses the <strong>Etsy Open API v3</strong> with read/write access to
+        <strong>Listings</strong>, <strong>ShopReceipts</strong>, and <strong>ShopInventory</strong> scopes only.
+        No financial data is accessed or stored.
+      </span>
+    </div>
+  </div>
+</section>

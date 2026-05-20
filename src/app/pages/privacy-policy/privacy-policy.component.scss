@@ -1,0 +1,152 @@
+.privacy-page {
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+.privacy-hero {
+  padding: 140px 0 60px;
+  background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+  text-align: center;
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    margin: 16px 0 12px;
+  }
+}
+
+.updated {
+  font-size: 0.85rem;
+  color: #475569;
+  margin-bottom: 24px;
+}
+
+.intro {
+  font-size: 1rem;
+  color: #94A3B8;
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+.privacy-content {
+  padding: 60px 0 100px;
+
+  .container {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+}
+
+.toc {
+  padding: 28px;
+  border-radius: 18px;
+  position: sticky;
+  top: 90px;
+
+  h3 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+
+  ol {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  a {
+    font-size: 0.85rem;
+    color: #94A3B8;
+    text-decoration: none;
+    transition: color 0.2s;
+    line-height: 1.5;
+
+    &:hover { color: #A78BFA; }
+  }
+}
+
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.policy-section {
+  padding: 36px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+  &:last-child { border-bottom: none; }
+
+  h2 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #F1F5F9;
+    margin-bottom: 16px;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: #94A3B8;
+    line-height: 1.8;
+    margin-bottom: 12px;
+
+    &:last-child { margin-bottom: 0; }
+  }
+
+  ul, ol {
+    padding-left: 20px;
+    margin: 12px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  li {
+    font-size: 0.9rem;
+    color: #94A3B8;
+    line-height: 1.75;
+  }
+
+  strong { color: #E2E8F0; font-weight: 600; }
+
+  a {
+    color: #A78BFA;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+
+    &:hover { color: #C4B5FD; }
+  }
+}
+
+.contact-box {
+  background: rgba(139, 92, 246, 0.06);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 12px;
+  padding: 20px 24px;
+  font-size: 0.9rem;
+  color: #94A3B8;
+  line-height: 1.8;
+  margin: 16px 0;
+
+  strong { color: #E2E8F0; display: block; margin-bottom: 4px; }
+
+  a { color: #A78BFA; text-decoration: underline; }
+}
+
+@media (max-width: 900px) {
+  .privacy-content .container {
+    grid-template-columns: 1fr;
+  }
+
+  .toc {
+    position: static;
+  }
+}

@@ -1,0 +1,37 @@
+<nav class="navbar" [class.scrolled]="isScrolled()">
+  <div class="container nav-inner">
+    <a class="logo" routerLink="/">
+      <div class="logo-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="url(#bolt-grad)"/>
+          <defs>
+            <linearGradient id="bolt-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#8B5CF6"/>
+              <stop offset="100%" stop-color="#06B6D4"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <span class="logo-text">Sync<span class="gradient-text">Bridge</span></span>
+    </a>
+
+    <ul class="nav-links" [class.open]="isMobileOpen()">
+      <li><a (click)="scrollTo('home')" class="nav-link">Home</a></li>
+      <li><a (click)="scrollTo('features')" class="nav-link">Features</a></li>
+      <li><a (click)="scrollTo('how-it-works')" class="nav-link">How It Works</a></li>
+      <li><a (click)="scrollTo('use-case')" class="nav-link">Use Case</a></li>
+      <li><a (click)="scrollTo('contact')" class="nav-link">Contact</a></li>
+      <li><a routerLink="/privacy-policy" class="nav-link" (click)="closeMobile()">Privacy</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a (click)="scrollTo('contact')" class="btn-primary">Get Started</a>
+    </div>
+
+    <button class="hamburger" (click)="toggleMobile()" [class.active]="isMobileOpen()" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>

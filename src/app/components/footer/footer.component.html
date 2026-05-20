@@ -1,0 +1,76 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="url(#footer-bolt)"/>
+              <defs>
+                <linearGradient id="footer-bolt" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#8B5CF6"/>
+                  <stop offset="100%" stop-color="#06B6D4"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <span class="logo-text">Sync<span class="gradient-text">Bridge</span></span>
+        </div>
+        <p class="brand-desc">
+          The order and inventory management bridge for Etsy and Shopify sellers.
+        </p>
+        <p class="contact-email">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="#64748B" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <a href="mailto:support@synceBridge.com">support&#64;synceBridge.com</a>
+        </p>
+      </div>
+
+      <div class="footer-links-group">
+        <div class="link-col">
+          <h4>Product</h4>
+          <ul>
+            <li><a (click)="scrollTo('features')">Features</a></li>
+            <li><a (click)="scrollTo('how-it-works')">How It Works</a></li>
+            <li><a (click)="scrollTo('use-case')">Use Case</a></li>
+            <li><a (click)="scrollTo('security')">Security</a></li>
+          </ul>
+        </div>
+        <div class="link-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a routerLink="/privacy-policy">Privacy Policy</a></li>
+            <li>
+              <a href="https://www.etsy.com/legal/api" target="_blank" rel="noopener">
+                Etsy API Terms
+              </a>
+            </li>
+            <li>
+              <a href="https://developer.etsy.com/documentation/" target="_blank" rel="noopener">
+                Etsy API Docs
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="link-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a (click)="scrollTo('contact')">Contact Us</a></li>
+            <li><a href="mailto:support@synceBridge.com">Email Support</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">
+        &copy; {{ year }} SyncBridge. All rights reserved.
+      </p>
+      <p class="disclaimer">
+        SyncBridge is an independent product and is not affiliated with, endorsed by, or sponsored by Etsy, Inc. or Shopify Inc.
+        Use of the Etsy API is subject to <a href="https://www.etsy.com/legal/api" target="_blank" rel="noopener">Etsy's API Terms of Use</a>.
+      </p>
+    </div>
+  </div>
+</footer>

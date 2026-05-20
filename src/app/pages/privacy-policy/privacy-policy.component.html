@@ -1,0 +1,221 @@
+<app-navbar />
+
+<div class="privacy-page">
+  <div class="privacy-hero">
+    <div class="container">
+      <div class="section-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 1l3.09 6.26L22 8.27l-5 4.87 1.18 6.88L12 16.77l-6.18 3.25L7 13.14 2 8.27l6.91-1.01z"/>
+        </svg>
+        Legal
+      </div>
+      <h1>Privacy <span class="gradient-text">Policy</span></h1>
+      <p class="updated">Last updated: {{ lastUpdated }}</p>
+      <p class="intro">
+        SyncBridge ("we", "our", "us") is committed to
+        protecting your privacy. This policy explains what data we collect, how we use it,
+        and your rights regarding your information.
+      </p>
+    </div>
+  </div>
+
+  <div class="privacy-content">
+    <div class="container">
+      <div class="toc glass-card">
+        <h3>Table of Contents</h3>
+        <ol>
+          <li><a href="#who-we-are">Who We Are</a></li>
+          <li><a href="#data-collected">Data We Collect</a></li>
+          <li><a href="#api-access">Etsy & Shopify API Access</a></li>
+          <li><a href="#how-we-use">How We Use Your Data</a></li>
+          <li><a href="#data-sharing">Data Sharing</a></li>
+          <li><a href="#data-security">Data Security</a></li>
+          <li><a href="#retention">Data Retention</a></li>
+          <li><a href="#your-rights">Your Rights</a></li>
+          <li><a href="#cookies">Cookies</a></li>
+          <li><a href="#contact-us">Contact Us</a></li>
+        </ol>
+      </div>
+
+      <div class="sections">
+        <section id="who-we-are" class="policy-section">
+          <h2>1. Who We Are</h2>
+          <p>
+            SyncBridge is an order and inventory management service. Our service enables sellers
+            to manage their Etsy and Shopify stores from a unified dashboard via official API integrations.
+          </p>
+          <p>
+            <strong>Contact:</strong>
+            <a href="mailto:support@synceBridge.com">support@synceBridge.com</a>
+          </p>
+        </section>
+
+        <section id="data-collected" class="policy-section">
+          <h2>2. Data We Collect</h2>
+          <p>We collect the following categories of data when you use SyncBridge:</p>
+          <ul>
+            <li>
+              <strong>Account Information:</strong> Name, email address, and account credentials
+              you provide when registering with SyncBridge.
+            </li>
+            <li>
+              <strong>Store Data (via API):</strong> Product listings, order details (items ordered,
+              quantities, shipping addresses), and inventory levels fetched from your Etsy and
+              Shopify stores through official API access.
+            </li>
+            <li>
+              <strong>Usage Data:</strong> Log data, IP addresses, browser type, and pages visited
+              within the SyncBridge dashboard for security and performance monitoring.
+            </li>
+          </ul>
+          <p>
+            We do <strong>not</strong> collect or store your Etsy or Shopify passwords, payment card
+            numbers, financial account details, or any buyer personal data beyond shipping addresses
+            required for fulfillment.
+          </p>
+        </section>
+
+        <section id="api-access" class="policy-section">
+          <h2>3. Etsy & Shopify API Access</h2>
+          <p>
+            SyncBridge integrates with the <strong>Etsy Open API v3</strong> and the
+            <strong>Shopify API</strong> using OAuth 2.0 authorization. This means:
+          </p>
+          <ul>
+            <li>
+              You authorize our application directly on Etsy's and Shopify's own secure pages —
+              your credentials are never shared with or seen by SyncBridge.
+            </li>
+            <li>
+              We receive a scoped <strong>OAuth access token</strong> that allows us to perform
+              only the specific actions you authorized.
+            </li>
+            <li>
+              <strong>Etsy API scopes we request:</strong> listings_r, listings_w, transactions_r,
+              transactions_w (ShopReceipts), shops_r, inventory_r, inventory_w.
+            </li>
+            <li>
+              We do not request access to financial reports, payment information, or any scope
+              beyond what is necessary for order and inventory management.
+            </li>
+          </ul>
+          <p>
+            Our use of the Etsy API complies with
+            <a href="https://www.etsy.com/legal/api" target="_blank" rel="noopener">Etsy's API Terms of Use</a>.
+            API keys are generated solely for the SyncBridge integration — not generated at the
+            request of any third party.
+          </p>
+        </section>
+
+        <section id="how-we-use" class="policy-section">
+          <h2>4. How We Use Your Data</h2>
+          <p>We use the data we collect to:</p>
+          <ul>
+            <li>Provide the SyncBridge service — syncing orders and inventory between your stores.</li>
+            <li>Operate and maintain the unified dashboard.</li>
+            <li>Send transactional emails (order alerts, sync error notifications).</li>
+            <li>Monitor system health and prevent abuse.</li>
+            <li>Respond to support requests.</li>
+            <li>Comply with legal obligations.</li>
+          </ul>
+          <p>
+            We do <strong>not</strong> use your store data for advertising, sell it to third parties,
+            or use it for any purpose outside of providing the SyncBridge service.
+          </p>
+        </section>
+
+        <section id="data-sharing" class="policy-section">
+          <h2>5. Data Sharing</h2>
+          <p>
+            We do not sell, rent, or trade your personal data. We may share data with trusted
+            sub-processors strictly to operate our service:
+          </p>
+          <ul>
+            <li><strong>Cloud Hosting Providers</strong> (e.g., Google Cloud) — for infrastructure.</li>
+            <li><strong>Email Service Providers</strong> — for transactional notifications only.</li>
+            <li><strong>Analytics Tools</strong> — aggregated, anonymized usage metrics only.</li>
+          </ul>
+          <p>
+            All sub-processors are contractually bound to process your data only as instructed
+            by us and in compliance with applicable privacy laws.
+          </p>
+          <p>
+            We may disclose data if required by law, regulation, or valid legal process.
+          </p>
+        </section>
+
+        <section id="data-security" class="policy-section">
+          <h2>6. Data Security</h2>
+          <p>We implement industry-standard security measures:</p>
+          <ul>
+            <li><strong>TLS 1.3 encryption</strong> for all data in transit.</li>
+            <li><strong>AES-256 encryption</strong> for OAuth access tokens stored at rest.</li>
+            <li>Regular security audits and vulnerability assessments.</li>
+            <li>Role-based access controls limiting employee data access.</li>
+            <li>No storage of plain-text credentials of any kind.</li>
+          </ul>
+        </section>
+
+        <section id="retention" class="policy-section">
+          <h2>7. Data Retention</h2>
+          <p>
+            We retain your account data and store data for as long as your SyncBridge account
+            is active. Upon account deletion:
+          </p>
+          <ul>
+            <li>All personal data is permanently deleted within <strong>30 days</strong>.</li>
+            <li>OAuth tokens are immediately revoked upon account deletion or disconnection.</li>
+            <li>Anonymized aggregate analytics data may be retained longer.</li>
+          </ul>
+          <p>
+            You may revoke SyncBridge's API access at any time from your Etsy account's
+            "Apps & Permissions" settings or your Shopify store's "Apps" admin page.
+          </p>
+        </section>
+
+        <section id="your-rights" class="policy-section">
+          <h2>8. Your Rights</h2>
+          <p>Depending on your location, you may have the right to:</p>
+          <ul>
+            <li><strong>Access</strong> the personal data we hold about you.</li>
+            <li><strong>Correct</strong> inaccurate personal data.</li>
+            <li><strong>Delete</strong> your personal data ("right to be forgotten").</li>
+            <li><strong>Restrict</strong> processing of your data.</li>
+            <li><strong>Data portability</strong> — receive your data in a machine-readable format.</li>
+            <li><strong>Object</strong> to processing in certain circumstances.</li>
+          </ul>
+          <p>
+            To exercise any of these rights, email us at
+            <a href="mailto:support@synceBridge.com">support@synceBridge.com</a>.
+            We will respond within 30 days.
+          </p>
+        </section>
+
+        <section id="cookies" class="policy-section">
+          <h2>9. Cookies</h2>
+          <p>
+            SyncBridge uses only essential cookies necessary for the service to function
+            (session authentication). We do not use advertising cookies or cross-site trackers.
+          </p>
+        </section>
+
+        <section id="contact-us" class="policy-section">
+          <h2>10. Contact Us</h2>
+          <p>
+            For any privacy-related questions or to exercise your rights, contact:
+          </p>
+          <div class="contact-box">
+            <strong>SyncBridge Privacy</strong><br>
+            <a href="mailto:support@synceBridge.com">support@synceBridge.com</a>
+          </div>
+          <p>
+            We may update this Privacy Policy from time to time. Material changes will be
+            communicated via email or prominent notice within the SyncBridge dashboard.
+          </p>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer />

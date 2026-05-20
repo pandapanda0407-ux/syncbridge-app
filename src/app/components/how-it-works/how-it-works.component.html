@@ -1,0 +1,44 @@
+<section class="how-section" id="how-it-works">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        How It Works
+      </div>
+      <h2 class="section-title">Up and running in<br><span class="gradient-text">under 10 minutes</span></h2>
+      <p class="section-subtitle">
+        A straightforward four-step setup connects your stores, syncs your data,
+        and puts you in control — no technical knowledge required.
+      </p>
+    </div>
+
+    <div class="steps-container">
+      @for (step of steps; track step.number; let last = $last) {
+        <div class="step-card glass-card">
+          <div class="step-number">{{ step.number }}</div>
+          <div class="step-icon">{{ step.icon }}</div>
+          <div class="step-content">
+            <h3 class="step-title">{{ step.title }}</h3>
+            <p class="step-desc">{{ step.description }}</p>
+            <p class="step-detail">{{ step.detail }}</p>
+          </div>
+          @if (!last) {
+            <div class="step-connector">
+              <svg width="16" height="40" viewBox="0 0 16 40" fill="none">
+                <path d="M8 0 L8 32 M4 28 L8 40 L12 28" stroke="url(#conn-grad)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <defs>
+                  <linearGradient id="conn-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#8B5CF6"/>
+                    <stop offset="100%" stop-color="#06B6D4"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>
