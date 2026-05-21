@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import emailjs from '@emailjs/browser';
 
 const SERVICE_ID  = 'service_ig5lc7t';
-const TEMPLATE_ID = 'template_aey2o7f';
+const TEMPLATE_ID = 'template_u81rlwn';
 const PUBLIC_KEY  = 'J2N708HmgT-jmmsxh';
 
 @Component({
