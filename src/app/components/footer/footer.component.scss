@@ -90,12 +90,17 @@
     padding: 0;
   }
 
-  a {
+  a, button {
     font-size: 0.88rem;
     color: #94A3B8;
     text-decoration: none;
     transition: color 0.2s ease;
     cursor: pointer;
+    background: none;
+    border: none;
+    font-family: inherit;
+    padding: 0;
+    text-align: left;
 
     &:hover { color: #F1F5F9; }
   }

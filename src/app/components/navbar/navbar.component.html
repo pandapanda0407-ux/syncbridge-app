@@ -16,17 +16,17 @@
     </a>
 
     <ul class="nav-links" [class.open]="isMobileOpen()">
-      <li><a (click)="scrollTo('home')" class="nav-link">Home</a></li>
-      <li><a (click)="scrollTo('features')" class="nav-link">Features</a></li>
-      <li><a (click)="scrollTo('how-it-works')" class="nav-link">How It Works</a></li>
-      <li><a (click)="scrollTo('use-case')" class="nav-link">Use Case</a></li>
-      <li><a (click)="scrollTo('contact')" class="nav-link">Contact</a></li>
+      <li><button class="nav-link" (click)="scrollTo('home')">Home</button></li>
+      <li><button class="nav-link" (click)="scrollTo('features')">Features</button></li>
+      <li><button class="nav-link" (click)="scrollTo('how-it-works')">How It Works</button></li>
+      <li><button class="nav-link" (click)="scrollTo('use-case')">Use Case</button></li>
+      <li><button class="nav-link" (click)="scrollTo('contact')">Contact</button></li>
       <li><a routerLink="/blog" class="nav-link" (click)="closeMobile()">Blog</a></li>
       <li><a routerLink="/privacy-policy" class="nav-link" (click)="closeMobile()">Privacy</a></li>
     </ul>
 
     <div class="nav-actions">
-      <a (click)="scrollTo('contact')" class="btn-primary">Get Started</a>
+      <button class="btn-primary" (click)="scrollTo('contact')">Get Started</button>
     </div>
 
     <button class="hamburger" (click)="toggleMobile()" [class.active]="isMobileOpen()" aria-label="Toggle menu">

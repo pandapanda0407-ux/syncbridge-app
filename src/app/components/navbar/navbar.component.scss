@@ -70,6 +70,12 @@
   cursor: pointer;
   text-decoration: none;
   white-space: nowrap;
+  background: none;
+  border: none;
+  font-family: inherit;
+  display: block;
+  width: 100%;
+  text-align: left;
 
   &:hover {
     color: #F1F5F9;
