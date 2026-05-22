@@ -1,0 +1,41 @@
+<app-navbar />
+
+@if (post) {
+  <article class="blog-post-page">
+    <div class="post-hero">
+      <div class="hero-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+      </div>
+      <div class="container">
+        <a routerLink="/blog" class="back-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Back to Blog
+        </a>
+        <div class="post-category">{{ post.category }}</div>
+        <h1>{{ post.title }}</h1>
+        <div class="post-meta">
+          <span>{{ post.date }}</span>
+          <span class="dot">·</span>
+          <span>{{ post.readTime }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="post-body">
+      <div class="container">
+        <div class="post-content" [innerHTML]="post.content"></div>
+
+        <div class="post-cta glass-card">
+          <h3>Ready to sync your Etsy and Shopify stores?</h3>
+          <p>SynceBridge keeps your inventory, orders, and listings in sync automatically — so you can focus on growing your business.</p>
+          <a routerLink="/" fragment="contact" class="btn-primary">Get Started Free</a>
+        </div>
+      </div>
+    </div>
+  </article>
+}
+
+<app-footer />

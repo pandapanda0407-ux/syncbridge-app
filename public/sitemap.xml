@@ -6,6 +6,31 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://syncebridge.com/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://syncebridge.com/blog/how-to-sync-etsy-and-shopify-inventory</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://syncebridge.com/blog/sell-on-etsy-and-shopify-at-the-same-time</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://syncebridge.com/blog/etsy-vs-shopify-why-use-both</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://syncebridge.com/blog/prevent-overselling-etsy-shopify</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://syncebridge.com/privacy-policy</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
