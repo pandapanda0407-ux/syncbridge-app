@@ -44,4 +44,4 @@ jobs:
           script: |
             sudo rm -rf /var/www/syncbridge/*
             sudo mv /tmp/syncbridge-deploy/* /var/www/syncbridge/
-            sudo systemctl reload nginx
+            sudo nginx -t && sudo systemctl reload nginx
