@@ -58,20 +58,55 @@ jobs:
             sudo mkdir -p /etc/nginx/snippets
             sudo mv /tmp/security-headers.conf /etc/nginx/snippets/security-headers.conf
 
-            CONF=$(sudo grep -l "server_name.*syncebridge.com" /etc/nginx/sites-enabled/* 2>/dev/null | xargs -I{} sh -c 'sudo grep -q "listen 443" "{}" && echo "{}"' | head -1)
+            CONF=/etc/nginx/sites-enabled/syncbridge
 
-            if [ -n "$CONF" ] && ! sudo grep -q "security-headers.conf" "$CONF"; then
+            if [ -f "$CONF" ]; then
               sudo cp "$CONF" "$CONF.bak.$(date +%s)"
-              sudo sed -i "0,/listen 443/{s|\(listen 443[^;]*;\)|\1\n    include /etc/nginx/snippets/security-headers.conf;|}" "$CONF"
-              echo "Wired security-headers.conf into $CONF"
-            elif [ -z "$CONF" ]; then
-              echo "WARNING: could not locate the TLS server block for syncebridge.com under /etc/nginx/sites-enabled — security headers were NOT applied. Wire /etc/nginx/snippets/security-headers.conf in manually."
+
+              cat <<'PYEOF' | sudo tee /tmp/wire-headers.py > /dev/null
+            import re
+
+            path = "/etc/nginx/sites-enabled/syncbridge"
+            with open(path) as f:
+                content = f.read()
+
+            inc = "        include /etc/nginx/snippets/security-headers.conf;\n"
+
+            # A server-level include here never reaches real responses: each
+            # location below defines its own add_header directives, and nginx
+            # stops inheriting server-level add_header once a location has any
+            # of its own. Strip any earlier attempt at a server-level include.
+            content = re.sub(r"[ \t]*include /etc/nginx/snippets/security-headers\.conf;[^\n]*\n", "", content)
+
+            # Drop the now-redundant server-level block for the same reason.
+            content = re.sub(
+                r"[ \t]*# Security headers\n"
+                r"[ \t]*add_header X-Frame-Options SAMEORIGIN always;\n"
+                r"[ \t]*add_header X-Content-Type-Options nosniff always;\n"
+                r"[ \t]*add_header Referrer-Policy strict-origin-when-cross-origin always;\n",
+                "",
+                content,
+            )
+
+            def add_to_location(match):
+                block = match.group(0)
+                if "security-headers.conf" in block:
+                    return block
+                idx = block.rfind("}")
+                return block[:idx] + inc + block[idx:]
+
+            content = re.sub(r"    location [^{]*\{[^{}]*\}", add_to_location, content)
+
+            with open(path, "w") as f:
+                f.write(content)
+            print("done")
+            PYEOF
+              sudo python3 /tmp/wire-headers.py
+              rm -f /tmp/wire-headers.py
             else
-              echo "security-headers.conf already included in $CONF, skipping"
+              echo "WARNING: $CONF not found — security headers were NOT applied. Wire /etc/nginx/snippets/security-headers.conf in manually."
             fi
 
-            echo "--- current server config ($CONF) ---"
-            sudo cat "$CONF"
-            echo "--- end config ---"
-
             sudo nginx -t && sudo systemctl reload nginx
+            echo "--- verifying headers ---"
+            curl -sI https://syncebridge.com/ | grep -iE "content-security-policy|strict-transport-security|x-frame-options|x-content-type-options|referrer-policy" || echo "no security headers found in response"
