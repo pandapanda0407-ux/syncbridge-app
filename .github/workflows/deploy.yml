@@ -70,4 +70,8 @@ jobs:
               echo "security-headers.conf already included in $CONF, skipping"
             fi
 
+            echo "--- current server config ($CONF) ---"
+            sudo cat "$CONF"
+            echo "--- end config ---"
+
             sudo nginx -t && sudo systemctl reload nginx
