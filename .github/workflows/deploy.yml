@@ -60,8 +60,10 @@ jobs:
 
             CONF=/etc/nginx/sites-enabled/syncbridge
 
+            BACKUP="$CONF.bak.$(date +%s)"
+
             if [ -f "$CONF" ]; then
-              sudo cp "$CONF" "$CONF.bak.$(date +%s)"
+              sudo cp "$CONF" "$BACKUP"
 
               cat <<'PYEOF' | sudo tee /tmp/wire-headers.py > /dev/null
             import re
@@ -97,6 +99,21 @@ jobs:
 
             content = re.sub(r"    location [^{]*\{[^{}]*\}", add_to_location, content)
 
+            # Prerendered routes are written as directories (blog/<slug>/index.html).
+            # Against "try_files $uri $uri/ /index.html", nginx matches the directory
+            # and answers with a 301 appending a trailing slash, so every URL in the
+            # sitemap redirects before it serves — Google reports the lot as "Page
+            # with redirect", and each page's canonical then points at a URL that
+            # redirects back. "$uri/index.html" serves the file directly instead.
+            # Idempotent: once rewritten, the pattern no longer matches.
+            before = content
+            content = re.sub(
+                r"try_files\s+\$uri\s+\$uri/\s+/index\.html\s*;",
+                "try_files $uri $uri/index.html /index.html;",
+                content,
+            )
+            print("try_files: rewritten" if content != before else "try_files: already correct")
+
             with open(path, "w") as f:
                 f.write(content)
             print("done")
@@ -107,6 +124,25 @@ jobs:
               echo "WARNING: $CONF not found — security headers were NOT applied. Wire /etc/nginx/snippets/security-headers.conf in manually."
             fi
 
-            sudo nginx -t && sudo systemctl reload nginx
+            # Validate before reloading, and put the previous config back if the
+            # edits produced anything nginx will not accept.
+            if sudo nginx -t; then
+              sudo systemctl reload nginx
+            else
+              echo "ERROR: nginx rejected the edited config — restoring $BACKUP"
+              sudo cp "$BACKUP" "$CONF"
+              sudo nginx -t && sudo systemctl reload nginx
+              exit 1
+            fi
+
             echo "--- verifying headers ---"
             curl -sI https://syncebridge.com/ | grep -iE "content-security-policy|strict-transport-security|x-frame-options|x-content-type-options|referrer-policy" || echo "no security headers found in response"
+
+            echo "--- verifying prerendered routes serve without redirecting ---"
+            FAILED=0
+            for U in / /blog /services /contact /privacy-policy /integrations/etsy /blog/etsy-seo-guide; do
+              CODE=$(curl -s -o /dev/null -w "%{http_code}" "https://syncebridge.com$U")
+              echo "  $CODE  $U"
+              [ "$CODE" = "200" ] || FAILED=1
+            done
+            [ "$FAILED" = "0" ] && echo "all routes 200" || echo "WARNING: some routes did not return 200"
