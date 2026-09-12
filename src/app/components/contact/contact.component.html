@@ -96,6 +96,9 @@
                 required
               ></textarea>
             </div>
+            @if (error()) {
+              <p class="form-error" role="alert">{{ error() }}</p>
+            }
             <button type="submit" class="btn-primary submit-btn" [disabled]="submitting()">
               @if (submitting()) {
                 <span class="spinner"></span> Sending...

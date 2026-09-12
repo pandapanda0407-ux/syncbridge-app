@@ -8,6 +8,11 @@ const SERVICE_ID  = 'service_ig5lc7t';
 const TEMPLATE_ID = 'template_u81rlwn';
 const PUBLIC_KEY  = 'J2N708HmgT-jmmsxh';
 
+// The inbox that receives form submissions. EmailJS decides the real recipient
+// from the template's "To Email" field, so that field must be set to
+// {{to_email}} in the dashboard for this value to take effect.
+const SUPPORT_INBOX = 'support@syncebridge.com';
+
 @Component({
   selector: 'app-contact',
   standalone: true,
@@ -22,21 +27,33 @@ export class ContactComponent {
   message = '';
   submitted = signal(false);
   submitting = signal(false);
+  error = signal('');
 
   async onSubmit() {
-    if (!this.name || !this.email || !this.message) return;
+    if (this.submitting()) return;
+
+    if (!this.name.trim() || !this.email.trim() || !this.message.trim()) {
+      this.error.set('Please fill in your name, email and message.');
+      return;
+    }
+
+    this.error.set('');
     this.submitting.set(true);
     try {
       await emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+        to_email: SUPPORT_INBOX,
         name: this.name,
         email: this.email,
-        shop_url: this.shopUrl,
+        reply_to: this.email,
+        shop_url: this.shopUrl || 'Not provided',
         message: this.message,
       }, PUBLIC_KEY);
       this.submitted.set(true);
     } catch (err) {
       console.error('EmailJS error:', err);
-      alert('Failed to send message. Please try again.');
+      this.error.set(
+        `Sorry, we couldn't send your message. Please email us directly at ${SUPPORT_INBOX}.`
+      );
     } finally {
       this.submitting.set(false);
     }
