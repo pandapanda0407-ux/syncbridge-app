@@ -1,3 +1,4 @@
+import { IconComponent, IconName } from '../../shared/icon.component';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -6,13 +7,13 @@ interface Step {
   title: string;
   description: string;
   detail: string;
-  icon: string;
+  icon: IconName;
 }
 
 @Component({
   selector: 'app-how-it-works',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, IconComponent],
   templateUrl: './how-it-works.component.html',
   styleUrl: './how-it-works.component.scss'
 })
@@ -23,28 +24,28 @@ export class HowItWorksComponent {
       title: 'Authorize Your Stores',
       description: 'Connect Etsy and Shopify via their official OAuth flows.',
       detail: 'Click "Connect" and you\'ll be redirected to Etsy\'s and Shopify\'s authorization pages. SynceBridge requests only the minimum scopes needed: listings, receipts, and inventory. Your login credentials are never shared with us.',
-      icon: '🔑'
+      icon: 'key'
     },
     {
       number: '02',
       title: 'Auto-Sync Products & Orders',
       description: 'Your listings and orders are imported automatically.',
       detail: 'Once authorized, SynceBridge pulls your existing products and open orders from both platforms. All data is mapped and deduplicated in our secure database. The initial sync completes within minutes.',
-      icon: '⚡'
+      icon: 'bolt'
     },
     {
       number: '03',
       title: 'Manage From One Dashboard',
       description: 'View, fulfill, and update everything in one place.',
       detail: 'See all your orders in a unified queue. Update inventory quantities once — changes propagate to both Etsy and Shopify via their respective APIs. Ship orders, add tracking, and message customers from a single interface.',
-      icon: '🎛️'
+      icon: 'sliders'
     },
     {
       number: '04',
       title: 'Grow With Confidence',
       description: 'Analytics and automation keep you ahead of demand.',
       detail: 'Monitor unified revenue, best-selling items, and customer trends across platforms. Set low-stock alerts and automation rules. SynceBridge keeps your stores consistent 24/7 so you can focus on what matters: your products.',
-      icon: '📈'
+      icon: 'trending-up'
     }
   ];
 }

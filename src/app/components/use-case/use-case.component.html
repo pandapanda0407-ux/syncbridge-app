@@ -1,13 +1,7 @@
 <section class="use-case-section" id="use-case">
   <div class="container">
     <div class="section-header">
-      <div class="section-badge">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-        </svg>
-        Use Case & API Scope
-      </div>
-      <h2 class="section-title">Exactly what we access,<br><span class="gradient-text">and why</span></h2>
+      <h2 class="section-title">Exactly what we access,<br>and why</h2>
       <p class="section-subtitle">
         SynceBridge is an order and inventory management tool for multi-channel sellers.
         We use the Etsy Open API v3 with clearly scoped access — here's the full breakdown.
@@ -17,7 +11,7 @@
     <div class="use-case-body">
       <div class="problem-solution">
         <div class="block problem-block glass-card">
-          <div class="block-icon">⚠️</div>
+          <div class="block-icon problem"><app-icon name="alert" [size]="22" /></div>
           <h3>The Problem We Solve</h3>
           <p>
             Sellers running both an Etsy shop and a Shopify store face a constant challenge:
@@ -28,7 +22,7 @@
           </p>
         </div>
         <div class="block solution-block glass-card">
-          <div class="block-icon">✅</div>
+          <div class="block-icon solution"><app-icon name="check" [size]="22" /></div>
           <h3>How SynceBridge Fixes It</h3>
           <p>
             SynceBridge acts as a real-time bridge between the Etsy Open API v3 and Shopify's
@@ -50,7 +44,7 @@
           @for (scope of dataScopes; track scope.name) {
             <div class="scope-card" [class.read-only]="scope.readOnly">
               <div class="scope-header">
-                <span class="scope-icon">{{ scope.icon }}</span>
+                <span class="scope-icon"><app-icon [name]="scope.icon" [size]="18" /></span>
                 <span class="scope-name">{{ scope.name }}</span>
                 <span class="scope-badge" [class.read]="scope.readOnly">
                   {{ scope.access }}
@@ -73,7 +67,7 @@
         <div class="benefits-grid">
           @for (benefit of benefits; track benefit.text) {
             <div class="benefit-item glass-card">
-              <span class="benefit-icon">{{ benefit.icon }}</span>
+              <span class="benefit-icon"><app-icon [name]="benefit.icon" [size]="18" /></span>
               <p>{{ benefit.text }}</p>
             </div>
           }

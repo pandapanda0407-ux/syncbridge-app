@@ -1,13 +1,7 @@
 <section class="features-section" id="features">
   <div class="container">
     <div class="section-header">
-      <div class="section-badge">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/>
-        </svg>
-        Core Features
-      </div>
-      <h2 class="section-title">Everything you need to run<br><span class="gradient-text">multi-channel commerce</span></h2>
+      <h2 class="section-title">Everything you need to run<br>multi-channel commerce</h2>
       <p class="section-subtitle">
         SynceBridge uses the official Etsy Open API v3 and Shopify API to read, sync,
         and manage your store data — transparently and securely.
@@ -17,7 +11,7 @@
     <div class="features-grid">
       @for (feature of features; track feature.title) {
         <div class="feature-card glass-card" [class]="'color-' + feature.color">
-          <div class="feature-icon">{{ feature.icon }}</div>
+          <div class="feature-icon"><app-icon [name]="feature.icon" [size]="22" /></div>
           <div class="feature-tag">{{ feature.tag }}</div>
           <h3 class="feature-title">{{ feature.title }}</h3>
           <p class="feature-desc">{{ feature.description }}</p>

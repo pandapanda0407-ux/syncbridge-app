@@ -1,3 +1,4 @@
+import { IconComponent } from '../../shared/icon.component';
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -10,7 +11,7 @@ const PUBLIC_KEY  = 'J2N708HmgT-jmmsxh';
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, IconComponent],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })
