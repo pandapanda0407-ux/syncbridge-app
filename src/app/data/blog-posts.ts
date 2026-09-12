@@ -12,6 +12,49 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'etsy-uk-shopify-inventory',
+    title: 'Running an Etsy UK Shop Alongside Shopify',
+    excerpt: 'Selling on Etsy from the UK while running your own Shopify store brings a set of problems that do not show up when you sell on one channel. Here is what actually differs, and what to do about the stock.',
+    date: 'September 13, 2026',
+    readTime: '7 min read',
+    category: 'Multi-channel',
+    content: `
+      <h2>What Changes When You Sell From the UK</h2>
+      <p>Etsy is a single global marketplace, not a set of separate regional sites. A UK shop lists on the same platform as a US one — the differences are in what you set, not where you are.</p>
+      <p>The settings that matter most are your shop currency, your listing locations, and your shipping profiles. Your Shopify store has its own equivalents of all three, and they do not automatically agree with what Etsy holds.</p>
+
+      <h2>Currency Is Set Per Shop, Not Per Listing</h2>
+      <p>Your Etsy shop has one currency. Shoppers browsing from elsewhere see converted prices, but the price you set is in your shop currency. Shopify handles this differently: it has a store currency and can present other currencies to international visitors.</p>
+      <p>The practical consequence is that a price is not a number you can copy between the two. If you keep a single spreadsheet of prices, decide which platform is authoritative and treat the other as derived — otherwise rounding and conversion drift will put the same product at two different prices.</p>
+
+      <h2>Shipping Profiles Are the Bigger Divergence</h2>
+      <p>Etsy shipping profiles are attached to listings and describe where you post to and how long it takes. Shopify shipping is built from zones and rates at checkout. These models do not map one to one.</p>
+      <p>A product that is straightforward to ship domestically but awkward to ship abroad needs that expressed twice, in two different shapes. Getting it wrong on Etsy is more visible than on Shopify, because Etsy factors shipping into search placement — a listing that looks expensive to receive places worse.</p>
+
+      <h2>The Problem That Actually Costs You Money</h2>
+      <p>Currency and shipping are setup problems. You solve them once. Stock is a running problem, and it is the one that produces angry buyers.</p>
+      <p>If you hold ten of something and list all ten in both places, you have advertised twenty. Nothing warns you. The failure only appears when both sides sell at once and you have to cancel an order that a customer has already paid for.</p>
+      <p>On Etsy that is worse than an inconvenience. Cancellations and the messages that follow feed into the customer experience signals Etsy uses to rank shops, so a stock mistake costs you placement as well as the sale.</p>
+
+      <h2>The Usual Workarounds, and Why They Wear Out</h2>
+      <ul>
+        <li><strong>Splitting stock</strong> — five on Etsy, five on Shopify. Safe, but you now show as out of stock on one channel while holding inventory on the other.</li>
+        <li><strong>Updating by hand</strong> — works at low volume. It stops working the moment you are not at your desk when something sells.</li>
+        <li><strong>A daily spreadsheet</strong> — better than nothing, but a whole day is a long time when two channels are both live.</li>
+      </ul>
+      <p>Each of these trades one problem for another. None removes the underlying issue, which is that two systems each believe they own the stock level.</p>
+
+      <h2>What Syncing Changes</h2>
+      <p>The fix is to make one system authoritative and have the other follow it within seconds rather than hours. When a sale happens anywhere, every connected channel reflects the new level.</p>
+      <p>That is what SynceBridge does between Shopify and the marketplaces you sell on. Both stores carry your full stock rather than a split, and neither can sell something the other has just sold. Etsy is in early access and launches in October, with Amazon, eBay and TikTok Shop in development.</p>
+
+      <h2>Where to Start</h2>
+      <p>Before connecting anything, get your own records straight. Decide which system holds the authoritative stock figure, make sure your SKUs match on both sides, and resolve anything currently listed in both places at different quantities.</p>
+      <p>Sync is only as good as what it is syncing. Two channels disagreeing about what a SKU means will keep disagreeing faster once they are connected.</p>
+      <p>If you are running an Etsy shop and a Shopify store from the UK today, that is exactly the setup we want to test against — <a href="/contact">tell us about it</a> and we will get you into early access.</p>
+    `
+  },
+  {
     slug: 'etsy-seo-guide',
     title: 'Etsy SEO: How to Get Your Listings Found',
     excerpt: 'Etsy search decides which listings shoppers ever see. Here is how Etsy ranking actually works, and the changes worth making to your listings first.',

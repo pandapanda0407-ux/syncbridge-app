@@ -18,6 +18,9 @@
   <meta property="og:url" content="https://syncebridge.com/">
   <meta property="og:site_name" content="SynceBridge">
   <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta property="og:locale:alternate" content="en_CA">
+  <meta property="og:locale:alternate" content="en_AU">
   <meta property="og:image" content="https://syncebridge.com/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -47,11 +50,19 @@
           "height": 192
         },
         "description": "SynceBridge syncs inventory, orders and listings between Shopify and the marketplaces you sell on.",
+        "areaServed": [
+          { "@type": "Country", "name": "United States" },
+          { "@type": "Country", "name": "United Kingdom" },
+          { "@type": "Country", "name": "Canada" },
+          { "@type": "Country", "name": "Australia" },
+          { "@type": "Country", "name": "Ireland" }
+        ],
         "contactPoint": {
           "@type": "ContactPoint",
           "email": "support@syncebridge.com",
           "contactType": "customer support",
-          "availableLanguage": "English"
+          "availableLanguage": "English",
+          "areaServed": ["US", "GB", "CA", "AU", "IE"]
         }
       },
       {
@@ -76,6 +87,8 @@
     "description": "SynceBridge syncs orders, inventory, and listings between Shopify and the marketplaces you sell on, in real time from a single unified dashboard. Etsy is in early access and launches in October, with Amazon, eBay and TikTok Shop in development.",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
+    "inLanguage": "en",
+    "availableOnDevice": "Web browser",
     "featureList": [
       "Real-time inventory sync between Shopify and connected marketplaces",
       "Unified order management dashboard",
