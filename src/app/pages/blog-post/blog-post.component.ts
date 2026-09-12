@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { FooterComponent } from '../../components/footer/footer.component';
@@ -18,6 +18,7 @@ export class BlogPostComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private titleService: Title,
     private metaService: Meta,
     @Inject(DOCUMENT) private doc: Document
@@ -25,9 +26,15 @@ export class BlogPostComponent implements OnInit {
 
   ngOnInit() {
     const slug = this.route.snapshot.paramMap.get('slug');
-    this.post = BLOG_POSTS.find(p => p.slug === slug);
+    this.post = BLOG_POSTS.find(p => p.slug === slug && !p.draft);
 
-    if (this.post) {
+    if (!this.post) {
+      // Unknown or unpublished slug — send them to the index rather than a blank page.
+      this.router.navigate(['/blog']);
+      return;
+    }
+
+    {
       const pageTitle = `${this.post.title} | SynceBridge Blog`;
       const url = `https://syncebridge.com/blog/${this.post.slug}`;
 

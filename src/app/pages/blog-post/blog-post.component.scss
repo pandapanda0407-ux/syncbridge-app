@@ -101,7 +101,7 @@ h1 {
   line-height: 1.85;
   font-size: 1.05rem;
 
-  :global(h2) {
+  ::ng-deep h2 {
     font-size: 1.5rem;
     font-weight: 700;
     color: #F1F5F9;
@@ -109,26 +109,52 @@ h1 {
     line-height: 1.3;
   }
 
-  :global(h3) {
+  ::ng-deep h3 {
     font-size: 1.2rem;
     font-weight: 700;
     color: #E2E8F0;
     margin: 32px 0 12px;
   }
 
-  :global(p) {
+  ::ng-deep p {
     margin-bottom: 20px;
   }
 
-  :global(ul), :global(ol) {
+  // The global reset sets `ul { list-style: none }`, which leaves prose lists
+  // reading as run-on paragraphs. Restore markers for post content only.
+  ::ng-deep ul {
     margin: 16px 0 24px 24px;
+    list-style: disc;
 
     li {
       margin-bottom: 10px;
+      padding-left: 4px;
     }
   }
 
-  :global(strong) {
+  ::ng-deep ol {
+    margin: 16px 0 24px 24px;
+    list-style: decimal;
+
+    li {
+      margin-bottom: 10px;
+      padding-left: 4px;
+    }
+  }
+
+  ::ng-deep li::marker {
+    color: var(--purple-light);
+  }
+
+  ::ng-deep a {
+    color: var(--purple-light);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+
+    &:hover { color: #C4B5FD; }
+  }
+
+  ::ng-deep strong {
     color: #F1F5F9;
     font-weight: 600;
   }

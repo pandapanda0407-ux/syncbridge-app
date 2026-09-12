@@ -13,7 +13,7 @@ import { BLOG_POSTS } from '../../data/blog-posts';
   styleUrl: './blog.component.scss'
 })
 export class BlogComponent implements OnInit {
-  posts = BLOG_POSTS;
+  posts = BLOG_POSTS.filter(post => !post.draft);
 
   constructor(private titleService: Title, private metaService: Meta) {}
 
