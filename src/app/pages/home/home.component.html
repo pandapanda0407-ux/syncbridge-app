@@ -1,4 +1,33 @@
 <app-navbar />
 <app-hero />
+
+<section class="home-explore">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">What SynceBridge does</span>
+      <h2 class="section-title">Everything your Shopify store<br>needs to sell in more places</h2>
+      <p class="section-subtitle">
+        Four parts to the bridge between your Shopify store and the marketplaces you sell on.
+      </p>
+    </div>
+
+    <div class="explore-grid">
+      @for (card of exploreCards; track card.route) {
+        <a [routerLink]="card.route" class="explore-card glass-card">
+          <div class="explore-icon"><app-icon [name]="card.icon" [size]="20" /></div>
+          <h3>{{ card.title }}</h3>
+          <p>{{ card.description }}</p>
+          <span class="explore-link">
+            {{ card.linkLabel }}
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+      }
+    </div>
+  </div>
+</section>
+
 <app-contact />
 <app-footer />

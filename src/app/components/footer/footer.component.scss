@@ -67,7 +67,9 @@
 
 .footer-links-group {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  // Four link columns. Held at three, the fourth wrapped onto its own row and
+  // left a hole beside it.
+  grid-template-columns: repeat(4, 1fr);
   gap: 32px;
 }
 
