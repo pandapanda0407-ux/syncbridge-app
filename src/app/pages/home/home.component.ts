@@ -3,10 +3,6 @@ import { CommonModule } from '@angular/common';
 import { Title, Meta } from '@angular/platform-browser';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { HeroComponent } from '../../components/hero/hero.component';
-import { FeaturesComponent } from '../../components/features/features.component';
-import { HowItWorksComponent } from '../../components/how-it-works/how-it-works.component';
-import { ChannelsComponent } from '../../components/channels/channels.component';
-import { SecurityComponent } from '../../components/security/security.component';
 import { ContactComponent } from '../../components/contact/contact.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 
@@ -17,10 +13,6 @@ import { FooterComponent } from '../../components/footer/footer.component';
     CommonModule,
     NavbarComponent,
     HeroComponent,
-    FeaturesComponent,
-    HowItWorksComponent,
-    ChannelsComponent,
-    SecurityComponent,
     ContactComponent,
     FooterComponent
   ],

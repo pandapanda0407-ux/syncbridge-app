@@ -26,12 +26,12 @@
 
     <div class="post-body">
       <div class="container">
-        <div class="post-content" [innerHTML]="post.content"></div>
+        <div class="post-content" [innerHTML]="post.content" (click)="onContentClick($event)"></div>
 
         <div class="post-cta glass-card">
           <h3>Ready to sync your Etsy and Shopify stores?</h3>
           <p>SynceBridge keeps your inventory, orders, and listings in sync automatically — so you can focus on growing your business.</p>
-          <a routerLink="/" fragment="contact" class="btn-primary">Get Started Free</a>
+          <a routerLink="/contact" class="btn-primary">Get Started Free</a>
         </div>
       </div>
     </div>

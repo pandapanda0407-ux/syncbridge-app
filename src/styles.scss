@@ -189,6 +189,24 @@ section {
   scroll-margin-top: 90px;
 }
 
+// A page whose body is a single section lifted out of the old one-page layout.
+// Those sections were written to flow after the hero, so the leading one needs
+// extra headroom to sit clear of the fixed navbar rather than under it.
+.section-page {
+  min-height: 100vh;
+  background: var(--bg-primary);
+
+  // The section sits inside its component's host element, so reach through it.
+  // Hosts are inline by default, which would break the section's block layout.
+  > * {
+    display: block;
+  }
+
+  > * > section:first-child {
+    padding-top: 190px;
+  }
+}
+
 ::selection {
   background: rgba(139, 92, 246, 0.35);
   color: #fff;

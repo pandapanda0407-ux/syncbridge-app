@@ -24,6 +24,21 @@ export class BlogPostComponent implements OnInit {
     @Inject(DOCUMENT) private doc: Document
   ) {}
 
+  /**
+   * Post bodies are raw HTML, so their internal links are plain <a href> tags.
+   * Left alone those trigger a full document load, which reaches the app as a
+   * fresh bootstrap and is refused by the navigation guard. Hand them to the
+   * router instead so they count as an in-app click.
+   */
+  onContentClick(event: MouseEvent) {
+    const anchor = (event.target as HTMLElement).closest('a');
+    const href = anchor?.getAttribute('href');
+    if (!href || !href.startsWith('/')) return;
+
+    event.preventDefault();
+    this.router.navigateByUrl(href);
+  }
+
   ngOnInit() {
     const slug = this.route.snapshot.paramMap.get('slug');
     this.post = BLOG_POSTS.find(p => p.slug === slug && !p.draft);

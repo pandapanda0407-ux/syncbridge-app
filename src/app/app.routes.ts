@@ -10,6 +10,36 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent)
   },
   {
+    path: 'features',
+    canActivate: clickOnly,
+    loadComponent: () =>
+      import('./pages/features/features-page.component').then(m => m.FeaturesPageComponent)
+  },
+  {
+    path: 'how-it-works',
+    canActivate: clickOnly,
+    loadComponent: () =>
+      import('./pages/how-it-works/how-it-works-page.component').then(m => m.HowItWorksPageComponent)
+  },
+  {
+    path: 'marketplaces',
+    canActivate: clickOnly,
+    loadComponent: () =>
+      import('./pages/marketplaces/marketplaces-page.component').then(m => m.MarketplacesPageComponent)
+  },
+  {
+    path: 'security',
+    canActivate: clickOnly,
+    loadComponent: () =>
+      import('./pages/security/security-page.component').then(m => m.SecurityPageComponent)
+  },
+  {
+    path: 'contact',
+    canActivate: clickOnly,
+    loadComponent: () =>
+      import('./pages/contact/contact-page.component').then(m => m.ContactPageComponent)
+  },
+  {
     path: 'services',
     canActivate: clickOnly,
     loadComponent: () => import('./pages/services/services.component').then(m => m.ServicesComponent)

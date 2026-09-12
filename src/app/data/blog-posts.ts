@@ -79,7 +79,7 @@ export const BLOG_POSTS: BlogPost[] = [
       <h2>Where Multi-Channel Selling Fits</h2>
       <p>If you also run a Shopify store, your Etsy listings are only part of your search footprint. Your own storefront can rank in Google for the same terms without competing against other Etsy sellers on the same page.</p>
       <p>The operational catch is that running the same catalogue in two places doubles the work — and doubles the chance of stock drifting out of step. That is the problem SynceBridge exists to solve: keeping inventory, orders, and listings aligned so multi-channel selling does not cost you more admin than it earns.</p>
-      <p>The Etsy integration is in early access now and launches in October. If you are running both an Etsy shop and a Shopify store today, <a href="/#contact">get in touch</a> — early-access sellers help shape what ships.</p>
+      <p>The Etsy integration is in early access now and launches in October. If you are running both an Etsy shop and a Shopify store today, <a href="/contact">get in touch</a> — early-access sellers help shape what ships.</p>
     `
   },
   {
@@ -174,7 +174,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
       <h2>Where SynceBridge Fits</h2>
       <p>To be straightforward about it: <strong>the SynceBridge eBay integration is still in active development and is not available yet.</strong> Etsy is our first channel and is in early access now, launching in October, with Amazon, eBay, and TikTok Shop in build behind it.</p>
-      <p>If eBay is a channel you depend on, that is worth telling us — which channels sellers actually need is what decides the order we ship them in. You can <a href="/#contact">tell us about your setup</a>, or read more about <a href="/services/marketplace-integration">how we approach marketplace integration</a>.</p>
+      <p>If eBay is a channel you depend on, that is worth telling us — which channels sellers actually need is what decides the order we ship them in. You can <a href="/contact">tell us about your setup</a>, or read more about <a href="/services/marketplace-integration">how we approach marketplace integration</a>.</p>
     `
   },
   {
@@ -221,7 +221,7 @@ export const BLOG_POSTS: BlogPost[] = [
       <h2>Availability</h2>
       <p>AI Upload ships as part of the Etsy integration, which is <strong>in early access now and launches in October</strong>. Early-access sellers have it today.</p>
       <p>We are deliberately keeping that group small while the questions it asks get refined, because the quality of the output depends entirely on asking the right things — and the only way to find out what those are is watching real sellers use it on real products.</p>
-      <p>If you have a backlog of products that never made it onto Etsy, that is exactly the case we want to test against. <a href="/#contact">Request early access</a> and tell us roughly how big that backlog is.</p>
+      <p>If you have a backlog of products that never made it onto Etsy, that is exactly the case we want to test against. <a href="/contact">Request early access</a> and tell us roughly how big that backlog is.</p>
     `
   },
   {

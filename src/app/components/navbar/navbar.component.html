@@ -16,18 +16,18 @@
     </a>
 
     <ul class="nav-links" [class.open]="isMobileOpen()">
-      <li><button class="nav-link" (click)="scrollTo('home')">Home</button></li>
-      <li><button class="nav-link" (click)="scrollTo('features')">Features</button></li>
-      <li><button class="nav-link" (click)="scrollTo('how-it-works')">How It Works</button></li>
-      <li><button class="nav-link" (click)="scrollTo('channels')">Marketplaces</button></li>
-      <li><a routerLink="/services" class="nav-link" (click)="closeMobile()">Services</a></li>
-      <li><button class="nav-link" (click)="scrollTo('contact')">Contact</button></li>
-      <li><a routerLink="/blog" class="nav-link" (click)="closeMobile()">Blog</a></li>
-      <li><a routerLink="/privacy-policy" class="nav-link" (click)="closeMobile()">Privacy</a></li>
+      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="nav-link" (click)="closeMobile()">Home</a></li>
+      <li><a routerLink="/features" routerLinkActive="active" class="nav-link" (click)="closeMobile()">Features</a></li>
+      <li><a routerLink="/how-it-works" routerLinkActive="active" class="nav-link" (click)="closeMobile()">How It Works</a></li>
+      <li><a routerLink="/marketplaces" routerLinkActive="active" class="nav-link" (click)="closeMobile()">Marketplaces</a></li>
+      <li><a routerLink="/services" routerLinkActive="active" class="nav-link" (click)="closeMobile()">Services</a></li>
+      <li><a routerLink="/contact" routerLinkActive="active" class="nav-link" (click)="closeMobile()">Contact</a></li>
+      <li><a routerLink="/blog" routerLinkActive="active" class="nav-link" (click)="closeMobile()">Blog</a></li>
+      <li><a routerLink="/privacy-policy" routerLinkActive="active" class="nav-link" (click)="closeMobile()">Privacy</a></li>
     </ul>
 
     <div class="nav-actions">
-      <button class="btn-primary" (click)="scrollTo('contact')">Get Started</button>
+      <a routerLink="/contact" class="btn-primary" (click)="closeMobile()">Get Started</a>
     </div>
 
     <button class="hamburger" (click)="toggleMobile()" [class.active]="isMobileOpen()" aria-label="Toggle menu">
