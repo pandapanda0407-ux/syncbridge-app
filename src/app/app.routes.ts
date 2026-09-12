@@ -35,39 +35,32 @@ export const routes: Routes = [
   },
   {
     path: 'contact',
-    canActivate: clickOnly,
     loadComponent: () =>
       import('./pages/contact/contact-page.component').then(m => m.ContactPageComponent)
   },
   {
     path: 'services',
-    canActivate: clickOnly,
     loadComponent: () => import('./pages/services/services.component').then(m => m.ServicesComponent)
   },
   {
     path: 'services/:slug',
-    canActivate: clickOnly,
     loadComponent: () =>
       import('./pages/service-detail/service-detail.component').then(m => m.ServiceDetailComponent)
   },
   {
     path: 'integrations/etsy',
-    canActivate: clickOnly,
     loadComponent: () => import('./pages/etsy/etsy.component').then(m => m.EtsyComponent)
   },
   {
     path: 'blog',
-    canActivate: clickOnly,
     loadComponent: () => import('./pages/blog/blog.component').then(m => m.BlogComponent)
   },
   {
     path: 'blog/:slug',
-    canActivate: clickOnly,
     loadComponent: () => import('./pages/blog-post/blog-post.component').then(m => m.BlogPostComponent)
   },
   {
     path: 'privacy-policy',
-    canActivate: clickOnly,
     loadComponent: () => import('./pages/privacy-policy/privacy-policy.component').then(m => m.PrivacyPolicyComponent)
   },
   {

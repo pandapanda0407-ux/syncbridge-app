@@ -2,10 +2,28 @@ import { Injectable, inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 
 /**
- * Every route except the homepage is reachable only by clicking a link or
- * button inside the running app. A typed, pasted, bookmarked or search-result
- * URL is refused and sent to the homepage.
+ * Routes that can only be reached by clicking a link or button inside the
+ * running app. A typed, pasted, bookmarked or search-result URL is refused and
+ * sent to the homepage.
+ *
+ * Deliberately narrow. Anything that has to survive being opened cold stays
+ * off this list: the blog and service pages are the whole organic-search
+ * strategy, /integrations/etsy and /privacy-policy are fetched directly by
+ * Shopify and Etsy app review, and /contact is where every CTA and shared
+ * "get in touch" link lands. Gating those breaks real traffic for no gain.
+ *
+ * This list is also the single source of truth for which pages are marked
+ * noindex — see App.applyRouteMeta. A page that cannot be opened from a search
+ * result must not be advertised in a search result, or Google reports it as a
+ * redirect error and the sitemap slowly rots.
  */
+export const CLICK_ONLY_PATHS: readonly string[] = [
+  '/features',
+  '/how-it-works',
+  '/marketplaces',
+  '/security'
+];
+
 @Injectable({ providedIn: 'root' })
 export class NavigationGate {
   private readonly router = inject(Router);
