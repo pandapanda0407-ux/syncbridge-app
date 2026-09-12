@@ -4,7 +4,14 @@ import { Title, Meta } from '@angular/platform-browser';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { IconComponent } from '../../shared/icon.component';
-import { SERVICE_GROUPS, ACCOUNT_MANAGEMENT, FEATURED_SERVICE } from '../../data/services';
+import {
+  SERVICE_GROUPS,
+  ACCOUNT_MANAGEMENT,
+  FEATURED_SERVICE,
+  CHANNEL_ROADMAP,
+  EARLY_ACCESS_NOTE,
+  FEEDBACK_NOTE
+} from '../../data/services';
 
 @Component({
   selector: 'app-services',
@@ -15,6 +22,9 @@ import { SERVICE_GROUPS, ACCOUNT_MANAGEMENT, FEATURED_SERVICE } from '../../data
 })
 export class ServicesComponent implements OnInit {
   featured = FEATURED_SERVICE;
+  roadmap = CHANNEL_ROADMAP;
+  earlyAccessNote = EARLY_ACCESS_NOTE;
+  feedbackNote = FEEDBACK_NOTE;
   groups = SERVICE_GROUPS;
   accountManagement = ACCOUNT_MANAGEMENT;
 

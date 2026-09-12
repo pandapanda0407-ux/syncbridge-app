@@ -14,11 +14,24 @@ export interface ServiceGroup {
   services: Service[];
 }
 
+export interface ChannelStatus {
+  name: string;
+  status: string;
+  state: 'soon' | 'progress';
+}
+
+export const CHANNEL_ROADMAP: ChannelStatus[] = [
+  { name: 'Etsy', status: 'Launching October', state: 'soon' },
+  { name: 'Amazon', status: 'In active development', state: 'progress' },
+  { name: 'eBay', status: 'In active development', state: 'progress' },
+  { name: 'TikTok Shop', status: 'In active development', state: 'progress' }
+];
+
 export const FEATURED_SERVICE: Service = {
   icon: 'plug',
   title: 'Marketplace Integration for Shopify',
   description:
-    'Our core service, and the one everything else is built around. We connect Shopify to the marketplaces you sell on — Etsy first, and the others alongside it — so inventory, orders, and listings stay in step without anyone copying numbers between dashboards. Sell an item anywhere and stock drops everywhere, in real time.',
+    'Our core service, and the one everything else is built around. SynceBridge connects Shopify to the marketplaces you sell on, so inventory, orders, and listings stay in step without anyone copying numbers between dashboards — sell an item anywhere and stock drops everywhere, in real time. Etsy is the first channel, launching in October.',
   deliverables: [
     'Shopify ↔ Etsy inventory and order sync',
     'Listing and product catalogue mapping',
@@ -28,6 +41,12 @@ export const FEATURED_SERVICE: Service = {
     'Ongoing monitoring, alerting, and support'
   ]
 };
+
+export const EARLY_ACCESS_NOTE =
+  'Etsy integration launches in October and we are taking early-access sellers now. If you need it sooner, or need it to work differently to how we have built it, we will scope and build the app as a custom integration for your shop.';
+
+export const FEEDBACK_NOTE =
+  'We are building this with sellers rather than at them. If something about your workflow does not fit how this works, tell us — feedback from real shops is what decides what ships next.';
 
 export const SERVICE_GROUPS: ServiceGroup[] = [
   {

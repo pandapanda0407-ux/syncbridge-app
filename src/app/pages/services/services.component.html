@@ -43,6 +43,23 @@
             </li>
           }
         </ul>
+
+        <div class="roadmap">
+          <h3 class="roadmap-title">Channel availability</h3>
+          <ul class="roadmap-list">
+            @for (channel of roadmap; track channel.name) {
+              <li class="roadmap-item" [class.is-soon]="channel.state === 'soon'">
+                <span class="roadmap-name">{{ channel.name }}</span>
+                <span class="roadmap-status">{{ channel.status }}</span>
+              </li>
+            }
+          </ul>
+          <p class="roadmap-note">{{ earlyAccessNote }}</p>
+          <p class="roadmap-note">{{ feedbackNote }}</p>
+          <a routerLink="/" fragment="contact" class="btn-secondary roadmap-cta">
+            Request early access
+          </a>
+        </div>
       </div>
     </div>
   </section>
