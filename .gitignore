@@ -45,3 +45,4 @@ Thumbs.db
 
 # Playwright MCP scratch output
 .playwright-mcp/
+prerender-routes.txt

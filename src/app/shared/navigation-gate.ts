@@ -1,4 +1,5 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformServer } from '@angular/common';
 import { CanActivateFn, Router } from '@angular/router';
 
 /**
@@ -35,7 +36,15 @@ export class NavigationGate {
    */
   private readonly reached = new Set<string>();
 
+  private readonly isServer = isPlatformServer(inject(PLATFORM_ID));
+
   allows(url: string): boolean {
+    // Prerendering has no visitor and no clicks, so the gate would refuse every
+    // guarded route and bake the homepage into each of their files. Let the
+    // build render the real page; the gate still runs in the browser, which is
+    // where it does its work.
+    if (this.isServer) return true;
+
     const path = url.split(/[?#]/)[0];
 
     // The homepage is the entry point and the redirect target, so it is always
