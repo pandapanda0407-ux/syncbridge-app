@@ -1,0 +1,92 @@
+<app-navbar />
+
+<div class="services-page">
+  <header class="services-hero">
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+    </div>
+    <div class="container">
+      <h1>Marketing and engineering,<br>under <span class="gradient-text">one roof</span></h1>
+      <p class="hero-subtitle">
+        SynceBridge started as a sync tool for Etsy and Shopify sellers. The same team now
+        takes on the marketing and software work around it — so the people optimising your
+        listings are the ones who understand your stock.
+      </p>
+      <div class="hero-actions">
+        <a routerLink="/" fragment="contact" class="btn-primary">Talk to us</a>
+        <a href="#account-management" class="btn-secondary">How engagements work</a>
+      </div>
+    </div>
+  </header>
+
+  @for (group of groups; track group.id) {
+    <section class="service-group" [id]="group.id">
+      <div class="container">
+        <div class="group-header">
+          <h2 class="section-title">{{ group.label }}</h2>
+          <p class="section-subtitle">{{ group.summary }}</p>
+        </div>
+
+        <div class="services-grid">
+          @for (service of group.services; track service.title) {
+            <article class="service-card glass-card">
+              <div class="service-icon">
+                <app-icon [name]="service.icon" [size]="22" />
+              </div>
+              <h3 class="service-title">{{ service.title }}</h3>
+              <p class="service-desc">{{ service.description }}</p>
+              <ul class="deliverables">
+                @for (item of service.deliverables; track item) {
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    {{ item }}
+                  </li>
+                }
+              </ul>
+            </article>
+          }
+        </div>
+      </div>
+    </section>
+  }
+
+  <section class="account-section" id="account-management">
+    <div class="container">
+      <div class="account-card">
+        <div class="account-icon">
+          <app-icon [name]="accountManagement.icon" [size]="26" />
+        </div>
+        <div class="account-body">
+          <h2>{{ accountManagement.title }}</h2>
+          <p>{{ accountManagement.description }}</p>
+          <ul class="deliverables two-col">
+            @for (item of accountManagement.deliverables; track item) {
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                {{ item }}
+              </li>
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services-cta">
+    <div class="container">
+      <h2 class="section-title">Not sure which of these you need?</h2>
+      <p class="section-subtitle">
+        Tell us what you are running today and what is getting in the way. We will come back
+        with a scope and a price — no obligation, and no pitch for work you do not need.
+      </p>
+      <a routerLink="/" fragment="contact" class="btn-primary">Start a conversation</a>
+    </div>
+  </section>
+</div>
+
+<app-footer />

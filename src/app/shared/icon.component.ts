@@ -5,7 +5,10 @@ export type IconName =
   | 'key' | 'target' | 'trash' | 'sliders'
   | 'trending-up' | 'trending-down'
   | 'file-text' | 'clipboard' | 'store' | 'bag'
-  | 'x-circle' | 'alert' | 'check';
+  | 'x-circle' | 'alert' | 'check'
+  | 'search' | 'megaphone' | 'share' | 'pen' | 'mail'
+  | 'code' | 'layout' | 'smartphone' | 'plug' | 'cloud'
+  | 'lifebuoy' | 'user-check';
 
 @Component({
   selector: 'app-icon',
@@ -99,6 +102,57 @@ export type IconName =
         @case ('check') {
           <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
           <path d="M22 4 12 14.01l-3-3"/>
+        }
+        @case ('search') {
+          <circle cx="11" cy="11" r="8"/>
+          <path d="M21 21l-4.35-4.35"/>
+        }
+        @case ('megaphone') {
+          <path d="M3 11v2a1 1 0 0 0 1 1h3l4 4V6L7 10H4a1 1 0 0 0-1 1z"/>
+          <path d="M16 8a5 5 0 0 1 0 8M19 5a9 9 0 0 1 0 14"/>
+        }
+        @case ('share') {
+          <circle cx="18" cy="5" r="3"/>
+          <circle cx="6" cy="12" r="3"/>
+          <circle cx="18" cy="19" r="3"/>
+          <path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98"/>
+        }
+        @case ('pen') {
+          <path d="M12 20h9"/>
+          <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"/>
+        }
+        @case ('mail') {
+          <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/>
+          <path d="m22 6-10 7L2 6"/>
+        }
+        @case ('code') {
+          <path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/>
+        }
+        @case ('layout') {
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <path d="M3 9h18M9 21V9"/>
+        }
+        @case ('smartphone') {
+          <rect x="5" y="2" width="14" height="20" rx="2"/>
+          <path d="M12 18h.01"/>
+        }
+        @case ('plug') {
+          <path d="M9 2v6M15 2v6"/>
+          <path d="M6 8h12v4a6 6 0 0 1-12 0V8z"/>
+          <path d="M12 18v4"/>
+        }
+        @case ('cloud') {
+          <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+        }
+        @case ('lifebuoy') {
+          <circle cx="12" cy="12" r="10"/>
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M14.83 9.17l4.24-4.24M9.17 14.83l-4.24 4.24"/>
+        }
+        @case ('user-check') {
+          <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="8.5" cy="7" r="4"/>
+          <path d="M17 11l2 2 4-4"/>
         }
       }
     </svg>

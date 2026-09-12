@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Title, Meta } from '@angular/platform-browser';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { HeroComponent } from '../../components/hero/hero.component';
 import { FeaturesComponent } from '../../components/features/features.component';
@@ -26,4 +27,14 @@ import { FooterComponent } from '../../components/footer/footer.component';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {}
+export class HomeComponent implements OnInit {
+  constructor(private titleService: Title, private metaService: Meta) {}
+
+  ngOnInit() {
+    this.titleService.setTitle('SynceBridge — Etsy & Shopify Inventory and Order Sync Tool');
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'SynceBridge syncs your Etsy and Shopify inventory, orders and listings automatically in real time. Manage both stores from one dashboard. Stop overselling. Start scaling.'
+    });
+  }
+}
