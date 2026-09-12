@@ -4,7 +4,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import emailjs from '@emailjs/browser';
 
-const SERVICE_ID  = 'service_ig5lc7t';
+// These are EmailJS dashboard IDs, not secrets — the public key is meant to
+// ship in the client. They are also the form's single point of failure: if the
+// service or template is recreated in the dashboard, the IDs change and every
+// submission fails with a 400 until these are updated to match.
+const SERVICE_ID  = 'service_mnxeog7';
 const TEMPLATE_ID = 'template_u81rlwn';
 const PUBLIC_KEY  = 'J2N708HmgT-jmmsxh';
 
