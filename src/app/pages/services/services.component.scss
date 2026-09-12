@@ -76,6 +76,8 @@
 }
 
 .featured-card {
+  // It is an <a>, so it needs an explicit box or the border fragments across line boxes.
+  display: block;
   background: rgba(139, 92, 246, 0.07);
   border: 1px solid rgba(139, 92, 246, 0.28);
   border-radius: var(--radius-lg);
@@ -123,73 +125,31 @@
   font-size: 0.98rem;
   color: var(--text-secondary);
   line-height: 1.85;
-  margin-bottom: 26px;
+  margin-bottom: 20px;
   max-width: 78ch;
 }
 
-.roadmap {
-  margin-top: 30px;
-  padding-top: 26px;
-  border-top: 1px solid rgba(139, 92, 246, 0.2);
-}
-
-.roadmap-title {
-  font-size: 0.72rem;
+.featured-more,
+.service-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  margin-bottom: 16px;
+  color: var(--purple-light);
 }
 
-.roadmap-list {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  margin-bottom: 22px;
+.service-more { margin-top: auto; }
+
+.featured-card,
+.account-card {
+  cursor: pointer;
+  transition: border-color 0.25s ease, background 0.25s ease;
 }
 
-.roadmap-item {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding: 14px 16px;
-  border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border);
-
-  &.is-soon {
-    background: rgba(245, 158, 11, 0.08);
-    border-color: rgba(245, 158, 11, 0.3);
-
-    .roadmap-status { color: var(--amber); }
-  }
-}
-
-.roadmap-name {
-  font-size: 0.92rem;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.roadmap-status {
-  font-size: 0.78rem;
-  color: var(--text-secondary);
-}
-
-.roadmap-note {
-  font-size: 0.88rem;
-  color: var(--text-secondary);
-  line-height: 1.8;
-  max-width: 78ch;
-
-  & + .roadmap-note {
-    margin-top: 12px;
-  }
-}
-
-.roadmap-cta {
-  margin-top: 22px;
+.featured-card:hover,
+.account-card:hover {
+  border-color: rgba(139, 92, 246, 0.5);
 }
 
 .service-group {
@@ -219,6 +179,8 @@
   flex-direction: column;
   gap: 14px;
   padding: 28px;
+  cursor: pointer;
+  transition: border-color 0.25s ease, background 0.25s ease;
 }
 
 .service-icon {
@@ -249,43 +211,6 @@
   font-size: 0.88rem;
   color: var(--text-secondary);
   line-height: 1.75;
-}
-
-.deliverables {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: auto;
-  padding-top: 6px;
-
-  li {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    font-size: 0.82rem;
-    color: #94A3B8;
-    line-height: 1.5;
-
-    svg {
-      flex-shrink: 0;
-      margin-top: 3px;
-      color: var(--green);
-    }
-  }
-
-  &.two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px 24px;
-  }
-
-  &.three-col {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px 24px;
-
-    li { font-size: 0.86rem; }
-  }
 }
 
 .account-section {
@@ -347,10 +272,6 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .deliverables.three-col,
-  .roadmap-list {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
 @media (max-width: 768px) {
@@ -373,10 +294,6 @@
     padding: 28px;
   }
 
-  .deliverables.two-col,
-  .deliverables.three-col {
-    grid-template-columns: 1fr;
-  }
 
   .featured-card {
     padding: 28px;
@@ -386,7 +303,4 @@
     align-items: flex-start;
   }
 
-  .roadmap-list {
-    grid-template-columns: 1fr;
-  }
 }

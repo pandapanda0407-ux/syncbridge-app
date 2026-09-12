@@ -1,0 +1,64 @@
+<app-navbar />
+
+<div class="etsy-page">
+  <header class="etsy-hero">
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+    </div>
+    <div class="container">
+      <div class="status-pill">
+        <span class="dot"></span>
+        Early access · Launches October
+      </div>
+      <h1>The Etsy integration,<br>in <span class="gradient-text">full detail</span></h1>
+      <p class="hero-subtitle">
+        Etsy is the first marketplace we connected to Shopify and the most complete integration
+        we run. It is in early access now and launches in October — this page covers exactly how
+        it works and precisely what we access on your shop.
+      </p>
+      <div class="hero-actions">
+        <a routerLink="/" fragment="contact" class="btn-primary">Request early access</a>
+        <a routerLink="/services" fragment="marketplace-integration" class="btn-secondary">
+          See other channels
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section class="highlights-section">
+    <div class="container">
+      <h2 class="section-title">What the integration does</h2>
+      <p class="section-subtitle">
+        The day-to-day of running an Etsy shop alongside a Shopify store, handled automatically.
+      </p>
+
+      <div class="highlights-grid">
+        @for (item of highlights; track item.title) {
+          <article class="highlight-card glass-card">
+            <div class="highlight-icon">
+              <app-icon [name]="item.icon" [size]="22" />
+            </div>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.description }}</p>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <app-use-case />
+
+  <section class="etsy-cta">
+    <div class="container">
+      <h2 class="section-title">Want in on early access?</h2>
+      <p class="section-subtitle">
+        Setup starts with Etsy’s own authorisation screen. Tell us about your shop and we
+        will walk you through connecting it.
+      </p>
+      <a routerLink="/" fragment="contact" class="btn-primary">Request early access</a>
+    </div>
+  </section>
+</div>
+
+<app-footer />

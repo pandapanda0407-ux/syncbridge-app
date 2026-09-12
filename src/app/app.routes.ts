@@ -10,6 +10,15 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/services/services.component').then(m => m.ServicesComponent)
   },
   {
+    path: 'services/:slug',
+    loadComponent: () =>
+      import('./pages/service-detail/service-detail.component').then(m => m.ServiceDetailComponent)
+  },
+  {
+    path: 'integrations/etsy',
+    loadComponent: () => import('./pages/etsy/etsy.component').then(m => m.EtsyComponent)
+  },
+  {
     path: 'blog',
     loadComponent: () => import('./pages/blog/blog.component').then(m => m.BlogComponent)
   },

@@ -15,14 +15,16 @@
       </p>
       <div class="hero-actions">
         <a routerLink="/" fragment="contact" class="btn-primary">Talk to us</a>
-        <a href="#marketplace-integration" class="btn-secondary">See our core service</a>
+        <a routerLink="/services/marketplace-integration" class="btn-secondary">
+          See our core service
+        </a>
       </div>
     </div>
   </header>
 
   <section class="featured-section" id="marketplace-integration">
     <div class="container">
-      <div class="featured-card">
+      <a class="featured-card" routerLink="/services/marketplace-integration">
         <div class="featured-head">
           <div class="featured-icon">
             <app-icon [name]="featured.icon" [size]="26" />
@@ -33,34 +35,13 @@
           </div>
         </div>
         <p class="featured-desc">{{ featured.description }}</p>
-        <ul class="deliverables three-col">
-          @for (item of featured.deliverables; track item) {
-            <li>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              {{ item }}
-            </li>
-          }
-        </ul>
-
-        <div class="roadmap">
-          <h3 class="roadmap-title">Channel availability</h3>
-          <ul class="roadmap-list">
-            @for (channel of roadmap; track channel.name) {
-              <li class="roadmap-item" [class.is-soon]="channel.state === 'soon'">
-                <span class="roadmap-name">{{ channel.name }}</span>
-                <span class="roadmap-status">{{ channel.status }}</span>
-              </li>
-            }
-          </ul>
-          <p class="roadmap-note">{{ earlyAccessNote }}</p>
-          <p class="roadmap-note">{{ feedbackNote }}</p>
-          <a routerLink="/" fragment="contact" class="btn-secondary roadmap-cta">
-            Request early access
-          </a>
-        </div>
-      </div>
+        <span class="featured-more">
+          See what the integration covers
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
     </div>
   </section>
 
@@ -73,24 +54,20 @@
         </div>
 
         <div class="services-grid">
-          @for (service of group.services; track service.title) {
-            <article class="service-card glass-card">
+          @for (service of group.services; track service.slug) {
+            <a class="service-card glass-card" [routerLink]="['/services', service.slug]">
               <div class="service-icon">
                 <app-icon [name]="service.icon" [size]="22" />
               </div>
               <h3 class="service-title">{{ service.title }}</h3>
               <p class="service-desc">{{ service.description }}</p>
-              <ul class="deliverables">
-                @for (item of service.deliverables; track item) {
-                  <li>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                      <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    {{ item }}
-                  </li>
-                }
-              </ul>
-            </article>
+              <span class="service-more">
+                Read more
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </a>
           }
         </div>
       </div>
@@ -99,25 +76,21 @@
 
   <section class="account-section" id="account-management">
     <div class="container">
-      <div class="account-card">
+      <a class="account-card" routerLink="/services/account-management">
         <div class="account-icon">
           <app-icon [name]="accountManagement.icon" [size]="26" />
         </div>
         <div class="account-body">
           <h2>{{ accountManagement.title }}</h2>
           <p>{{ accountManagement.description }}</p>
-          <ul class="deliverables two-col">
-            @for (item of accountManagement.deliverables; track item) {
-              <li>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                {{ item }}
-              </li>
-            }
-          </ul>
+          <span class="featured-more">
+            How engagements run
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
         </div>
-      </div>
+      </a>
     </div>
   </section>
 

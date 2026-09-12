@@ -185,6 +185,8 @@ img {
 
 section {
   padding: 100px 0;
+  // Clears the fixed navbar when a section is targeted by an anchor link.
+  scroll-margin-top: 90px;
 }
 
 ::selection {

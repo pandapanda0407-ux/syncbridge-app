@@ -1,0 +1,246 @@
+.detail-page {
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+.detail-hero {
+  position: relative;
+  padding: 130px 0 60px;
+  overflow: hidden;
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .orb {
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: var(--purple);
+    filter: blur(100px);
+    opacity: 0.13;
+    top: -160px;
+    left: 12%;
+  }
+}
+
+.crumbs {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 26px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+
+  a {
+    color: var(--text-secondary);
+
+    &:hover { color: var(--purple-light); }
+  }
+
+  .current { color: var(--text-secondary); }
+}
+
+.detail-head {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 20px;
+
+  h1 {
+    font-size: clamp(1.9rem, 4vw, 2.8rem);
+    font-weight: 900;
+    line-height: 1.15;
+  }
+}
+
+.detail-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.28);
+  color: var(--purple-light);
+}
+
+.detail-desc {
+  position: relative;
+  max-width: 76ch;
+  margin-bottom: 30px;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.85;
+}
+
+.detail-body {
+  padding: 20px 0 110px;
+
+  .section-title {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+}
+
+.deliverables {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 28px;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+
+    svg {
+      flex-shrink: 0;
+      margin-top: 3px;
+      color: var(--green);
+    }
+  }
+}
+
+.roadmap,
+.related {
+  margin-top: 56px;
+}
+
+.roadmap-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.roadmap-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+
+  &.is-early {
+    background: rgba(245, 158, 11, 0.08);
+    border-color: rgba(245, 158, 11, 0.3);
+
+    .roadmap-status { color: var(--amber); }
+  }
+
+  &:has(.roadmap-link):hover {
+    border-color: rgba(245, 158, 11, 0.55);
+  }
+}
+
+.roadmap-link {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.roadmap-name {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.roadmap-status {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.roadmap-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 6px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--purple-light);
+}
+
+.roadmap-note {
+  max-width: 78ch;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+
+  & + .roadmap-note { margin-top: 12px; }
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.related-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+
+  h3 {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+}
+
+.related-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+
+.related-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--purple-light);
+}
+
+@media (max-width: 1024px) {
+  .roadmap-list,
+  .related-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .detail-hero {
+    padding: 115px 0 40px;
+  }
+
+  .detail-head {
+    align-items: flex-start;
+  }
+
+  .deliverables,
+  .roadmap-list,
+  .related-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -22,8 +22,8 @@ export class HowItWorksComponent {
     {
       number: '01',
       title: 'Authorize Your Stores',
-      description: 'Connect Etsy and Shopify via their official OAuth flows.',
-      detail: 'Click "Connect" and you\'ll be redirected to Etsy\'s and Shopify\'s authorization pages. SynceBridge requests only the minimum scopes needed: listings, receipts, and inventory. Your login credentials are never shared with us.',
+      description: 'Connect Shopify and your marketplaces via their official OAuth flows.',
+      detail: 'Click "Connect" and you\'ll be redirected to each platform\'s own authorization page. SynceBridge requests only the minimum scopes needed: listings, receipts, and inventory. Your login credentials are never shared with us.',
       icon: 'key'
     },
     {
@@ -37,7 +37,7 @@ export class HowItWorksComponent {
       number: '03',
       title: 'Manage From One Dashboard',
       description: 'View, fulfill, and update everything in one place.',
-      detail: 'See all your orders in a unified queue. Update inventory quantities once — changes propagate to both Etsy and Shopify via their respective APIs. Ship orders, add tracking, and message customers from a single interface.',
+      detail: 'See all your orders in a unified queue. Update inventory quantities once — changes propagate to every connected channel via their respective APIs. Ship orders, add tracking, and message customers from a single interface.',
       icon: 'sliders'
     },
     {

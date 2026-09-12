@@ -19,7 +19,7 @@ export class SecurityComponent {
     {
       icon: 'lock',
       title: 'TLS/SSL Encryption',
-      description: 'All data in transit is encrypted using TLS 1.3. API tokens are stored encrypted at rest using AES-256. We undergo regular security audits.'
+      description: 'All data in transit is encrypted using TLS. API tokens are stored encrypted at rest, never in plain text.'
     },
     {
       icon: 'target',

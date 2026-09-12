@@ -5,7 +5,7 @@ import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { HeroComponent } from '../../components/hero/hero.component';
 import { FeaturesComponent } from '../../components/features/features.component';
 import { HowItWorksComponent } from '../../components/how-it-works/how-it-works.component';
-import { UseCaseComponent } from '../../components/use-case/use-case.component';
+import { ChannelsComponent } from '../../components/channels/channels.component';
 import { SecurityComponent } from '../../components/security/security.component';
 import { ContactComponent } from '../../components/contact/contact.component';
 import { FooterComponent } from '../../components/footer/footer.component';
@@ -19,7 +19,7 @@ import { FooterComponent } from '../../components/footer/footer.component';
     HeroComponent,
     FeaturesComponent,
     HowItWorksComponent,
-    UseCaseComponent,
+    ChannelsComponent,
     SecurityComponent,
     ContactComponent,
     FooterComponent
@@ -31,10 +31,10 @@ export class HomeComponent implements OnInit {
   constructor(private titleService: Title, private metaService: Meta) {}
 
   ngOnInit() {
-    this.titleService.setTitle('SynceBridge — Etsy & Shopify Inventory and Order Sync Tool');
+    this.titleService.setTitle('SynceBridge — Multi-Marketplace Inventory & Order Sync for Shopify');
     this.metaService.updateTag({
       name: 'description',
-      content: 'SynceBridge syncs your Etsy and Shopify inventory, orders and listings automatically in real time. Manage both stores from one dashboard. Stop overselling. Start scaling.'
+      content: 'SynceBridge syncs inventory, orders and listings between Shopify and the marketplaces you sell on, in real time. Etsy in early access, launching October; Amazon, eBay and TikTok Shop in development. Stop overselling. Start scaling.'
     });
   }
 }

@@ -50,7 +50,7 @@ export class UseCaseComponent {
   ];
 
   benefits: { icon: IconName; text: string }[] = [
-    { icon: 'bag', text: 'Sellers save hours per week by eliminating manual copy-paste between platforms.' },
+    { icon: 'bag', text: 'Sellers stop copy-pasting stock counts between platforms by hand.' },
     { icon: 'x-circle', text: 'Buyers receive accurate inventory counts — no more oversold listings or cancellations.' },
     { icon: 'trending-down', text: 'Etsy platform benefits from healthier seller operations and reduced policy violations from stock issues.' },
     { icon: 'lock', text: 'All access is via official OAuth; no scraping, no credential sharing, fully within API Terms of Use.' }

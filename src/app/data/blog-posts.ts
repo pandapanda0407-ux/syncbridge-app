@@ -66,7 +66,7 @@ export const BLOG_POSTS: BlogPost[] = [
     content: `
       <h2>Why Sell on Both Etsy and Shopify?</h2>
       <p>Etsy and Shopify serve different but complementary roles for online sellers. Etsy gives you access to millions of buyers who are already searching for handmade, vintage, and unique products — built-in traffic with purchase intent. Shopify gives you full control over your brand, your customer relationships, and your margins.</p>
-      <p>Selling on both platforms simultaneously means you capture Etsy's marketplace traffic while building your own brand on Shopify. Many successful sellers generate 60–70% of revenue from Etsy while using Shopify to nurture repeat customers through email and promotions.</p>
+      <p>Selling on both platforms simultaneously means you capture Etsy's marketplace traffic while building your own brand on Shopify. Many sellers lean on Etsy for discovery while using Shopify to nurture repeat customers through email and promotions.</p>
 
       <h2>The Challenges of Running Both Stores</h2>
       <p>The main challenges sellers face when running Etsy and Shopify simultaneously are:</p>

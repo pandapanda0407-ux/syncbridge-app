@@ -1,0 +1,98 @@
+<app-navbar />
+
+@if (service(); as svc) {
+  <div class="detail-page">
+    <header class="detail-hero">
+      <div class="hero-bg"><div class="orb"></div></div>
+      <div class="container">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a routerLink="/services">Services</a>
+          <span aria-hidden="true">/</span>
+          @if (group(); as grp) {
+            <a routerLink="/services" [fragment]="grp.id">{{ grp.label }}</a>
+            <span aria-hidden="true">/</span>
+          }
+          <span class="current">{{ svc.title }}</span>
+        </nav>
+
+        <div class="detail-head">
+          <div class="detail-icon">
+            <app-icon [name]="svc.icon" [size]="26" />
+          </div>
+          <h1>{{ svc.title }}</h1>
+        </div>
+        <p class="detail-desc">{{ svc.description }}</p>
+        <a routerLink="/" fragment="contact" class="btn-primary">Talk to us about this</a>
+      </div>
+    </header>
+
+    <section class="detail-body">
+      <div class="container">
+        <h2 class="section-title">What you get</h2>
+        <ul class="deliverables">
+          @for (item of svc.deliverables; track item) {
+            <li>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              {{ item }}
+            </li>
+          }
+        </ul>
+
+        @if (isMarketplaceIntegration()) {
+          <div class="roadmap">
+            <h2 class="section-title">Channel availability</h2>
+            <ul class="roadmap-list">
+              @for (channel of channels; track channel.name) {
+                <li class="roadmap-item" [class.is-early]="channel.state === 'early'">
+                  @if (channel.route) {
+                    <a [routerLink]="channel.route" class="roadmap-link">
+                      <span class="roadmap-name">{{ channel.name }}</span>
+                      <span class="roadmap-status">{{ channel.status }}</span>
+                      <span class="roadmap-more">
+                        See the {{ channel.name }} integration
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </span>
+                    </a>
+                  } @else {
+                    <span class="roadmap-name">{{ channel.name }}</span>
+                    <span class="roadmap-status">{{ channel.status }}</span>
+                  }
+                </li>
+              }
+            </ul>
+            <p class="roadmap-note">{{ earlyAccessNote }}</p>
+            <p class="roadmap-note">{{ feedbackNote }}</p>
+          </div>
+        }
+
+        @if (related().length) {
+          <div class="related">
+            <h2 class="section-title">Related services</h2>
+            <div class="related-grid">
+              @for (item of related(); track item.slug) {
+                <a class="related-card glass-card" [routerLink]="['/services', item.slug]">
+                  <div class="related-icon">
+                    <app-icon [name]="item.icon" [size]="20" />
+                  </div>
+                  <h3>{{ item.title }}</h3>
+                  <span class="related-more">
+                    Read more
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </a>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </section>
+  </div>
+}
+
+<app-footer />

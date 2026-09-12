@@ -1,0 +1,55 @@
+<section class="channels-section" id="channels">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">One store, every marketplace</h2>
+      <p class="section-subtitle">
+        Shopify is where your catalogue lives. SynceBridge connects it to the marketplaces you
+        sell on, so stock and orders stay in step wherever a sale happens.
+      </p>
+    </div>
+
+    <div class="hub-card">
+      <div class="hub-icon">
+        <app-icon [name]="hub.icon" [size]="24" />
+      </div>
+      <div class="hub-body">
+        <div class="hub-head">
+          <h3>{{ hub.name }}</h3>
+          <span class="status-tag live">{{ hub.status }}</span>
+        </div>
+        <p>{{ hub.blurb }}</p>
+      </div>
+    </div>
+
+    <div class="channels-grid">
+      @for (channel of channels; track channel.name) {
+        <article class="channel-card glass-card" [class.is-early]="channel.state === 'early'">
+          <div class="channel-head">
+            <div class="channel-icon">
+              <app-icon [name]="channel.icon" [size]="20" />
+            </div>
+            <h3>{{ channel.name }}</h3>
+            <span class="status-tag" [class.live]="channel.state === 'live'"
+                  [class.early]="channel.state === 'early'">
+              {{ channel.status }}
+            </span>
+          </div>
+          <p class="channel-blurb">{{ channel.blurb }}</p>
+          @if (channel.route) {
+            <a [routerLink]="channel.route" class="channel-link">
+              How the {{ channel.name }} integration works
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          }
+        </article>
+      }
+    </div>
+
+    <p class="channels-note">
+      Selling somewhere that is not on this list? We build channels as custom integrations —
+      <a routerLink="/services" fragment="marketplace-integration">see how that works</a>.
+    </p>
+  </div>
+</section>
