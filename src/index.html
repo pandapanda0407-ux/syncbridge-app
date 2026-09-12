@@ -17,11 +17,54 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://syncebridge.com/">
   <meta property="og:site_name" content="SynceBridge">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://syncebridge.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="SynceBridge — sync every marketplace with your Shopify store">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="SynceBridge — Multi-Marketplace Sync for Shopify">
   <meta name="twitter:description" content="Sync inventory, orders and listings between Shopify and the marketplaces you sell on, from one unified dashboard in real time.">
+  <meta name="twitter:image" content="https://syncebridge.com/og-image.png">
+
+
+  <!-- Organization + WebSite schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://syncebridge.com/#organization",
+        "name": "SynceBridge",
+        "url": "https://syncebridge.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://syncebridge.com/favicon-192.png",
+          "width": 192,
+          "height": 192
+        },
+        "description": "SynceBridge syncs inventory, orders and listings between Shopify and the marketplaces you sell on.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "support@syncebridge.com",
+          "contactType": "customer support",
+          "availableLanguage": "English"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://syncebridge.com/#website",
+        "url": "https://syncebridge.com/",
+        "name": "SynceBridge",
+        "publisher": { "@id": "https://syncebridge.com/#organization" },
+        "inLanguage": "en-US"
+      }
+    ]
+  }
+  </script>
 
   <!-- Software Schema -->
   <script type="application/ld+json">

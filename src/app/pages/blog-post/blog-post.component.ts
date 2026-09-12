@@ -69,13 +69,30 @@ export class BlogPostComponent implements OnInit {
       script.type = 'application/ld+json';
       script.text = JSON.stringify({
         '@context': 'https://schema.org',
-        '@type': 'Article',
-        headline: this.post.title,
-        description: this.post.excerpt,
-        url,
-        datePublished: this.post.date,
-        author: { '@type': 'Organization', name: 'SynceBridge', url: 'https://syncebridge.com' },
-        publisher: { '@type': 'Organization', name: 'SynceBridge', url: 'https://syncebridge.com' }
+        '@graph': [
+          {
+            '@type': 'Article',
+            headline: this.post.title,
+            description: this.post.excerpt,
+            url,
+            datePublished: this.post.date,
+            dateModified: this.post.date,
+            mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+            image: 'https://syncebridge.com/og-image.png',
+            author: { '@id': 'https://syncebridge.com/#organization' },
+            publisher: { '@id': 'https://syncebridge.com/#organization' }
+          },
+          // Breadcrumbs are what turn the green URL line in a Google result
+          // into "SynceBridge › Blog › Post title".
+          {
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://syncebridge.com/' },
+              { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://syncebridge.com/blog' },
+              { '@type': 'ListItem', position: 3, name: this.post.title, item: url }
+            ]
+          }
+        ]
       });
       this.doc.head.appendChild(script);
     }

@@ -14,7 +14,7 @@ export class ContactPageComponent implements OnInit {
   constructor(private titleService: Title, private metaService: Meta) {}
 
   ngOnInit() {
-    this.titleService.setTitle('Contact — Talk to the SynceBridge Team');
+    this.titleService.setTitle('Contact Us — Talk to the SynceBridge Team');
     this.metaService.updateTag({
       name: 'description',
       content:
