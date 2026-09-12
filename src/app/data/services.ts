@@ -14,6 +14,21 @@ export interface ServiceGroup {
   services: Service[];
 }
 
+export const FEATURED_SERVICE: Service = {
+  icon: 'plug',
+  title: 'Marketplace Integration for Shopify',
+  description:
+    'Our core service, and the one everything else is built around. We connect Shopify to the marketplaces you sell on — Etsy first, and the others alongside it — so inventory, orders, and listings stay in step without anyone copying numbers between dashboards. Sell an item anywhere and stock drops everywhere, in real time.',
+  deliverables: [
+    'Shopify ↔ Etsy inventory and order sync',
+    'Listing and product catalogue mapping',
+    'OAuth connection setup for every channel',
+    'Order consolidation into one fulfilment queue',
+    'Overselling prevention and stock reconciliation',
+    'Ongoing monitoring, alerting, and support'
+  ]
+};
+
 export const SERVICE_GROUPS: ServiceGroup[] = [
   {
     id: 'marketing',

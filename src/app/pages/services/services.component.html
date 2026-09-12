@@ -9,16 +9,43 @@
     <div class="container">
       <h1>Marketing and engineering,<br>under <span class="gradient-text">one roof</span></h1>
       <p class="hero-subtitle">
-        SynceBridge started as a sync tool for Etsy and Shopify sellers. The same team now
-        takes on the marketing and software work around it — so the people optimising your
-        listings are the ones who understand your stock.
+        Marketplace integration for Shopify is what we do first and best. Around it, the
+        same team takes on the marketing and software work that multi-channel sellers need —
+        so the people optimising your listings are the ones who understand your stock.
       </p>
       <div class="hero-actions">
         <a routerLink="/" fragment="contact" class="btn-primary">Talk to us</a>
-        <a href="#account-management" class="btn-secondary">How engagements work</a>
+        <a href="#marketplace-integration" class="btn-secondary">See our core service</a>
       </div>
     </div>
   </header>
+
+  <section class="featured-section" id="marketplace-integration">
+    <div class="container">
+      <div class="featured-card">
+        <div class="featured-head">
+          <div class="featured-icon">
+            <app-icon [name]="featured.icon" [size]="26" />
+          </div>
+          <div>
+            <span class="featured-label">Our core service</span>
+            <h2>{{ featured.title }}</h2>
+          </div>
+        </div>
+        <p class="featured-desc">{{ featured.description }}</p>
+        <ul class="deliverables three-col">
+          @for (item of featured.deliverables; track item) {
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              {{ item }}
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
 
   @for (group of groups; track group.id) {
     <section class="service-group" [id]="group.id">
