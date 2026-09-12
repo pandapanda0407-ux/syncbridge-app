@@ -1,9 +1,11 @@
 .hero {
   position: relative;
-  min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 140px 0 100px;
+  // The dashboard preview gives the hero real height of its own, so the old
+  // min-height: 100vh is dropped — kept, it padded the section past the
+  // content and reopened the gap the preview was added to close.
+  padding: 130px 0 80px;
   overflow: hidden;
 }
 
@@ -187,4 +189,203 @@
       justify-content: center;
     }
   }
+}
+
+// ── Dashboard preview ──────────────────────────────────────────────────────
+// Fills the space below the platform chips that the centred hero used to leave
+// empty. Mirrors the real dashboard's structure (chrome bar, Revenue & Orders,
+// Listings Overview) in the site's dark theme.
+.dashboard-preview {
+  max-width: 940px;
+  margin: 44px auto 0;
+  text-align: left;
+  background: rgba(13, 13, 28, 0.72);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+}
+
+.dash-chrome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.dash-title {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dash-heading {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.dash-crumb {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.dash-chrome-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dash-sync {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.dash-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.dash-tag {
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: rgba(139, 92, 246, 0.14);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--purple-light);
+}
+
+.dash-body {
+  padding: 18px 20px 22px;
+}
+
+.dash-label {
+  display: block;
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.dash-row {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 22px;
+
+  &-3 { grid-template-columns: repeat(3, 1fr); }
+  &-4 { grid-template-columns: repeat(4, 1fr); }
+
+  &:last-child { margin-bottom: 0; }
+}
+
+.dash-card {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+
+  // A coloured top edge, the way the real dashboard flags its primary cards.
+  &.is-green { border-top: 2px solid var(--green); }
+  &.is-blue  { border-top: 2px solid var(--cyan); }
+}
+
+.dash-card-label {
+  font-size: 0.73rem;
+  color: var(--text-secondary);
+}
+
+.dash-card-value {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.dash-pill {
+  align-self: flex-start;
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  font-size: 0.66rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.05);
+
+  &.is-green { color: var(--green); background: rgba(16, 185, 129, 0.12); }
+  &.is-blue  { color: var(--cyan-light); background: rgba(6, 182, 212, 0.12); }
+}
+
+.dash-mini {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.dash-mini-label {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+}
+
+.dash-mini-value {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+
+  &.is-blue  { color: var(--purple-light); }
+  &.is-green { color: var(--green); }
+  &.is-amber { color: var(--amber); }
+  &.is-red   { color: var(--red); }
+}
+
+.dash-mini-sub {
+  font-size: 0.64rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 860px) {
+  .dashboard-preview { margin-top: 48px; }
+
+  .dash-row-3,
+  .dash-row-4 { grid-template-columns: repeat(2, 1fr); }
+
+  .dash-sync { display: none; }
+}
+
+@media (max-width: 560px) {
+  .dash-chrome { padding: 12px 14px; }
+  .dash-body { padding: 14px; }
+
+  .dash-row-3,
+  .dash-row-4 { grid-template-columns: 1fr 1fr; }
+
+  .dash-btn { display: none; }
+  .dash-card-value { font-size: 1.25rem; }
 }
