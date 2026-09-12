@@ -1,11 +1,6 @@
 // Writes the list of URLs for Angular to prerender, and keeps public/sitemap.xml
 // in step with it. Both are derived from the route table and the data files, so
 // adding a blog post or a service cannot leave either one stale.
-//
-// Pages behind the click-only guard are prerendered (harmless, and correct if
-// the guard is ever lifted) but deliberately kept OUT of the sitemap: they
-// redirect direct visitors to the homepage, so advertising them to Google
-// produces redirect errors. See CLICK_ONLY_PATHS in src/app/shared/navigation-gate.ts.
 
 const fs = require('fs');
 const path = require('path');
@@ -13,8 +8,6 @@ const path = require('path');
 const root = path.join(__dirname, '..');
 const read = (p) => fs.readFileSync(path.join(root, p), 'utf8');
 const slugs = (file) => [...read(file).matchAll(/slug:\s*'([^']+)'/g)].map((m) => m[1]);
-
-const CLICK_ONLY = ['/features', '/how-it-works', '/marketplaces', '/security'];
 
 const staticRoutes = [
   '/',
@@ -41,7 +34,7 @@ const today = new Date().toISOString().slice(0, 10);
 const priority = (r) => (r === '/' ? '1.0' : r === '/blog' || r === '/services' ? '0.9' : '0.7');
 const freq = (r) => (r === '/' || r === '/blog' ? 'weekly' : r === '/privacy-policy' ? 'yearly' : 'monthly');
 
-const sitemapUrls = routes.filter((r) => !CLICK_ONLY.includes(r));
+const sitemapUrls = routes;
 const body = sitemapUrls
   .map(
     (r) =>

@@ -3,69 +3,84 @@ import { isPlatformServer } from '@angular/common';
 import { CanActivateFn, Router } from '@angular/router';
 
 /**
- * Routes that can only be reached by clicking a link or button inside the
- * running app. A typed, pasted, bookmarked or search-result URL is refused and
- * sent to the homepage.
+ * Stops a visitor who is already on the site from moving around by editing the
+ * address bar. Inside the app, navigation has to go through a link or a button.
  *
- * Deliberately narrow. Anything that has to survive being opened cold stays
- * off this list: the blog and service pages are the whole organic-search
- * strategy, /integrations/etsy and /privacy-policy are fetched directly by
- * Shopify and Etsy app review, and /contact is where every CTA and shared
- * "get in touch" link lands. Gating those breaks real traffic for no gain.
+ * It deliberately does NOT block arriving cold. A search result, a shared link
+ * or a bookmark is how people reach the site in the first place, and refusing
+ * those would make every indexed page bounce its visitor to the homepage —
+ * which Google reads as a broken result and demotes. So the question this asks
+ * is not "was this a direct load" but "did this person change the URL after
+ * they were already here".
  *
- * This list is also the single source of truth for which pages are marked
- * noindex — see App.applyRouteMeta. A page that cannot be opened from a search
- * result must not be advertised in a search result, or Google reports it as a
- * redirect error and the sitemap slowly rots.
+ * The difference is a per-tab marker: the path the app was last on. A full page
+ * load with no marker is a fresh arrival. A load whose marker matches the path
+ * is a refresh. A load whose marker names a *different* path is someone who
+ * typed over the URL, and only that case is refused.
  */
-export const CLICK_ONLY_PATHS: readonly string[] = [
-  '/features',
-  '/how-it-works',
-  '/marketplaces',
-  '/security'
-];
+const LAST_PATH_KEY = 'sb:last-path';
 
 @Injectable({ providedIn: 'root' })
 export class NavigationGate {
   private readonly router = inject(Router);
-
-  /**
-   * Paths already opened by an in-app click this session. Back/forward to one
-   * of these is allowed, because the visitor did click their way there once and
-   * breaking the browser's own buttons would read as the site being broken.
-   */
-  private readonly reached = new Set<string>();
-
   private readonly isServer = isPlatformServer(inject(PLATFORM_ID));
 
+  /** Whether this browsing context has already handled its first navigation. */
+  private booted = false;
+
   allows(url: string): boolean {
-    // Prerendering has no visitor and no clicks, so the gate would refuse every
-    // guarded route and bake the homepage into each of their files. Let the
-    // build render the real page; the gate still runs in the browser, which is
-    // where it does its work.
+    // Prerendering has no visitor and no storage; render the real page.
     if (this.isServer) return true;
 
     const path = url.split(/[?#]/)[0];
 
-    // The homepage is the entry point and the redirect target, so it is always
-    // open — gating it would trap every visitor in a redirect loop.
-    if (path === '/') return true;
+    if (path === '/') {
+      this.remember(path);
+      return true;
+    }
 
     const nav = this.router.getCurrentNavigation();
+    const isFirstNavigation = !this.booted && (!nav || nav.id === 1);
+    this.booted = true;
 
-    // Angular runs exactly one navigation at bootstrap, always id 1, aimed at
-    // whatever URL the browser was pointed at. Reaching a guard on that
-    // navigation means the app was not running yet, so nothing can have been
-    // clicked: this is direct URL entry.
-    if (!nav || nav.id === 1) return false;
+    if (isFirstNavigation) {
+      const last = this.read();
 
-    // Back/forward buttons. Allowed only for somewhere already clicked into.
-    if (nav.trigger === 'popstate') return this.reached.has(path);
+      // Nothing stored: the tab has just opened on this URL. Search result,
+      // shared link, bookmark or first visit — all legitimate ways in.
+      // Same path stored: a refresh, which must not throw the reader out.
+      if (last === null || last === path) {
+        this.remember(path);
+        return true;
+      }
 
-    // An imperative navigation after bootstrap is a routerLink or an explicit
-    // router.navigate() call, both of which originate from the menu or a button.
-    this.reached.add(path);
+      // A different path was stored, so the app was already running here and
+      // the URL was edited by hand. That is the case this gate exists for.
+      return false;
+    }
+
+    // Anything after the first navigation is the router acting on a link or a
+    // button click inside the app.
+    this.remember(path);
     return true;
+  }
+
+  private read(): string | null {
+    // Private browsing and blocked storage both throw rather than return null.
+    try {
+      return sessionStorage.getItem(LAST_PATH_KEY);
+    } catch {
+      return null;
+    }
+  }
+
+  private remember(path: string) {
+    try {
+      sessionStorage.setItem(LAST_PATH_KEY, path);
+    } catch {
+      // Storage unavailable: the gate simply lets navigation through rather
+      // than trapping the visitor.
+    }
   }
 }
 
