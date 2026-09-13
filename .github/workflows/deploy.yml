@@ -114,6 +114,24 @@ jobs:
             )
             print("try_files: rewritten" if content != before else "try_files: already correct")
 
+            # www.syncebridge.com and syncebridge.com both answered 200 with no
+            # redirect between them, so the site existed twice as far as Google
+            # was concerned — it had indexed the www copy. Collapse www onto the
+            # canonical host, which is what every canonical tag already names.
+            REDIRECT = "if ($host = www.syncebridge.com) { return 301 https://syncebridge.com$request_uri; }"
+            if "www.syncebridge.com" in content and REDIRECT not in content:
+                content = re.sub(
+                    r"(\n([ \t]*)server_name[^;]*www\.syncebridge\.com[^;]*;\n)",
+                    r"\1\n\2# Collapse www onto the canonical host so the site is not indexed twice.\n\2"
+                    + REDIRECT.replace("\\", "\\\\")
+                    + "\n",
+                    content,
+                    count=1,
+                )
+                print("www redirect: added")
+            else:
+                print("www redirect: already present or no www server_name")
+
             with open(path, "w") as f:
                 f.write(content)
             print("done")
@@ -146,3 +164,7 @@ jobs:
               [ "$CODE" = "200" ] || FAILED=1
             done
             [ "$FAILED" = "0" ] && echo "all routes 200" || echo "WARNING: some routes did not return 200"
+
+            echo "--- verifying www redirects to the canonical host ---"
+            curl -sI https://www.syncebridge.com/privacy-policy | head -1
+            curl -sI https://www.syncebridge.com/privacy-policy | grep -i "^location" || echo "WARNING: www did not redirect"
