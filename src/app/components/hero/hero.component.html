@@ -35,13 +35,19 @@
     <div class="platform-logos">
       <span class="platform-label">Connects Shopify with</span>
       <div class="logos">
-        <div class="platform-chip is-early">
-          Etsy
-          <span class="chip-tag">Early access</span>
-        </div>
-        <div class="platform-chip">Amazon</div>
-        <div class="platform-chip">eBay</div>
-        <div class="platform-chip">TikTok Shop</div>
+        @for (channel of channels; track channel.name) {
+          <div class="platform-chip"
+               [class.is-early]="channel.state === 'early'"
+               [class.is-custom]="channel.state === 'custom'">
+            {{ channel.name }}
+            @if (channel.state === 'early') {
+              <span class="chip-tag">Early access</span>
+            }
+            @if (channel.state === 'custom') {
+              <span class="chip-tag is-custom">Custom</span>
+            }
+          </div>
+        }
       </div>
     </div>
 
