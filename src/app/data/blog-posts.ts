@@ -12,6 +12,209 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'migrate-ebay-to-shopify',
+    title: 'Migrating From eBay to Shopify: What Actually Moves',
+    excerpt: 'Moving a catalogue off eBay is less about exporting data and more about deciding what your products should look like once they are no longer inside a marketplace. Here is what transfers cleanly, what does not, and how to keep selling while you do it.',
+    date: 'September 18, 2026',
+    readTime: '9 min read',
+    category: 'Migration',
+    content: `
+      <h2>Why Sellers Move</h2>
+      <p>Most sellers do not leave eBay. They add Shopify alongside it, and the reason is almost always the same: on eBay you rent the customer, on your own store you keep them. eBay owns the buyer relationship, sets the fee structure, and can change either without asking you.</p>
+      <p>A Shopify store gives you the email list, the repeat purchase, and control over how the brand looks. What it does not give you is eBay's traffic, which is why most sellers who make the move keep both running rather than switching outright.</p>
+
+      <h2>What Transfers Cleanly</h2>
+      <p>Some of your eBay catalogue maps onto Shopify almost directly:</p>
+      <ul>
+        <li><strong>Titles and descriptions</strong> — the text moves, though eBay titles are written for eBay search and usually need rewriting once they are on your own store</li>
+        <li><strong>Images</strong> — these carry across, subject to eBay's hosting rules; download originals rather than hotlinking</li>
+        <li><strong>Prices and quantities</strong> — straightforward numbers, provided your SKUs are consistent</li>
+        <li><strong>Simple variations</strong> — size and colour structures usually map onto Shopify variants without much trouble</li>
+      </ul>
+
+      <h2>What Does Not</h2>
+      <p>The awkward parts are the ones specific to how eBay works:</p>
+      <ul>
+        <li><strong>Item specifics</strong> — eBay's structured attributes vary by category and have no direct Shopify equivalent. They become metafields, tags, or nothing at all, and that is a decision per field rather than a setting.</li>
+        <li><strong>Business policies</strong> — postage, returns and payment policies live on eBay listings. Shopify handles all three at store level instead, so they do not transfer; they get rebuilt once.</li>
+        <li><strong>Category mapping</strong> — eBay's category tree is far deeper than a typical Shopify collection structure. Mapping is a judgement call, not a lookup.</li>
+        <li><strong>Feedback and sales history</strong> — this does not move, and cannot. Your eBay reputation stays on eBay.</li>
+        <li><strong>Multi-variation listings</strong> — eBay allows variation structures that Shopify's variant model cannot represent directly. These need restructuring.</li>
+      </ul>
+      <p>The last one catches people out. A seller with heavily varied listings often finds the migration is not a data transfer at all — it is a catalogue redesign that happens to start from eBay data.</p>
+
+      <h2>The Part Everyone Underestimates</h2>
+      <p>Exporting is easy. Deciding what a product record should look like once it is no longer inside a marketplace is the actual work.</p>
+      <p>On eBay your title is doing SEO work for eBay's search engine, which is why eBay titles read as keyword lists rather than sentences. Move that text to Shopify unchanged and you get a store full of listings that read like a spreadsheet. They also compete badly on Google, which ranks on completely different signals.</p>
+      <p>Descriptions have the same problem in reverse. Many eBay descriptions are thin because eBay buyers are already deep in a purchase flow. On your own store, that description is often the only thing convincing someone to buy.</p>
+
+      <h2>Do Not Turn eBay Off</h2>
+      <p>The most common mistake is treating this as a switch rather than an addition. eBay has buyers actively searching; a new Shopify store has none until you send them there.</p>
+      <p>Run both. But running both creates the problem that defines multi-channel selling: two systems each believing they own your stock level. Sell the last unit on eBay while the Shopify listing is still live and you will cancel an order — and eBay's seller metrics treat cancellations harshly.</p>
+      <p>That is the argument for connecting the two rather than migrating and hoping. <a href="/blog/ebay-shopify-two-way-sync">Two-way sync</a> keeps one stock figure across both, so both channels can carry your full inventory rather than a split.</p>
+
+      <h2>A Sequence That Works</h2>
+      <ol>
+        <li><strong>Audit the catalogue first.</strong> Establish which SKUs are real, which listings are duplicates, and which products you no longer want to sell. Migrating dead stock wastes the effort.</li>
+        <li><strong>Fix SKUs before anything moves.</strong> Both systems must agree on what identifies a product. Everything downstream depends on this.</li>
+        <li><strong>Move a small batch.</strong> Twenty products, end to end, including an order. You will find the mapping problems here rather than at scale.</li>
+        <li><strong>Rewrite as you go.</strong> Titles and descriptions for your own store, not for eBay search.</li>
+        <li><strong>Connect the two, then scale.</strong> With sync in place, both channels carry full stock.</li>
+      </ol>
+
+      <h2>Where We Come In</h2>
+      <p>SynceBridge builds eBay integrations as custom work scoped per shop: two-way listing, inventory and order sync between eBay and Shopify, plus migration from eBay into Shopify. It is scoped rather than self-serve because eBay catalogues genuinely differ — item specifics by category, variation structures and inherited SKU schemes are rarely the same twice.</p>
+      <p><a href="/blog/ebay-shopify-migration-help">Here is what that looks like in practice</a>, or <a href="/contact">tell us about your catalogue</a> and we will scope it.</p>
+    `
+  },
+  {
+    slug: 'ebay-shopify-migration-help',
+    title: 'How We Help You Move From eBay to Shopify',
+    excerpt: 'A migration goes wrong in predictable places. Here is what we take on, what stays with you, and how the work actually runs.',
+    date: 'September 18, 2026',
+    readTime: '7 min read',
+    category: 'Migration',
+    content: `
+      <h2>What Usually Goes Wrong</h2>
+      <p>Migrations rarely fail on the export. They fail afterwards, in places that look small until you are living with them:</p>
+      <ul>
+        <li>SKUs that almost match, so stock updates silently hit the wrong product</li>
+        <li>Variation structures that eBay allowed and Shopify cannot represent</li>
+        <li>Item specifics dropped entirely because nobody decided where they should go</li>
+        <li>A catalogue that technically arrived but reads like eBay search text</li>
+        <li>Both channels live with split stock, because connecting them was left until last</li>
+      </ul>
+      <p>None of these are exotic. They are the normal consequences of treating a migration as a data transfer.</p>
+
+      <h2>What We Take On</h2>
+      <p><strong>Scoping against your real catalogue.</strong> Not a questionnaire — we look at how your listings are actually structured, where the variations get awkward, and which item specifics carry meaning worth keeping.</p>
+      <p><strong>The mapping.</strong> eBay fields to Shopify fields, including the decisions with no clean answer: which specifics become metafields, which become tags, which are dropped. You approve the mapping before anything runs.</p>
+      <p><strong>The migration itself.</strong> Products, variations, images and the specifics we agreed, moved across in batches so problems surface on twenty products rather than two thousand.</p>
+      <p><strong>The sync afterwards.</strong> Two-way inventory and order sync so both channels carry full stock, rather than you splitting quantities and showing out of stock on one while holding inventory on the other.</p>
+      <p><strong>AI-assisted listing improvement, if you want it.</strong> Titles, item specifics and descriptions drafted from what you already have, so a migrated catalogue does not arrive thin. Everything is reviewed before it publishes — <a href="/blog/ebay-ai-listing-improvement">more on how that works</a>.</p>
+
+      <h2>What Stays With You</h2>
+      <p>Being straightforward about this saves everyone time:</p>
+      <ul>
+        <li><strong>Deciding what to sell.</strong> We can tell you which SKUs look dead. We cannot tell you which products belong in your business.</li>
+        <li><strong>Brand voice.</strong> AI drafts and we map fields, but how your products should sound is yours.</li>
+        <li><strong>Pricing.</strong> Marketplace and own-store pricing often differ deliberately. That is a commercial decision.</li>
+        <li><strong>Shopify account, plan and theme.</strong> The store itself remains yours.</li>
+      </ul>
+
+      <h2>How It Runs</h2>
+      <p><strong>A conversation first.</strong> How many SKUs, how varied, how much of the catalogue is still worth moving, and what is breaking today.</p>
+      <p><strong>A scope you can read.</strong> What we will map, what we will not, what it costs, and how long it takes. Not an open-ended engagement.</p>
+      <p><strong>A pilot batch.</strong> A small set migrated end to end, including a real order flowing through. This is where the surprises appear, and it is far cheaper to find them here.</p>
+      <p><strong>The full run, then sync.</strong> Once the pilot is clean, the rest follows, and the two channels are connected.</p>
+      <p><strong>Someone to talk to afterwards.</strong> Sync failures raise alerts rather than sitting silently, and you have a named contact rather than a ticket queue.</p>
+
+      <h2>Keep Trading Throughout</h2>
+      <p>You do not go dark during this. eBay keeps selling while the Shopify catalogue is built, and the channels are connected before both are pushed hard. The riskiest window in any migration is the period where both are live but not talking to each other — the sequence above is designed to keep that window short.</p>
+
+      <h2>Whether This Is Worth It</h2>
+      <p>If you have a few dozen simple products, you may not need help. Shopify's own import tools and a careful afternoon will get you there.</p>
+      <p>Where this earns its keep is a large or heavily varied catalogue, years of accumulated SKU decisions, or a shop that cannot afford to stop trading. Those are the cases where the manual route quietly consumes weeks.</p>
+      <p><a href="/contact">Tell us about your catalogue</a> and we will tell you honestly which of those you are.</p>
+    `
+  },
+  {
+    slug: 'ebay-shopify-two-way-sync',
+    title: 'Two-Way eBay and Shopify Sync: What It Actually Means',
+    excerpt: 'Plenty of tools claim to sync eBay and Shopify. Far fewer do it in both directions, and the difference is where overselling comes from.',
+    date: 'September 18, 2026',
+    readTime: '8 min read',
+    category: 'Multi-channel',
+    content: `
+      <h2>One-Way Sync Is Half a Solution</h2>
+      <p>Most integrations push in one direction: Shopify is the master, eBay receives updates. Change a price in Shopify and eBay follows. That part works.</p>
+      <p>The problem is what happens when eBay sells something. If the flow only runs one way, that sale is invisible to Shopify. Your Shopify stock still says five when you physically have four. Do that a few times across a busy weekend and Shopify is confidently selling stock that left the building days ago.</p>
+      <p>Two-way sync means a sale on either platform updates the other. That is the whole distinction, and it is the one that decides whether you oversell.</p>
+
+      <h2>What Should Flow, and Which Way</h2>
+      <p>Not everything should be bidirectional. Getting this wrong causes its own problems.</p>
+      <ul>
+        <li><strong>Inventory — both ways.</strong> A sale anywhere must decrement everywhere. This is non-negotiable.</li>
+        <li><strong>Orders — eBay to Shopify.</strong> You want one fulfilment queue, so eBay orders should arrive where your Shopify orders already are.</li>
+        <li><strong>Prices — usually one way.</strong> Most sellers price differently on a marketplace than on their own store, because the fee structures differ. Forcing prices to match is often wrong.</li>
+        <li><strong>Listing content — one way, deliberately.</strong> eBay titles are written for eBay search. You rarely want that text overwriting your Shopify product pages.</li>
+      </ul>
+      <p>"Two-way sync" that insists everything moves in both directions is not more capable. It is less configurable.</p>
+
+      <h2>Why Timing Matters More Than It Sounds</h2>
+      <p>A sync that runs hourly is not the same product as one that runs on the event.</p>
+      <p>The risk window is the gap between a sale and every channel knowing about it. On an hourly schedule that window is up to an hour, every hour, all day. For slow-moving stock you may never notice. For anything with low quantities or a sudden spike — a listing that gets picked up, a seasonal rush — an hour is long enough to sell the same unit twice more than once.</p>
+      <p>The unit that matters is not "how often does it sync" but "how long can two channels disagree".</p>
+
+      <h2>The SKU Problem Underneath</h2>
+      <p>Sync is only as good as the identity it syncs on. If eBay calls something <code>BLU-SHIRT-L</code> and Shopify calls it <code>blue-shirt-large</code>, nothing connects them and no amount of sync logic will.</p>
+      <p>This is the single most common reason integrations underperform, and it is almost always inherited: years of listings created by different people under different conventions, none of them wrong at the time.</p>
+      <p>Resolving it is unglamorous and has to happen first. Two channels that disagree about what a SKU means will keep disagreeing faster once they are connected.</p>
+
+      <h2>Where eBay Is Harder Than Other Marketplaces</h2>
+      <p>eBay gives sellers more room to differ from one another than most platforms:</p>
+      <ul>
+        <li><strong>Item specifics vary by category</strong>, so the fields to map are not the same across your own catalogue</li>
+        <li><strong>Business policies</strong> attach to listings in a way Shopify has no equivalent for</li>
+        <li><strong>Variation listings</strong> can be structured in ways Shopify's variant model cannot represent directly</li>
+        <li><strong>Seller metrics punish cancellations</strong>, so a stock error costs search placement as well as the sale</li>
+      </ul>
+      <p>That last point is worth sitting with. On most channels overselling costs you an unhappy buyer. On eBay it also costs you visibility, and visibility is why you are on eBay.</p>
+
+      <h2>Why Ours Is Scoped Per Shop</h2>
+      <p>Everything above is why the SynceBridge eBay integration is built as custom work rather than a one-click connector. A fixed connector has to assume one catalogue shape, and eBay sellers genuinely do not share one.</p>
+      <p>What you get is two-way inventory sync, eBay orders in your Shopify fulfilment queue, and field mapping matched to how your listings are actually structured — including the specifics that matter in your categories and none of the ones that do not.</p>
+      <p><a href="/integrations/ebay">See how the integration works</a>, or <a href="/contact">tell us how your catalogue is structured</a>.</p>
+    `
+  },
+  {
+    slug: 'ebay-ai-listing-improvement',
+    title: 'Using AI to Improve eBay Listings Without Wrecking Them',
+    excerpt: 'AI is genuinely good at the tedious parts of listing work and genuinely bad at being left unsupervised. Here is where the line sits.',
+    date: 'September 18, 2026',
+    readTime: '8 min read',
+    category: 'AI',
+    content: `
+      <h2>The Work Nobody Wants to Do</h2>
+      <p>Ask a seller with two thousand listings what is wrong with their catalogue and you will usually get the same answer: the listings are fine, but the item specifics were never filled in properly, half the titles were written years ago, and nobody is going through them by hand.</p>
+      <p>That is a real cost. eBay search leans heavily on item specifics — they drive both ranking and the filters buyers use to narrow results. A listing missing them is invisible to a large share of the people looking for it.</p>
+      <p>It is also exactly the kind of work AI is well suited to: repetitive, pattern-based, and starting from information you already have.</p>
+
+      <h2>Where AI Genuinely Helps</h2>
+      <ul>
+        <li><strong>Extracting specifics from what you have written.</strong> Brand, material, dimensions and style are usually already in your description. Pulling them into structured fields is mechanical.</li>
+        <li><strong>Rewriting titles for a different search engine.</strong> eBay titles and Shopify product names should not be the same text. Converting a keyword-stuffed eBay title into a readable product name, or the reverse, is a translation task.</li>
+        <li><strong>Filling gaps consistently.</strong> Applying one convention across two thousand listings is something software does better than a person on the second afternoon.</li>
+        <li><strong>Flagging the thin ones.</strong> Finding the listings that need attention is often more valuable than rewriting them.</li>
+        <li><strong>Drafting for a migrated catalogue.</strong> Products arriving from eBay often need fuller descriptions to work on your own store, where the description does more of the selling.</li>
+      </ul>
+
+      <h2>Where It Goes Wrong</h2>
+      <p>The failure mode is specific and worth naming: <strong>AI will invent an attribute rather than leave it blank.</strong></p>
+      <p>Ask a model to fill in "Material" for a product whose description does not mention material, and it will often produce a plausible answer rather than admit it does not know. Plausible is not the same as correct. On eBay an incorrect item specific is worse than a missing one — it produces returns, disputes, and damage to the seller metrics you were trying to improve.</p>
+      <p>The other failure is subtler. Run every listing through the same model and they converge on the same voice. A catalogue that reads as though one bot wrote it is not obviously better than one that reads as though nobody did.</p>
+
+      <h2>The Rule We Work To</h2>
+      <p><strong>AI drafts. A person publishes.</strong></p>
+      <p>Concretely, that means generated content is proposed rather than applied, changes are reviewable in batches rather than one listing at a time, anything the model inferred instead of extracted is marked as such, and nothing reaches eBay or Shopify until you have approved it.</p>
+      <p>This is slower than fully automatic. It is also the difference between a tool that improves your catalogue and one that quietly fills it with confident errors you find out about through returns.</p>
+
+      <h2>What to Fix First</h2>
+      <p>If you are going to spend effort here, the order matters:</p>
+      <ol>
+        <li><strong>Missing item specifics on listings that already sell.</strong> Best return available — these are proven products currently invisible to filtered searches.</li>
+        <li><strong>Titles on listings with impressions but no clicks.</strong> People are seeing them and not choosing them.</li>
+        <li><strong>Descriptions on anything migrated to Shopify.</strong> They were written for a buyer already in a marketplace flow, and that is not who is reading them now.</li>
+        <li><strong>Everything else.</strong> Only once the above is done.</li>
+      </ol>
+      <p>Bulk-rewriting an entire catalogue is the least effective version of this work, and the most common instinct.</p>
+
+      <h2>How This Fits the Integration</h2>
+      <p>AI-assisted listing improvement is part of the SynceBridge eBay integration rather than a separate product, because the two are hard to separate in practice. A catalogue moving between eBay and Shopify is exactly when the gaps become visible, and exactly when fixing them is cheapest.</p>
+      <p>It is scoped with the rest of the integration: which fields to draft, which to leave alone, and what your review step looks like. <a href="/integrations/ebay">See how the eBay integration works</a>, or <a href="/contact">tell us what your catalogue looks like</a>.</p>
+    `
+  },
+  {
     slug: 'etsy-uk-shopify-inventory',
     title: 'Running an Etsy UK Shop Alongside Shopify',
     excerpt: 'Selling on Etsy from the UK while running your own Shopify store brings a set of problems that do not show up when you sell on one channel. Here is what actually differs, and what to do about the stock.',
@@ -46,7 +249,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
       <h2>What Syncing Changes</h2>
       <p>The fix is to make one system authoritative and have the other follow it within seconds rather than hours. When a sale happens anywhere, every connected channel reflects the new level.</p>
-      <p>That is what SynceBridge does between Shopify and the marketplaces you sell on. Both stores carry your full stock rather than a split, and neither can sell something the other has just sold. Etsy is in early access and launches in October, with Amazon, eBay and TikTok Shop in development.</p>
+      <p>That is what SynceBridge does between Shopify and the marketplaces you sell on. Both stores carry your full stock rather than a split, and neither can sell something the other has just sold. eBay is available now as a custom integration, Etsy is in early access and launches in October, and Amazon and TikTok Shop are in development.</p>
 
       <h2>Where to Start</h2>
       <p>Before connecting anything, get your own records straight. Decide which system holds the authoritative stock figure, make sure your SKUs match on both sides, and resolve anything currently listed in both places at different quantities.</p>
@@ -216,8 +419,8 @@ export const BLOG_POSTS: BlogPost[] = [
       <p>If you sell the same stock in more than one place, reconciling quantities is not optional once volume picks up.</p>
 
       <h2>Where SynceBridge Fits</h2>
-      <p>To be straightforward about it: <strong>the SynceBridge eBay integration is still in active development and is not available yet.</strong> Etsy is our first channel and is in early access now, launching in October, with Amazon, eBay, and TikTok Shop in build behind it.</p>
-      <p>If eBay is a channel you depend on, that is worth telling us — which channels sellers actually need is what decides the order we ship them in. You can <a href="/contact">tell us about your setup</a>, or read more about <a href="/services/marketplace-integration">how we approach marketplace integration</a>.</p>
+      <p>The SynceBridge eBay integration is available now, built as a custom integration scoped to your shop: two-way listing, inventory and order sync between eBay and Shopify, and a migration path if you are moving a catalogue across. Etsy is in early access and launches in October, with Amazon and TikTok Shop in build behind it.</p>
+      <p>If eBay is a channel you depend on, <a href="/integrations/ebay">see how the eBay integration works</a> or <a href="/contact">tell us about your setup</a> and we will scope it.</p>
     `
   },
   {

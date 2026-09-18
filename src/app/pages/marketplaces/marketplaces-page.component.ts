@@ -18,7 +18,7 @@ export class MarketplacesPageComponent implements OnInit {
     this.metaService.updateTag({
       name: 'description',
       content:
-        'The marketplaces SynceBridge connects to your Shopify store. Etsy is in early access and launches in October, with Amazon, eBay and TikTok Shop in development.'
+        'The marketplaces SynceBridge connects to your Shopify store. eBay is available now as a custom integration with two-way sync and migration; Etsy is in early access and launches in October, with Amazon and TikTok Shop in development.'
     });
   }
 }

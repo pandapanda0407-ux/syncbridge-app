@@ -21,7 +21,7 @@ export const FEATURED_SERVICE: Service = {
   title: 'Marketplace Integration for Shopify',
   slug: 'marketplace-integration',
   description:
-    'Our core service, and the one everything else is built around. SynceBridge connects Shopify to the marketplaces you sell on, so inventory, orders, and listings stay in step without anyone copying numbers between dashboards — sell an item anywhere and stock drops everywhere, in real time. Etsy is in early access and launches in October, with Amazon, eBay, and TikTok Shop in active development.',
+    'Our core service, and the one everything else is built around. SynceBridge connects Shopify to the marketplaces you sell on, so inventory, orders, and listings stay in step without anyone copying numbers between dashboards — sell an item anywhere and stock drops everywhere, in real time. Etsy is in early access and launches in October. eBay is available today as a custom integration — two-way sync and eBay to Shopify migration — with Amazon and TikTok Shop in active development.',
   deliverables: [
     'Two-way inventory and order sync per channel',
     'Listing and product catalogue mapping',

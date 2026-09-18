@@ -1,6 +1,6 @@
 import { IconName } from '../shared/icon.component';
 
-export type ChannelState = 'live' | 'early' | 'progress';
+export type ChannelState = 'live' | 'early' | 'custom' | 'progress';
 
 export interface Channel {
   name: string;
@@ -41,9 +41,10 @@ export const CHANNELS: Channel[] = [
   {
     name: 'eBay',
     icon: 'globe',
-    status: 'In active development',
-    state: 'progress',
-    blurb: 'Fixed-price listing and inventory sync, in build now.'
+    status: 'Available as a custom integration',
+    state: 'custom',
+    blurb: 'Two-way listing, inventory and order sync between eBay and Shopify, plus eBay to Shopify migration. Built and scoped per shop.',
+    route: '/integrations/ebay'
   },
   {
     name: 'TikTok Shop',
@@ -55,7 +56,7 @@ export const CHANNELS: Channel[] = [
 ];
 
 export const EARLY_ACCESS_NOTE =
-  'The Etsy integration is in early access now and launches in October. We are onboarding early-bird sellers ahead of that — and if you need a channel we have not shipped yet, or need one to work differently to how we have built it, we will scope and build it as a custom integration for your shop.';
+  'The Etsy integration is in early access now and launches in October, and eBay is available today as a custom integration scoped to your shop. We are onboarding early-bird sellers ahead of the Etsy launch — and if you need a channel we have not shipped yet, or need one to work differently to how we have built it, we will scope and build it for you.';
 
 export const FEEDBACK_NOTE =
   'We are building this with sellers rather than at them. If something about your workflow does not fit how this works, tell us — feedback from real shops is what decides what ships next.';

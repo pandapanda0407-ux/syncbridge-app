@@ -23,14 +23,16 @@
 
     <div class="channels-grid">
       @for (channel of channels; track channel.name) {
-        <article class="channel-card glass-card" [class.is-early]="channel.state === 'early'">
+        <article class="channel-card glass-card" [class.is-early]="channel.state === 'early'"
+                 [class.is-custom]="channel.state === 'custom'">
           <div class="channel-head">
             <div class="channel-icon">
               <app-icon [name]="channel.icon" [size]="20" />
             </div>
             <h3>{{ channel.name }}</h3>
             <span class="status-tag" [class.live]="channel.state === 'live'"
-                  [class.early]="channel.state === 'early'">
+                  [class.early]="channel.state === 'early'"
+                  [class.custom]="channel.state === 'custom'">
               {{ channel.status }}
             </span>
           </div>

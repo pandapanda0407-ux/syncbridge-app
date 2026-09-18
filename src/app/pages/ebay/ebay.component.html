@@ -1,0 +1,91 @@
+<app-navbar />
+
+<div class="ebay-page">
+  <header class="ebay-hero">
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+    </div>
+    <div class="container">
+      <div class="status-pill">
+        <span class="dot"></span>
+        Available now &middot; Custom integration
+      </div>
+      <h1>The eBay integration,<br>built <span class="gradient-text">around your shop</span></h1>
+      <p class="hero-subtitle">
+        Two-way sync between eBay and Shopify, migration from eBay into Shopify, and
+        AI-assisted listing improvement. We scope it against how your shop actually runs
+        rather than fitting you to a fixed template.
+      </p>
+      <div class="hero-actions">
+        <a routerLink="/contact" class="btn-primary">Scope your integration</a>
+        <a routerLink="/marketplaces" class="btn-secondary">See other channels</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="highlights-section">
+    <div class="container">
+      <h2 class="section-title">What the integration does</h2>
+      <p class="section-subtitle">
+        Running eBay alongside a Shopify store, handled automatically.
+      </p>
+
+      <div class="highlights-grid">
+        @for (item of highlights; track item.title) {
+          <article class="highlight-card glass-card">
+            <div class="highlight-icon">
+              <app-icon [name]="item.icon" [size]="22" />
+            </div>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.description }}</p>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="custom-section">
+    <div class="container">
+      <h2 class="section-title">Why this one is custom</h2>
+      <p class="section-subtitle">
+        eBay gives sellers far more room to differ from each other than most marketplaces.
+        Business policies, item specifics that vary by category, multi-variation listings and
+        SKU schemes inherited from years of trading all differ shop to shop. A fixed connector
+        has to assume one shape and breaks on the rest, so we scope yours against your real
+        catalogue instead.
+      </p>
+      <p class="section-subtitle">
+        In practice that means a short call about how your listings are structured, a look at
+        your catalogue, and a build mapped to it. You are not waiting on a roadmap.
+      </p>
+      <a routerLink="/contact" class="btn-primary">Tell us about your setup</a>
+    </div>
+  </section>
+
+  <section class="ebay-reading">
+    <div class="container">
+      <h2 class="section-title">More on selling eBay and Shopify together</h2>
+      <div class="reading-grid">
+        <a routerLink="/blog/migrate-ebay-to-shopify" class="reading-card glass-card">
+          <h3>Migrating from eBay to Shopify</h3>
+          <p>What moves cleanly, what does not, and how to keep trading while you do it.</p>
+        </a>
+        <a routerLink="/blog/ebay-shopify-two-way-sync" class="reading-card glass-card">
+          <h3>Two-way eBay and Shopify sync</h3>
+          <p>What two-way actually means, and where one-way sync quietly costs you money.</p>
+        </a>
+        <a routerLink="/blog/ebay-ai-listing-improvement" class="reading-card glass-card">
+          <h3>AI-assisted eBay listings</h3>
+          <p>Using AI on item specifics and titles without publishing anything you have not read.</p>
+        </a>
+        <a routerLink="/blog/ebay-shopify-migration-help" class="reading-card glass-card">
+          <h3>How we help with the move</h3>
+          <p>What we take on, what stays with you, and how a migration actually runs.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<app-footer />

@@ -18,6 +18,7 @@ const staticRoutes = [
   '/contact',
   '/services',
   '/integrations/etsy',
+  '/integrations/ebay',
   '/blog',
   '/privacy-policy'
 ];

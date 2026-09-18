@@ -53,6 +53,11 @@ export const routes: Routes = [
       import('./pages/service-detail/service-detail.component').then(m => m.ServiceDetailComponent)
   },
   {
+    path: 'integrations/ebay',
+    canActivate: menuOnly,
+    loadComponent: () => import('./pages/ebay/ebay.component').then(m => m.EbayComponent)
+  },
+  {
     path: 'integrations/etsy',
     canActivate: menuOnly,
     loadComponent: () => import('./pages/etsy/etsy.component').then(m => m.EtsyComponent)

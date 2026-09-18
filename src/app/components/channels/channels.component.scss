@@ -73,6 +73,10 @@
   &.is-early {
     border-color: rgba(245, 158, 11, 0.28);
   }
+
+  &.is-custom {
+    border-color: rgba(139, 92, 246, 0.3);
+  }
 }
 
 .channel-head {
@@ -122,6 +126,13 @@
     background: rgba(245, 158, 11, 0.1);
     border-color: rgba(245, 158, 11, 0.3);
     color: var(--amber);
+  }
+
+  // Available, but scoped and built per shop rather than self-serve.
+  &.custom {
+    background: rgba(139, 92, 246, 0.12);
+    border-color: rgba(139, 92, 246, 0.32);
+    color: var(--purple-light);
   }
 }
 

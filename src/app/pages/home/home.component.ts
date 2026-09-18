@@ -57,7 +57,7 @@ export class HomeComponent implements OnInit {
       icon: 'store',
       title: 'Marketplaces',
       description:
-        'Etsy is in early access and launches in October. Amazon, eBay and TikTok Shop are in active development.',
+        'Etsy is in early access and launches in October. eBay is available now as a custom integration, with Amazon and TikTok Shop in development.',
       linkLabel: 'See the channels'
     },
     {
@@ -76,7 +76,7 @@ export class HomeComponent implements OnInit {
     this.titleService.setTitle('SynceBridge — Multi-Marketplace Inventory & Order Sync for Shopify');
     this.metaService.updateTag({
       name: 'description',
-      content: 'SynceBridge syncs inventory, orders and listings between Shopify and the marketplaces you sell on, in real time. Etsy in early access, launching October; Amazon, eBay and TikTok Shop in development. Stop overselling. Start scaling.'
+      content: 'SynceBridge syncs inventory, orders and listings between Shopify and the marketplaces you sell on, in real time. eBay integration and eBay to Shopify migration available now as custom builds; Etsy in early access, launching October. Stop overselling. Start scaling.'
     });
   }
 }
