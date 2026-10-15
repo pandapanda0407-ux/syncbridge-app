@@ -14,11 +14,11 @@ export class MarketplacesPageComponent implements OnInit {
   constructor(private titleService: Title, private metaService: Meta) {}
 
   ngOnInit() {
-    this.titleService.setTitle('Marketplaces — Etsy, Amazon, eBay & TikTok Shop | SynceBridge');
+    this.titleService.setTitle('Marketplaces — Etsy, Amazon, eBay & TikTok Shop | SyncE Bridge');
     this.metaService.updateTag({
       name: 'description',
       content:
-        'The marketplaces SynceBridge connects to your Shopify store. eBay is available now as a custom integration with two-way sync and migration; Etsy is in early access and launches in October, with Amazon and TikTok Shop in development.'
+        'The marketplaces SyncE Bridge connects to your Shopify store. eBay is available now as a custom integration with two-way sync and migration; Etsy launches in October, with Amazon and TikTok Shop in development.'
     });
   }
 }

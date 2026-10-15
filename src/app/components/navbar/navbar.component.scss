@@ -129,7 +129,17 @@
   }
 }
 
-@media (max-width: 768px) {
+// Between the desktop bar and the hamburger there is a band where the links,
+// the wordmark and the CTA together are wider than the viewport and the row
+// runs off the right edge. Tighten the row before it gets there.
+@media (max-width: 1120px) and (min-width: 961px) {
+  .nav-inner { gap: 20px; }
+  .nav-links { gap: 0; }
+  .nav-link { padding: 8px 9px; font-size: 0.82rem; }
+  .nav-actions .btn-primary { padding: 10px 18px; font-size: 0.82rem; }
+}
+
+@media (max-width: 960px) {
   .hamburger {
     display: flex;
   }

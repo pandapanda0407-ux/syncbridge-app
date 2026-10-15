@@ -50,7 +50,7 @@ export class BlogPostComponent implements OnInit {
     }
 
     {
-      const pageTitle = `${this.post.title} | SynceBridge Blog`;
+      const pageTitle = `${this.post.title} | SyncE Bridge Blog`;
       const url = `https://syncebridge.com/blog/${this.post.slug}`;
 
       this.titleService.setTitle(pageTitle);
@@ -83,7 +83,7 @@ export class BlogPostComponent implements OnInit {
             publisher: { '@id': 'https://syncebridge.com/#organization' }
           },
           // Breadcrumbs are what turn the green URL line in a Google result
-          // into "SynceBridge › Blog › Post title".
+          // into "SyncE Bridge › Blog › Post title".
           {
             '@type': 'BreadcrumbList',
             itemListElement: [

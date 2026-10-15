@@ -63,7 +63,7 @@ export const BLOG_POSTS: BlogPost[] = [
       </ol>
 
       <h2>Where We Come In</h2>
-      <p>SynceBridge builds eBay integrations as custom work scoped per shop: two-way listing, inventory and order sync between eBay and Shopify, plus migration from eBay into Shopify. It is scoped rather than self-serve because eBay catalogues genuinely differ — item specifics by category, variation structures and inherited SKU schemes are rarely the same twice.</p>
+      <p>SyncE Bridge builds eBay integrations as custom work scoped per shop: two-way listing, inventory and order sync between eBay and Shopify, plus migration from eBay into Shopify. It is scoped rather than self-serve because eBay catalogues genuinely differ — item specifics by category, variation structures and inherited SKU schemes are rarely the same twice.</p>
       <p><a href="/blog/ebay-shopify-migration-help">Here is what that looks like in practice</a>, or <a href="/contact">tell us about your catalogue</a> and we will scope it.</p>
     `
   },
@@ -162,7 +162,7 @@ export const BLOG_POSTS: BlogPost[] = [
       <p>That last point is worth sitting with. On most channels overselling costs you an unhappy buyer. On eBay it also costs you visibility, and visibility is why you are on eBay.</p>
 
       <h2>Why Ours Is Scoped Per Shop</h2>
-      <p>Everything above is why the SynceBridge eBay integration is built as custom work rather than a one-click connector. A fixed connector has to assume one catalogue shape, and eBay sellers genuinely do not share one.</p>
+      <p>Everything above is why the SyncE Bridge eBay integration is built as custom work rather than a one-click connector. A fixed connector has to assume one catalogue shape, and eBay sellers genuinely do not share one.</p>
       <p>What you get is two-way inventory sync, eBay orders in your Shopify fulfilment queue, and field mapping matched to how your listings are actually structured — including the specifics that matter in your categories and none of the ones that do not.</p>
       <p><a href="/integrations/ebay">See how the integration works</a>, or <a href="/contact">tell us how your catalogue is structured</a>.</p>
     `
@@ -210,7 +210,7 @@ export const BLOG_POSTS: BlogPost[] = [
       <p>Bulk-rewriting an entire catalogue is the least effective version of this work, and the most common instinct.</p>
 
       <h2>How This Fits the Integration</h2>
-      <p>AI-assisted listing improvement is part of the SynceBridge eBay integration rather than a separate product, because the two are hard to separate in practice. A catalogue moving between eBay and Shopify is exactly when the gaps become visible, and exactly when fixing them is cheapest.</p>
+      <p>AI-assisted listing improvement is part of the SyncE Bridge eBay integration rather than a separate product, because the two are hard to separate in practice. A catalogue moving between eBay and Shopify is exactly when the gaps become visible, and exactly when fixing them is cheapest.</p>
       <p>It is scoped with the rest of the integration: which fields to draft, which to leave alone, and what your review step looks like. <a href="/integrations/ebay">See how the eBay integration works</a>, or <a href="/contact">tell us what your catalogue looks like</a>.</p>
     `
   },
@@ -249,7 +249,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
       <h2>What Syncing Changes</h2>
       <p>The fix is to make one system authoritative and have the other follow it within seconds rather than hours. When a sale happens anywhere, every connected channel reflects the new level.</p>
-      <p>That is what SynceBridge does between Shopify and the marketplaces you sell on. Both stores carry your full stock rather than a split, and neither can sell something the other has just sold. eBay is available now as a custom integration, Etsy is in early access and launches in October, and Amazon and TikTok Shop are in development.</p>
+      <p>That is what SyncE Bridge does between Shopify and the marketplaces you sell on. Both stores carry your full stock rather than a split, and neither can sell something the other has just sold. eBay is available now as a custom integration, Etsy is in early access and launches in October, and Amazon and TikTok Shop are in development.</p>
 
       <h2>Where to Start</h2>
       <p>Before connecting anything, get your own records straight. Decide which system holds the authoritative stock figure, make sure your SKUs match on both sides, and resolve anything currently listed in both places at different quantities.</p>
@@ -324,7 +324,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
       <h2>Where Multi-Channel Selling Fits</h2>
       <p>If you also run a Shopify store, your Etsy listings are only part of your search footprint. Your own storefront can rank in Google for the same terms without competing against other Etsy sellers on the same page.</p>
-      <p>The operational catch is that running the same catalogue in two places doubles the work — and doubles the chance of stock drifting out of step. That is the problem SynceBridge exists to solve: keeping inventory, orders, and listings aligned so multi-channel selling does not cost you more admin than it earns.</p>
+      <p>The operational catch is that running the same catalogue in two places doubles the work — and doubles the chance of stock drifting out of step. That is the problem SyncE Bridge exists to solve: keeping inventory, orders, and listings aligned so multi-channel selling does not cost you more admin than it earns.</p>
       <p>The Etsy integration is in early access now and launches in October. If you are running both an Etsy shop and a Shopify store today, <a href="/contact">get in touch</a> — early-access sellers help shape what ships.</p>
     `
   },
@@ -376,7 +376,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
       <h2>Stock and Ads Together</h2>
       <p>One specific way multi-channel sellers lose money on Etsy Ads: paying for clicks on an item that has already sold out on another platform. If your Etsy stock does not reflect a sale that happened on your Shopify store, you are buying traffic to something you cannot ship — and risking a cancellation on top.</p>
-      <p>Keeping stock synchronised across channels is not usually thought of as an advertising problem, but it is one. SynceBridge is built for exactly that; the Etsy integration is in early access now, launching in October.</p>
+      <p>Keeping stock synchronised across channels is not usually thought of as an advertising problem, but it is one. SyncE Bridge is built for exactly that; the Etsy integration is in early access now, launching in October.</p>
     `
   },
   {
@@ -418,8 +418,8 @@ export const BLOG_POSTS: BlogPost[] = [
       <p>Sellers running eBay alongside other channels hit a predictable problem: an item sells elsewhere, the eBay listing stays live, and either the ad spend continues on an item that cannot ship or the order arrives and has to be cancelled. eBay's seller metrics treat cancellations harshly.</p>
       <p>If you sell the same stock in more than one place, reconciling quantities is not optional once volume picks up.</p>
 
-      <h2>Where SynceBridge Fits</h2>
-      <p>The SynceBridge eBay integration is available now, built as a custom integration scoped to your shop: two-way listing, inventory and order sync between eBay and Shopify, and a migration path if you are moving a catalogue across. Etsy is in early access and launches in October, with Amazon and TikTok Shop in build behind it.</p>
+      <h2>Where SyncE Bridge Fits</h2>
+      <p>The SyncE Bridge eBay integration is available now, built as a custom integration scoped to your shop: two-way listing, inventory and order sync between eBay and Shopify, and a migration path if you are moving a catalogue across. Etsy is in early access and launches in October, with Amazon and TikTok Shop in build behind it.</p>
       <p>If eBay is a channel you depend on, <a href="/integrations/ebay">see how the eBay integration works</a> or <a href="/contact">tell us about your setup</a> and we will scope it.</p>
     `
   },
@@ -438,7 +438,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
       <h2>What AI Upload Does</h2>
       <p>AI Upload is built for exactly that gap — products in your catalogue that are not yet listed on Etsy.</p>
-      <p>Instead of filling in the listing form, you answer a short set of questions about the product. From those answers, SynceBridge assembles the listing and publishes it to your Etsy shop through the official Etsy Open API v3.</p>
+      <p>Instead of filling in the listing form, you answer a short set of questions about the product. From those answers, SyncE Bridge assembles the listing and publishes it to your Etsy shop through the official Etsy Open API v3.</p>
       <p>What it puts together:</p>
       <ul>
         <li>A search-oriented title built around the terms buyers actually use</li>
@@ -454,7 +454,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
       <h2>Why This Runs Through the Official API</h2>
       <p>Listings are created through the Etsy Open API v3 using the scopes you granted when you connected your shop, over Etsy's own OAuth flow. No scraping, no automation pretending to be you in a browser, no credentials stored on our side.</p>
-      <p>That is the same principle the rest of SynceBridge runs on, and it is what makes the feature something you can rely on rather than something that breaks the next time Etsy changes a page.</p>
+      <p>That is the same principle the rest of SyncE Bridge runs on, and it is what makes the feature something you can rely on rather than something that breaks the next time Etsy changes a page.</p>
 
       <h2>What It Is Not</h2>
       <p>Some honest limits:</p>
@@ -492,10 +492,10 @@ export const BLOG_POSTS: BlogPost[] = [
       <p>These approaches are error-prone and time-consuming. A spreadsheet doesn't update in real time. Buffer stock means you're artificially limiting your sales. And logging in manually means you're always one step behind.</p>
 
       <h2>How Automatic Etsy and Shopify Sync Works</h2>
-      <p>A proper sync tool like SynceBridge connects to both the Etsy Open API v3 and the Shopify API. Here's what happens when a sale occurs:</p>
+      <p>A proper sync tool like SyncE Bridge connects to both the Etsy Open API v3 and the Shopify API. Here's what happens when a sale occurs:</p>
       <ol>
         <li>A customer buys a product on Etsy</li>
-        <li>SynceBridge detects the sale via the Etsy API in real time</li>
+        <li>SyncE Bridge detects the sale via the Etsy API in real time</li>
         <li>The inventory level is immediately reduced on Shopify</li>
         <li>Both platforms reflect the correct stock level within seconds</li>
       </ol>
@@ -511,8 +511,8 @@ export const BLOG_POSTS: BlogPost[] = [
         <li>Operates transparently with clearly defined API scopes</li>
       </ul>
 
-      <h2>Getting Started with SynceBridge</h2>
-      <p>SynceBridge is built specifically for Etsy and Shopify sellers who want to manage both stores from a single dashboard. It uses the official Etsy Open API v3 and Shopify API with OAuth authorization — your login credentials are never shared.</p>
+      <h2>Getting Started with SyncE Bridge</h2>
+      <p>SyncE Bridge is built specifically for Etsy and Shopify sellers who want to manage both stores from a single dashboard. It uses the official Etsy Open API v3 and Shopify API with OAuth authorization — your login credentials are never shared.</p>
       <p>Once connected, your inventory stays in sync automatically. You can fulfill orders from one screen, monitor analytics across both stores, and set low-stock alerts — all without switching tabs.</p>
       <p>Stop overselling. Stop wasting time on manual updates. Let the sync happen automatically so you can focus on what matters: growing your business.</p>
     `
@@ -544,10 +544,10 @@ export const BLOG_POSTS: BlogPost[] = [
       <p>Decide which products you'll list on both platforms. Not every product needs to be on both — some may perform better on Etsy (handmade, niche) while others suit Shopify's broader audience.</p>
 
       <h3>Step 2 — Sync Your Inventory</h3>
-      <p>This is the most critical step. Use a tool like SynceBridge to connect both stores and ensure inventory updates automatically when a sale happens on either platform. This prevents the nightmare scenario of overselling.</p>
+      <p>This is the most critical step. Use a tool like SyncE Bridge to connect both stores and ensure inventory updates automatically when a sale happens on either platform. This prevents the nightmare scenario of overselling.</p>
 
       <h3>Step 3 — Unify Your Order Management</h3>
-      <p>Instead of logging into Etsy and Shopify separately to process orders, use a unified dashboard. SynceBridge consolidates orders from both platforms so you can fulfill everything from one screen.</p>
+      <p>Instead of logging into Etsy and Shopify separately to process orders, use a unified dashboard. SyncE Bridge consolidates orders from both platforms so you can fulfill everything from one screen.</p>
 
       <h3>Step 4 — Monitor Unified Analytics</h3>
       <p>Track which platform drives more revenue, which products sell better where, and where your customers are coming from. This data helps you make smarter decisions about inventory, pricing, and marketing spend.</p>
@@ -561,7 +561,7 @@ export const BLOG_POSTS: BlogPost[] = [
       </ul>
 
       <h2>The Right Tool Makes All the Difference</h2>
-      <p>SynceBridge is designed specifically for sellers running Etsy and Shopify simultaneously. It handles inventory sync, order consolidation, and analytics in real time — so you get the benefits of both platforms without the operational chaos.</p>
+      <p>SyncE Bridge is designed specifically for sellers running Etsy and Shopify simultaneously. It handles inventory sync, order consolidation, and analytics in real time — so you get the benefits of both platforms without the operational chaos.</p>
     `
   },
   {
@@ -606,7 +606,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
       <h2>The Challenge: Managing Two Platforms</h2>
       <p>The practical challenge of running both Etsy and Shopify is operational: you have two inventories to manage, two order queues to fulfill, and two sets of analytics to monitor.</p>
-      <p>This is where SynceBridge comes in. It connects both platforms and keeps everything in sync automatically — inventory, orders, and listings — so you get the strategic benefits of running both stores without the operational complexity.</p>
+      <p>This is where SyncE Bridge comes in. It connects both platforms and keeps everything in sync automatically — inventory, orders, and listings — so you get the strategic benefits of running both stores without the operational complexity.</p>
 
       <h2>Conclusion</h2>
       <p>Stop asking whether to use Etsy or Shopify. Start asking how to use both effectively. The sellers who dominate ecommerce in their niche are almost always running multiple channels — and using tools to manage them efficiently.</p>
@@ -643,8 +643,8 @@ export const BLOG_POSTS: BlogPost[] = [
         <li>Handles edge cases like simultaneous purchases gracefully</li>
       </ul>
 
-      <h2>How SynceBridge Prevents Overselling</h2>
-      <p>SynceBridge uses the official Etsy Open API v3 and Shopify API to monitor your inventory in real time. The moment a sale is detected on either platform, stock levels are updated across both stores simultaneously.</p>
+      <h2>How SyncE Bridge Prevents Overselling</h2>
+      <p>SyncE Bridge uses the official Etsy Open API v3 and Shopify API to monitor your inventory in real time. The moment a sale is detected on either platform, stock levels are updated across both stores simultaneously.</p>
       <p>This means:</p>
       <ul>
         <li>No more manual stock adjustments between platforms</li>
@@ -663,7 +663,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
       <h2>Protect Your Seller Reputation</h2>
       <p>Your reputation on Etsy and Shopify is one of your most valuable business assets. Overselling damages it quickly and takes a long time to repair. Automated inventory sync is not a luxury — for any multi-channel seller, it's essential infrastructure.</p>
-      <p>SynceBridge makes it simple: connect your stores once, and the sync runs automatically in the background while you focus on your products and customers.</p>
+      <p>SyncE Bridge makes it simple: connect your stores once, and the sync runs automatically in the background while you focus on your products and customers.</p>
     `
   }
 ];

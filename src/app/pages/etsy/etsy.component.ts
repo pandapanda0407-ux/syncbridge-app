@@ -37,7 +37,7 @@ export class EtsyComponent implements OnInit {
       icon: 'file-text',
       title: 'Listing and catalogue mapping',
       description:
-        'Match Etsy listings to Shopify products once — including variations — and SynceBridge keeps the pairing from then on, including for new listings.'
+        'Match Etsy listings to Shopify products once — including variations — and SyncE Bridge keeps the pairing from then on, including for new listings.'
     },
     {
       icon: 'x-circle',
@@ -62,11 +62,11 @@ export class EtsyComponent implements OnInit {
   constructor(private titleService: Title, private metaService: Meta) {}
 
   ngOnInit() {
-    this.titleService.setTitle('Etsy Integration — Sync Etsy & Shopify Inventory | SynceBridge');
+    this.titleService.setTitle('Etsy Integration — Sync Etsy & Shopify Inventory | SyncE Bridge');
     this.metaService.updateTag({
       name: 'description',
       content:
-        'Connect Etsy to Shopify with SynceBridge. Real-time two-way inventory and order sync via the official Etsy Open API v3, with OAuth-only access and clearly scoped permissions. In early access now, launching October.'
+        'Connect Etsy to Shopify with SyncE Bridge. Real-time two-way inventory and order sync via the official Etsy Open API v3, with OAuth-only access and clearly scoped permissions.'
     });
   }
 }

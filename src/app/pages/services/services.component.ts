@@ -21,7 +21,7 @@ export class ServicesComponent implements OnInit {
   constructor(private titleService: Title, private metaService: Meta) {}
 
   ngOnInit() {
-    this.titleService.setTitle('Services — Shopify Marketplace Integration, SEO & Custom Apps | SynceBridge');
+    this.titleService.setTitle('Services — Shopify Marketplace Integration, SEO & Custom Apps | SyncE Bridge');
     this.metaService.updateTag({
       name: 'description',
       content:

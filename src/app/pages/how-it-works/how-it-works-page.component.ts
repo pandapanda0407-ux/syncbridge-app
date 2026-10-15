@@ -14,7 +14,7 @@ export class HowItWorksPageComponent implements OnInit {
   constructor(private titleService: Title, private metaService: Meta) {}
 
   ngOnInit() {
-    this.titleService.setTitle('How It Works — Connected in Four Steps | SynceBridge');
+    this.titleService.setTitle('How It Works — Connected in Four Steps | SyncE Bridge');
     this.metaService.updateTag({
       name: 'description',
       content:

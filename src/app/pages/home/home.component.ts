@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
       icon: 'plug',
       title: 'How It Works',
       description:
-        'Connect your stores, map your catalog and let SynceBridge keep them in step. Four steps, no technical knowledge required.',
+        'Connect your stores, map your catalog and let SyncE Bridge keep them in step. Four steps, no technical knowledge required.',
       linkLabel: 'See the setup'
     },
     {
@@ -57,7 +57,7 @@ export class HomeComponent implements OnInit {
       icon: 'store',
       title: 'Marketplaces',
       description:
-        'Etsy is in early access and launches in October. eBay is available now as a custom integration, with Amazon and TikTok Shop in development.',
+        'eBay is available now as a custom integration. Etsy launches in October, with Amazon and TikTok Shop in development.',
       linkLabel: 'See the channels'
     },
     {
@@ -73,10 +73,10 @@ export class HomeComponent implements OnInit {
   constructor(private titleService: Title, private metaService: Meta) {}
 
   ngOnInit() {
-    this.titleService.setTitle('SynceBridge — Multi-Marketplace Inventory & Order Sync for Shopify');
+    this.titleService.setTitle('SyncE Bridge — Multi-Marketplace Inventory & Order Sync for Shopify');
     this.metaService.updateTag({
       name: 'description',
-      content: 'SynceBridge syncs inventory, orders and listings between Shopify and the marketplaces you sell on, in real time. eBay integration and eBay to Shopify migration available now as custom builds; Etsy in early access, launching October. Stop overselling. Start scaling.'
+      content: 'SyncE Bridge syncs inventory, orders and listings between Shopify and every marketplace you sell on, in real time from one dashboard. eBay integration and eBay to Shopify migration available now as custom builds; Etsy launching October, Amazon and TikTok Shop in development. Stop overselling. Start scaling.'
     });
   }
 }

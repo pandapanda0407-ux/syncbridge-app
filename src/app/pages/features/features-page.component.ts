@@ -14,7 +14,7 @@ export class FeaturesPageComponent implements OnInit {
   constructor(private titleService: Title, private metaService: Meta) {}
 
   ngOnInit() {
-    this.titleService.setTitle('Features — Real-Time Inventory & Order Sync | SynceBridge');
+    this.titleService.setTitle('Features — Real-Time Inventory & Order Sync | SyncE Bridge');
     this.metaService.updateTag({
       name: 'description',
       content:

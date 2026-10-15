@@ -61,11 +61,11 @@ export class EbayComponent implements OnInit {
   constructor(private titleService: Title, private metaService: Meta) {}
 
   ngOnInit() {
-    this.titleService.setTitle('eBay Integration — Sync eBay & Shopify, and Migrate | SynceBridge');
+    this.titleService.setTitle('eBay Integration — Sync eBay & Shopify, and Migrate | SyncE Bridge');
     this.metaService.updateTag({
       name: 'description',
       content:
-        'Connect eBay to Shopify with SynceBridge: two-way inventory and order sync, eBay to Shopify migration, and AI-assisted listing improvement. Available now as a custom integration scoped to your shop.'
+        'Connect eBay to Shopify with SyncE Bridge: two-way inventory and order sync, eBay to Shopify migration, and AI-assisted listing improvement. Available now as a custom integration scoped to your shop.'
     });
   }
 }

@@ -23,14 +23,14 @@ export class HowItWorksComponent {
       number: '01',
       title: 'Authorize Your Stores',
       description: 'Connect Shopify and your marketplaces via their official OAuth flows.',
-      detail: 'Click "Connect" and you\'ll be redirected to each platform\'s own authorization page. SynceBridge requests only the minimum scopes needed: listings, receipts, and inventory. Your login credentials are never shared with us.',
+      detail: 'Click "Connect" and you\'ll be redirected to each platform\'s own authorization page. SyncE Bridge requests only the minimum scopes needed: listings, receipts, and inventory. Your login credentials are never shared with us.',
       icon: 'key'
     },
     {
       number: '02',
       title: 'Auto-Sync Products & Orders',
       description: 'Your listings and orders are imported automatically.',
-      detail: 'Once authorized, SynceBridge pulls your existing products and open orders from both platforms. All data is mapped and deduplicated in our secure database. The initial sync completes within minutes.',
+      detail: 'Once authorized, SyncE Bridge pulls your existing products and open orders from both platforms. All data is mapped and deduplicated in our secure database. The initial sync completes within minutes.',
       icon: 'bolt'
     },
     {
@@ -44,7 +44,7 @@ export class HowItWorksComponent {
       number: '04',
       title: 'Grow With Confidence',
       description: 'Analytics and automation keep you ahead of demand.',
-      detail: 'Monitor unified revenue, best-selling items, and customer trends across platforms. Set low-stock alerts and automation rules. SynceBridge keeps your stores consistent 24/7 so you can focus on what matters: your products.',
+      detail: 'Monitor unified revenue, best-selling items, and customer trends across platforms. Set low-stock alerts and automation rules. SyncE Bridge keeps your stores consistent 24/7 so you can focus on what matters: your products.',
       icon: 'trending-up'
     }
   ];

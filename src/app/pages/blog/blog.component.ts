@@ -18,7 +18,7 @@ export class BlogComponent implements OnInit {
   constructor(private titleService: Title, private metaService: Meta) {}
 
   ngOnInit() {
-    this.titleService.setTitle('Blog — Etsy & Shopify Seller Guides | SynceBridge');
+    this.titleService.setTitle('Blog — Etsy & Shopify Seller Guides | SyncE Bridge');
     this.metaService.updateTag({ name: 'description', content: 'Guides, strategies, and tips for sellers running both Etsy and Shopify stores. Learn how to sync inventory, prevent overselling, and grow multi-channel.' });
   }
 }

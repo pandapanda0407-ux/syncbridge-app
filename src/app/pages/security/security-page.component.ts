@@ -14,11 +14,11 @@ export class SecurityPageComponent implements OnInit {
   constructor(private titleService: Title, private metaService: Meta) {}
 
   ngOnInit() {
-    this.titleService.setTitle('Security — Official API Access, No Stored Credentials | SynceBridge');
+    this.titleService.setTitle('Security — Official API Access, No Stored Credentials | SyncE Bridge');
     this.metaService.updateTag({
       name: 'description',
       content:
-        'Your store credentials are never stored. SynceBridge uses industry-standard security practices and official API channels for every marketplace connection.'
+        'Your store credentials are never stored. SyncE Bridge uses industry-standard security practices and official API channels for every marketplace connection.'
     });
   }
 }

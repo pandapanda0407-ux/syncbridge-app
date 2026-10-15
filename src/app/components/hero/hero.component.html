@@ -22,7 +22,7 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="currentColor"/>
         </svg>
-        Request early access
+        Get in touch
       </button>
       <a routerLink="/how-it-works" class="btn-secondary">
         See How It Works
@@ -40,9 +40,6 @@
                [class.is-early]="channel.state === 'early'"
                [class.is-custom]="channel.state === 'custom'">
             {{ channel.name }}
-            @if (channel.state === 'early') {
-              <span class="chip-tag">Early access</span>
-            }
             @if (channel.state === 'custom') {
               <span class="chip-tag is-custom">Custom</span>
             }
@@ -51,18 +48,18 @@
       </div>
     </div>
 
-    <!-- Styled depiction of the SynceBridge dashboard. Built as markup rather
+    <!-- Styled depiction of the SyncE Bridge dashboard. Built as markup rather
          than a screenshot so it stays sharp at any size, follows the site
          theme, and publishes no store data. Values are illustrative, which the
          "Preview" tag states outright. -->
-    <div class="dashboard-preview" aria-label="Preview of the SynceBridge dashboard">
+    <div class="dashboard-preview" aria-label="Preview of the SyncE Bridge dashboard">
       <div class="dash-chrome">
         <div class="dash-title">
           <span class="dash-heading">Dashboard</span>
-          <span class="dash-crumb">SynceBridge / Dashboard</span>
+          <span class="dash-crumb">SyncE Bridge / Dashboard</span>
         </div>
         <div class="dash-chrome-right">
-          <span class="dash-sync">Last sync: 52s ago</span>
+          <span class="dash-sync">Last sync: 12m ago</span>
           <span class="dash-btn">
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M21 12a9 9 0 11-3-6.7M21 3v6h-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -74,46 +71,97 @@
       </div>
 
       <div class="dash-body">
-        <span class="dash-label">Revenue &amp; Orders</span>
-        <div class="dash-row dash-row-3">
-          <div class="dash-card is-green">
-            <span class="dash-card-label">Total Revenue</span>
-            <span class="dash-card-value">$12,480</span>
-            <span class="dash-pill is-green">↑ synced from 142 orders</span>
+        <div class="dash-store">
+          <div class="dash-store-id">
+            <span class="dash-store-name">mobilesaga</span>
+            <span class="dash-route">Shopify → eBay</span>
           </div>
-          <div class="dash-card is-blue">
-            <span class="dash-card-label">Last 30 Days</span>
-            <span class="dash-card-value">$3,240</span>
-            <span class="dash-pill is-blue">38 orders this month</span>
-          </div>
-          <div class="dash-card">
-            <span class="dash-card-label">Total Orders</span>
-            <span class="dash-card-value">142</span>
-            <span class="dash-pill is-green">✓ all synced</span>
-          </div>
+          <span class="dash-store-sub">Connected to eBay · 237 listings live</span>
         </div>
 
-        <span class="dash-label">Listings Overview</span>
-        <div class="dash-row dash-row-4">
-          <div class="dash-mini">
-            <span class="dash-mini-label">Total Products</span>
-            <span class="dash-mini-value is-blue">386</span>
-            <span class="dash-mini-sub">Imported from Shopify</span>
+        <div class="dash-split">
+          <div class="dash-side">
+            <div class="dash-panel is-setup">
+              <div class="dash-panel-head">
+                <span class="dash-panel-title">Finish setup</span>
+                <span class="dash-panel-count">3 / 4</span>
+              </div>
+              <div class="dash-progress"><span style="width: 75%"></span></div>
+              <ul class="dash-steps">
+                <li class="is-done">Connect your eBay account</li>
+                <li class="is-done">Import your Shopify products</li>
+                <li class="is-done">Upload your products to eBay</li>
+                <li class="is-next">Create a listing rule</li>
+              </ul>
+              <span class="dash-cta">Upload products on eBay</span>
+            </div>
+
+            <div class="dash-panel">
+              <span class="dash-panel-title">Catalogue</span>
+              <div class="dash-stat-line">
+                <span class="dash-stat-num">278</span>
+                <span class="dash-stat-text">products in the app</span>
+              </div>
+              <div class="dash-stat-line">
+                <span class="dash-stat-num is-green">237</span>
+                <span class="dash-stat-text">live on eBay, of 240</span>
+              </div>
+              <div class="dash-progress"><span class="is-green" style="width: 79%"></span></div>
+              <div class="dash-legend">
+                <span class="is-green">Live</span>
+                <span class="is-blue">Draft</span>
+                <span>Not listed</span>
+              </div>
+            </div>
           </div>
-          <div class="dash-mini">
-            <span class="dash-mini-label">Active</span>
-            <span class="dash-mini-value is-green">312</span>
-            <span class="dash-mini-sub">Live on marketplaces</span>
-          </div>
-          <div class="dash-mini">
-            <span class="dash-mini-label">Low Stock</span>
-            <span class="dash-mini-value is-amber">7</span>
-            <span class="dash-mini-sub">Need restocking</span>
-          </div>
-          <div class="dash-mini">
-            <span class="dash-mini-label">Out of Stock</span>
-            <span class="dash-mini-value is-red">12</span>
-            <span class="dash-mini-sub">Zero inventory</span>
+
+          <div class="dash-main">
+            <div class="dash-row dash-row-3">
+              <div class="dash-card is-green">
+                <span class="dash-card-label">Total Revenue</span>
+                <span class="dash-card-value">$12,480</span>
+                <span class="dash-pill is-green">from 142 orders</span>
+              </div>
+              <div class="dash-card is-blue">
+                <span class="dash-card-label">Last 30 Days</span>
+                <span class="dash-card-value">$3,240</span>
+                <span class="dash-pill is-blue">38 orders this month</span>
+              </div>
+              <div class="dash-card">
+                <span class="dash-card-label">Total Orders</span>
+                <span class="dash-card-value">142</span>
+                <span class="dash-pill is-green">✓ all synced</span>
+              </div>
+            </div>
+
+            <div class="dash-panel is-feed">
+              <div class="dash-panel-head">
+                <span class="dash-panel-title">What just happened</span>
+                <div class="dash-filters">
+                  <span class="is-active">Everything</span>
+                  <span>Recent Orders</span>
+                  <span>Sync</span>
+                </div>
+              </div>
+              <ul class="dash-feed-list">
+                <li>
+                  <span class="dash-feed-text">Sync complete — 240 listings pushed to eBay</span>
+                  <span class="dash-feed-time">12m ago</span>
+                </li>
+                <li>
+                  <span class="dash-feed-text">Pushed 240 listings to eBay — 23 changed</span>
+                  <span class="dash-feed-time">12m ago</span>
+                </li>
+                <li>
+                  <span class="dash-feed-text">Sync complete — 240 listings pushed to eBay</span>
+                  <span class="dash-feed-time">27m ago</span>
+                </li>
+                <li>
+                  <span class="dash-feed-text">Pushed 240 listings to eBay — 23 changed</span>
+                  <span class="dash-feed-time">42m ago</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

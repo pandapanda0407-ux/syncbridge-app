@@ -6,7 +6,7 @@ import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { IconComponent } from '../../shared/icon.component';
 import { Service, ServiceGroup, findService, groupForService } from '../../data/services';
-import { CHANNELS, EARLY_ACCESS_NOTE, FEEDBACK_NOTE } from '../../data/channels';
+import { CHANNELS, AVAILABILITY_NOTE, FEEDBACK_NOTE } from '../../data/channels';
 
 @Component({
   selector: 'app-service-detail',
@@ -29,7 +29,7 @@ export class ServiceDetailComponent implements OnInit {
   /** The marketplace-integration page also carries the channel roadmap. */
   isMarketplaceIntegration = signal(false);
   channels = CHANNELS;
-  earlyAccessNote = EARLY_ACCESS_NOTE;
+  availabilityNote = AVAILABILITY_NOTE;
   feedbackNote = FEEDBACK_NOTE;
 
   ngOnInit() {
@@ -50,7 +50,7 @@ export class ServiceDetailComponent implements OnInit {
       );
       this.isMarketplaceIntegration.set(slug === 'marketplace-integration');
 
-      this.titleService.setTitle(`${service.title} — SynceBridge`);
+      this.titleService.setTitle(`${service.title} — SyncE Bridge`);
       this.metaService.updateTag({ name: 'description', content: service.description });
       this.setSchema(service, group);
     });
@@ -58,7 +58,7 @@ export class ServiceDetailComponent implements OnInit {
 
   /**
    * Service + breadcrumb schema, so the result line reads
-   * "SynceBridge › Services › <service>" rather than a bare URL.
+   * "SyncE Bridge › Services › <service>" rather than a bare URL.
    */
   private setSchema(service: Service, group: ServiceGroup | undefined) {
     const url = `https://syncebridge.com/services/${service.slug}`;

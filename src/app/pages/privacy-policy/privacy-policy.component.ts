@@ -17,11 +17,11 @@ export class PrivacyPolicyComponent implements OnInit {
   constructor(private titleService: Title, private metaService: Meta) {}
 
   ngOnInit() {
-    this.titleService.setTitle('Privacy Policy | SynceBridge');
+    this.titleService.setTitle('Privacy Policy | SyncE Bridge');
     this.metaService.updateTag({
       name: 'description',
       content:
-        'How SynceBridge collects, uses, stores and shares data when you connect your Shopify store and marketplace accounts, and the rights you have over that data.'
+        'How SyncE Bridge collects, uses, stores and shares data when you connect your Shopify store and marketplace accounts, and the rights you have over that data.'
     });
   }
 }
