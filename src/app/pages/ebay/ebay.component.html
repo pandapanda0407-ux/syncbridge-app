@@ -6,21 +6,32 @@
       <div class="orb orb-1"></div>
       <div class="orb orb-2"></div>
     </div>
-    <div class="container">
-      <div class="status-pill">
-        <span class="dot"></span>
-        Available now &middot; Custom integration
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <div class="status-pill">
+          <span class="dot"></span>
+          Available now &middot; Custom integration
+        </div>
+        <h1>The eBay integration,<br>built <span class="gradient-text">around your shop</span></h1>
+        <p class="hero-subtitle">
+          Two-way sync between eBay and Shopify, migration from eBay into Shopify, and
+          AI-assisted listing improvement. We scope it against how your shop actually runs
+          rather than fitting you to a fixed template.
+        </p>
+        <div class="hero-actions">
+          <a routerLink="/contact" class="btn-primary">Scope your integration</a>
+          <a routerLink="/marketplaces" class="btn-secondary">See other channels</a>
+        </div>
       </div>
-      <h1>The eBay integration,<br>built <span class="gradient-text">around your shop</span></h1>
-      <p class="hero-subtitle">
-        Two-way sync between eBay and Shopify, migration from eBay into Shopify, and
-        AI-assisted listing improvement. We scope it against how your shop actually runs
-        rather than fitting you to a fixed template.
-      </p>
-      <div class="hero-actions">
-        <a routerLink="/contact" class="btn-primary">Scope your integration</a>
-        <a routerLink="/marketplaces" class="btn-secondary">See other channels</a>
-      </div>
+
+      <aside class="hero-facts" aria-label="eBay integration at a glance">
+        @for (fact of heroFacts; track fact.label) {
+          <div class="hero-fact">
+            <span class="hero-fact-label">{{ fact.label }}</span>
+            <span class="hero-fact-value">{{ fact.value }}</span>
+          </div>
+        }
+      </aside>
     </div>
   </header>
 

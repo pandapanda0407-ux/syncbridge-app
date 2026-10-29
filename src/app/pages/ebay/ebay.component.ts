@@ -156,6 +156,19 @@ export class EbayComponent implements OnInit {
   ];
 
   /**
+   * The right half of the fold. Every line is a fact stated elsewhere on the
+   * page, put where someone deciding whether to read on will see it.
+   */
+  heroFacts = [
+    { label: 'Availability', value: 'Available now' },
+    { label: 'Plans from', value: '$19 / month' },
+    { label: 'Free trial', value: '7 days, no card' },
+    { label: 'Inventory sync', value: 'Both directions' },
+    { label: 'Catalogue import', value: '10c per listing, once' },
+    { label: 'Connects via', value: 'Official eBay APIs' }
+  ];
+
+  /**
    * What actually moves between the two shops, field by field.
    *
    * The pages that rank for this answer it explicitly rather than leaving it

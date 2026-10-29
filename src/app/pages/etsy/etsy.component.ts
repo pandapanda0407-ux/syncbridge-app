@@ -59,6 +59,15 @@ export class EtsyComponent implements OnInit {
     }
   ];
 
+  heroFacts = [
+    { label: 'Availability', value: 'Launches October' },
+    { label: 'Inventory sync', value: 'Both directions' },
+    { label: 'Orders', value: 'Into your Shopify queue' },
+    { label: 'Connects via', value: 'Etsy Open API v3' },
+    { label: 'Authorisation', value: 'OAuth on Etsy’s own page' },
+    { label: 'Credentials stored', value: 'None' }
+  ];
+
   faq = [
     {
       q: 'How do I sync Etsy and Shopify inventory?',

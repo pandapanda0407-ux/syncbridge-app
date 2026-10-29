@@ -5,7 +5,7 @@
   // The dashboard preview gives the hero real height of its own, so the old
   // min-height: 100vh is dropped — kept, it padded the section past the
   // content and reopened the gap the preview was added to close.
-  padding: 112px 0 72px;
+  padding: 104px 0 56px;
   overflow: hidden;
 }
 
@@ -105,7 +105,7 @@
 .hero-title {
   // 4.5rem at weight 900 fills the viewport and leaves nowhere for the eye to
   // go next. Smaller and lighter, held to a measure, reads as confident.
-  font-size: clamp(2rem, 3.5vw, 2.95rem);
+  font-size: clamp(1.9rem, 3.2vw, 2.65rem);
   font-weight: 700;
   line-height: 1.12;
   letter-spacing: -0.035em;

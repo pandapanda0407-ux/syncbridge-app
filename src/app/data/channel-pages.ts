@@ -25,6 +25,8 @@ export interface ChannelPage {
   heading: string;
   headingAccent: string;
   intro: string;
+  /** The right half of the fold: what a seller is weighing, stated plainly. */
+  facts: { label: string; value: string }[];
   highlights: { icon: IconName; title: string; description: string }[];
   /** Why this marketplace differs from the others, as a seller experiences it. */
   differences: { title: string; body: string }[];
@@ -43,6 +45,14 @@ export const CHANNEL_PAGES: ChannelPage[] = [
     headingAccent: 'built for Seller Central',
     intro:
       'Keeping an Amazon catalogue and a Shopify store in step, through the official Selling Partner API. The packaged integration is in active development. If you need Amazon connected before it ships, we scope and build it against your catalogue — that part is available today.',
+    facts: [
+      { label: 'Packaged app', value: 'In active development' },
+      { label: 'Custom build', value: 'Available now' },
+      { label: 'Inventory sync', value: 'Both directions' },
+      { label: 'Fulfilment', value: 'FBA and FBM tracked apart' },
+      { label: 'Listings', value: 'Matched to ASINs' },
+      { label: 'Connects via', value: 'Selling Partner API' }
+    ],
     highlights: [
       {
         icon: 'sync',
@@ -132,6 +142,14 @@ export const CHANNEL_PAGES: ChannelPage[] = [
     headingAccent: 'built for how it sells',
     intro:
       'Product catalogue, stock and order sync between TikTok Shop and Shopify, through the official TikTok Shop API. The packaged integration is in active development. If you are already selling on TikTok and need it connected now, we scope and build it against your shop.',
+    facts: [
+      { label: 'Packaged app', value: 'In active development' },
+      { label: 'Custom build', value: 'Available now' },
+      { label: 'Inventory sync', value: 'Real time, both ways' },
+      { label: 'Built for', value: 'Spiky, sudden demand' },
+      { label: 'Catalogue', value: 'Pushed from Shopify' },
+      { label: 'Connects via', value: 'TikTok Shop Partner API' }
+    ],
     highlights: [
       {
         icon: 'sync',

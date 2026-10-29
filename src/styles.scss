@@ -314,3 +314,66 @@ section {
   transition: transform 0.25s ease;
 }
 
+
+// ── Page hero layout ───────────────────────────────────────────────────────
+// The marketplace pages had a left-ranged headline and nothing in the right
+// half of the fold, which read worse than centring ever did. Same answer as
+// the home hero: copy left, something real on the right. These pages have no
+// product shot, so the right column carries the facts a seller is actually
+// weighing — price, availability, what it runs on.
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  align-items: center;
+  gap: 52px;
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  min-width: 0;
+}
+
+.hero-facts {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 6px 22px;
+  min-width: 0;
+}
+
+.hero-fact {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--border);
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.hero-fact-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.hero-fact-value {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: right;
+  line-height: 1.5;
+}
+
+@media (max-width: 980px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 36px;
+  }
+}

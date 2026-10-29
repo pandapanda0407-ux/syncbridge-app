@@ -7,17 +7,28 @@
         <div class="orb orb-1"></div>
         <div class="orb orb-2"></div>
       </div>
-      <div class="container">
-        <div class="status-pill">
-          <span class="dot"></span>
-          {{ channel.status }}
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="status-pill">
+            <span class="dot"></span>
+            {{ channel.status }}
+          </div>
+          <h1>{{ channel.heading }}<br><span class="gradient-text">{{ channel.headingAccent }}</span></h1>
+          <p class="hero-subtitle">{{ channel.intro }}</p>
+          <div class="hero-actions">
+            <a routerLink="/contact" class="btn-primary">Scope your {{ channel.name }} build</a>
+            <a routerLink="/marketplaces" class="btn-secondary">See every channel</a>
+          </div>
         </div>
-        <h1>{{ channel.heading }}<br><span class="gradient-text">{{ channel.headingAccent }}</span></h1>
-        <p class="hero-subtitle">{{ channel.intro }}</p>
-        <div class="hero-actions">
-          <a routerLink="/contact" class="btn-primary">Scope your {{ channel.name }} build</a>
-          <a routerLink="/marketplaces" class="btn-secondary">See every channel</a>
-        </div>
+
+        <aside class="hero-facts" [attr.aria-label]="channel.name + ' integration at a glance'">
+          @for (fact of channel.facts; track fact.label) {
+            <div class="hero-fact">
+              <span class="hero-fact-label">{{ fact.label }}</span>
+              <span class="hero-fact-value">{{ fact.value }}</span>
+            </div>
+          }
+        </aside>
       </div>
     </header>
 
