@@ -132,6 +132,20 @@ jobs:
             else:
                 print("www redirect: already present or no www server_name")
 
+            # The port-80 block redirects to https on the host it was asked for,
+            # which certbot writes as "https://$host$request_uri". For www that
+            # lands on https://www.syncebridge.com, which the rule above then
+            # bounces again to the canonical host: http://www takes two hops to
+            # arrive. Only these two hostnames are served here and both canonical
+            # to the apex, so send port 80 straight there in one hop.
+            # Idempotent: after the rewrite there is no $host left to match.
+            before = content
+            content = content.replace(
+                "return 301 https://$host$request_uri;",
+                "return 301 https://syncebridge.com$request_uri;",
+            )
+            print("http->https hop: collapsed" if content != before else "http->https hop: already single")
+
             with open(path, "w") as f:
                 f.write(content)
             print("done")
