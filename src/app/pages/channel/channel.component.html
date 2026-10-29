@@ -1,0 +1,121 @@
+<app-navbar />
+
+@if (channel) {
+  <div class="channel-page">
+    <header class="channel-hero">
+      <div class="hero-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+      </div>
+      <div class="container">
+        <div class="status-pill">
+          <span class="dot"></span>
+          {{ channel.status }}
+        </div>
+        <h1>{{ channel.heading }}<br><span class="gradient-text">{{ channel.headingAccent }}</span></h1>
+        <p class="hero-subtitle">{{ channel.intro }}</p>
+        <div class="hero-actions">
+          <a routerLink="/contact" class="btn-primary">Scope your {{ channel.name }} build</a>
+          <a routerLink="/marketplaces" class="btn-secondary">See every channel</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="highlights-section">
+      <div class="container">
+        <h2 class="section-title">What the {{ channel.name }} integration does</h2>
+        <p class="section-subtitle">
+          Running {{ channel.name }} alongside a Shopify store, handled automatically.
+        </p>
+
+        <div class="highlights-grid">
+          @for (item of channel.highlights; track item.title) {
+            <article class="highlight-card glass-card">
+              <div class="highlight-icon">
+                <app-icon [name]="item.icon" [size]="22" />
+              </div>
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.description }}</p>
+            </article>
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="differences-section">
+      <div class="container">
+        <h2 class="section-title">What makes {{ channel.name }} different</h2>
+        <p class="section-subtitle">
+          Every marketplace has its own rules, and the ones that matter are the ones that cost
+          you money when an integration ignores them.
+        </p>
+        <div class="differences-list">
+          @for (item of channel.differences; track item.title) {
+            <article class="difference-card glass-card">
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.body }}</p>
+            </article>
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <h2 class="section-title">Common questions</h2>
+        <div class="faq-list">
+          @for (item of channel.faq; track item.q) {
+            <details class="faq-item glass-card">
+              <summary>
+                <h3>{{ item.q }}</h3>
+                <span class="faq-chevron" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </summary>
+              <p>{{ item.a }}</p>
+            </details>
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="channel-cta">
+      <div class="container">
+        <h2 class="section-title">Need {{ channel.name }} connected now?</h2>
+        <p class="section-subtitle">
+          The packaged integration is still in build, but a custom one scoped to your catalogue
+          is not. Tell us how your shop runs and we will scope it against your real listings.
+        </p>
+        <a routerLink="/contact" class="btn-primary">Tell us about your setup</a>
+      </div>
+    </section>
+
+    <section class="channel-reading">
+      <div class="container">
+        <h2 class="section-title">The other marketplaces we connect</h2>
+        <div class="reading-grid">
+          <a routerLink="/integrations/ebay" class="reading-card glass-card">
+            <h3>eBay integration</h3>
+            <p>Two-way sync and eBay to Shopify migration, available today. Plans from $19/mo.</p>
+          </a>
+          <a routerLink="/integrations/etsy" class="reading-card glass-card">
+            <h3>Etsy integration</h3>
+            <p>Two-way inventory and order sync through the Etsy Open API v3.</p>
+          </a>
+          <a routerLink="/marketplaces" class="reading-card glass-card">
+            <h3>Every channel</h3>
+            <p>What is live, what is in build, and what we will scope for you.</p>
+          </a>
+          <a routerLink="/how-it-works" class="reading-card glass-card">
+            <h3>How the sync works</h3>
+            <p>Four steps from connecting a store to the first sync running.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+}
+
+<app-footer />

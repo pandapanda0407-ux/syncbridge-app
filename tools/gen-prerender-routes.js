@@ -19,6 +19,8 @@ const staticRoutes = [
   '/services',
   '/integrations/etsy',
   '/integrations/ebay',
+  '/integrations/amazon',
+  '/integrations/tiktok-shop',
   '/blog',
   '/privacy-policy'
 ];
@@ -38,7 +40,12 @@ const today = new Date().toISOString().slice(0, 10);
 //
 // The integration pages are the commercial pages and carry the pricing, so
 // they rank above a policy page rather than level with one.
-const COMMERCIAL = ['/integrations/ebay', '/integrations/etsy'];
+const COMMERCIAL = [
+  '/integrations/ebay',
+  '/integrations/etsy',
+  '/integrations/amazon',
+  '/integrations/tiktok-shop'
+];
 
 const priority = (r) =>
   r === '/' ? '1.0'

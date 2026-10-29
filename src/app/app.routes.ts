@@ -62,6 +62,20 @@ export const routes: Routes = [
     canActivate: menuOnly,
     loadComponent: () => import('./pages/etsy/etsy.component').then(m => m.EtsyComponent)
   },
+  // Channels whose page content lives in channel-pages.ts. The slug is passed
+  // as route data so the page cannot exist without a route declaring it.
+  {
+    path: 'integrations/amazon',
+    canActivate: menuOnly,
+    data: { slug: 'amazon' },
+    loadComponent: () => import('./pages/channel/channel.component').then(m => m.ChannelComponent)
+  },
+  {
+    path: 'integrations/tiktok-shop',
+    canActivate: menuOnly,
+    data: { slug: 'tiktok-shop' },
+    loadComponent: () => import('./pages/channel/channel.component').then(m => m.ChannelComponent)
+  },
   {
     path: 'blog',
     canActivate: menuOnly,

@@ -1,0 +1,261 @@
+// Shared layout for the data-driven marketplace pages. Mirrors the hand-built
+// Etsy and eBay pages so a seller moving between channels sees one site, not
+// three. The FAQ styles are global (styles.scss) and used as-is.
+.channel-page {
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+.channel-hero {
+  position: relative;
+  padding: 140px 0 70px;
+  overflow: hidden;
+  text-align: center;
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.15;
+
+    &-1 {
+      width: 380px;
+      height: 380px;
+      background: var(--cyan);
+      top: -120px;
+      left: 10%;
+    }
+
+    &-2 {
+      width: 300px;
+      height: 300px;
+      background: var(--purple);
+      bottom: -60px;
+      right: 10%;
+    }
+  }
+
+  h1 {
+    position: relative;
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 900;
+    line-height: 1.12;
+    margin-bottom: 20px;
+  }
+
+  .hero-subtitle {
+    position: relative;
+    max-width: 680px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.75;
+  }
+}
+
+.status-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 22px;
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--amber);
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--amber);
+  }
+}
+
+.hero-actions {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.highlights-section {
+  padding: 70px 0;
+
+  .section-title {
+    text-align: center;
+  }
+
+  .section-subtitle {
+    max-width: 620px;
+    margin: 0 auto 44px;
+    text-align: center;
+  }
+}
+
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.highlight-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 28px;
+
+  h3 {
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.75;
+  }
+}
+
+.highlight-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.highlight-card:hover .highlight-icon {
+  color: var(--purple-light);
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+.differences-section {
+  padding: 70px 0;
+  background: var(--bg-secondary);
+
+  .section-title {
+    text-align: center;
+  }
+
+  .section-subtitle {
+    max-width: 680px;
+    margin: 0 auto 40px;
+    text-align: center;
+  }
+}
+
+.differences-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.difference-card {
+  padding: 26px;
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 0.86rem;
+    line-height: 1.75;
+    color: var(--text-secondary);
+  }
+}
+
+.channel-cta {
+  padding: 70px 0;
+  text-align: center;
+
+  .section-subtitle {
+    max-width: 640px;
+    margin: 0 auto 28px;
+  }
+}
+
+.channel-reading {
+  padding: 0 0 100px;
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+}
+
+.reading-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.reading-card {
+  display: block;
+  padding: 24px;
+  color: inherit;
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: var(--border-glow);
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 0.86rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+}
+
+@media (max-width: 1024px) {
+  .highlights-grid,
+  .differences-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .channel-hero {
+    padding: 120px 0 50px;
+  }
+
+  .highlights-section,
+  .differences-section {
+    padding: 50px 0;
+  }
+
+  .highlights-grid,
+  .differences-list,
+  .reading-grid {
+    grid-template-columns: 1fr;
+  }
+}

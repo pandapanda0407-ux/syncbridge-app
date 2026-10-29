@@ -45,6 +45,53 @@
     </div>
   </section>
 
+  <section class="sync-data-section" id="what-syncs">
+    <div class="container">
+      <h2 class="section-title">What syncs between Shopify and eBay</h2>
+      <p class="section-subtitle">
+        Field by field, and which way each one travels. Not every field is two-way, so this
+        says which are and which are not.
+      </p>
+
+      <div class="sync-table" role="table" aria-label="Fields synced between Shopify and eBay">
+        <div class="sync-row is-head" role="row">
+          <span role="columnheader">Data</span>
+          <span role="columnheader">Direction</span>
+          <span role="columnheader">What happens</span>
+        </div>
+        @for (row of syncFields; track row.field) {
+          <div class="sync-row" role="row">
+            <span class="sync-field" role="cell">{{ row.field }}</span>
+            <span class="sync-direction" role="cell">{{ row.direction }}</span>
+            <span class="sync-detail" role="cell">{{ row.detail }}</span>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="steps-section" id="how-to-connect">
+    <div class="container">
+      <h2 class="section-title">How to connect Shopify and eBay</h2>
+      <p class="section-subtitle">
+        Four steps, no technical knowledge needed. You never hand over a password — eBay
+        authorises us on its own page.
+      </p>
+
+      <ol class="steps-list">
+        @for (step of steps; track step.title; let i = $index) {
+          <li class="step-card glass-card">
+            <span class="step-number">{{ i + 1 }}</span>
+            <div class="step-body">
+              <h3>{{ step.title }}</h3>
+              <p>{{ step.body }}</p>
+            </div>
+          </li>
+        }
+      </ol>
+    </div>
+  </section>
+
   <section class="pricing-section" id="pricing">
     <div class="container">
       <h2 class="section-title">eBay app pricing</h2>

@@ -156,6 +156,78 @@ export class EbayComponent implements OnInit {
   ];
 
   /**
+   * What actually moves between the two shops, field by field.
+   *
+   * The pages that rank for this answer it explicitly rather than leaving it
+   * to "two-way sync" — a seller comparing tools is checking whether their
+   * particular field is covered, and a page that does not say loses to one
+   * that does. Direction is stated per row because it is not the same for
+   * every field, and claiming two-way on a field that is one-way is the kind
+   * of thing a seller discovers after they have bought.
+   */
+  syncFields = [
+    {
+      field: 'Inventory',
+      direction: 'Both ways',
+      detail: 'An eBay sale lowers the Shopify quantity and a Shopify sale updates the eBay listing, in real time.'
+    },
+    {
+      field: 'Orders',
+      direction: 'eBay → Shopify',
+      detail: 'eBay orders arrive in the Shopify fulfilment queue with buyer details and line items intact.'
+    },
+    {
+      field: 'Price',
+      direction: 'Shopify → eBay',
+      detail: 'Shopify is the source for price. A change there pushes out to the eBay listing.'
+    },
+    {
+      field: 'Titles & descriptions',
+      direction: 'Shopify → eBay',
+      detail: 'Listing content is pushed from your Shopify product, with AI help drafting what eBay needs.'
+    },
+    {
+      field: 'Variants',
+      direction: 'Shopify → eBay',
+      detail: 'Shopify variants map to eBay multi-variation listings, matched on your own SKU scheme.'
+    },
+    {
+      field: 'Images',
+      direction: 'Shopify → eBay',
+      detail: 'Product images come across with the listing rather than being re-uploaded by hand.'
+    },
+    {
+      field: 'Manual eBay stock edits',
+      direction: 'eBay → Shopify',
+      detail: 'A quantity changed directly in Seller Hub is read back, on Growth and above.'
+    }
+  ];
+
+  /**
+   * The four steps, as a seller does them. Written as instructions because
+   * "how do I connect Shopify and eBay" is a question people type, and the
+   * results that win it answer it on the page instead of asking for a demo.
+   */
+  steps = [
+    {
+      title: 'Connect your eBay account',
+      body: 'Authorise through eBay itself. You are sent to eBay\'s own sign-in, and we receive a scoped token rather than your password. Nothing is read until you have approved it.'
+    },
+    {
+      title: 'Import your Shopify products',
+      body: 'Your catalogue is read from Shopify and matched against what already exists on eBay by SKU, so products you have listed on both sides are linked rather than duplicated.'
+    },
+    {
+      title: 'Set your listing rules',
+      body: 'Decide what maps where: eBay categories, item specifics, business policies, and whether a price on eBay should differ from the Shopify one. This is where your shop\'s own shape gets handled.'
+    },
+    {
+      title: 'Turn on the sync',
+      body: 'Run the first sync and the two stay in step from then on. Stock moves in both directions, orders flow into Shopify, and the activity log shows what changed.'
+    }
+  ];
+
+  /**
    * The questions sellers actually search before they search for an app:
    * priced, directional and specific. Answered on the page so the FAQ schema
    * describes visible content rather than markup written only for a crawler.

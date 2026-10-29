@@ -36,7 +36,8 @@ export const CHANNELS: Channel[] = [
     icon: 'box',
     status: 'In active development',
     state: 'progress',
-    blurb: 'Seller Central listings and order sync, in build now.'
+    blurb: 'Seller Central listings and order sync, in build now.',
+    route: '/integrations/amazon'
   },
   {
     name: 'eBay',
@@ -51,7 +52,8 @@ export const CHANNELS: Channel[] = [
     icon: 'share',
     status: 'In active development',
     state: 'progress',
-    blurb: 'Product catalogue and order sync for TikTok Shop sellers, in build now.'
+    blurb: 'Product catalogue and order sync for TikTok Shop sellers, in build now.',
+    route: '/integrations/tiktok-shop'
   }
 ];
 
