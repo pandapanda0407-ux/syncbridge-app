@@ -5,7 +5,7 @@
   // The dashboard preview gives the hero real height of its own, so the old
   // min-height: 100vh is dropped — kept, it padded the section past the
   // content and reopened the gap the preview was added to close.
-  padding: 130px 0 80px;
+  padding: 112px 0 72px;
   overflow: hidden;
 }
 
@@ -55,17 +55,24 @@
 .hero-content {
   position: relative;
   z-index: 1;
-  // Centred headline over centred subtitle over centred buttons is the stock
-  // arrangement. Ranging everything left against a measure gives the section
-  // an edge to line up on, which is what makes a layout look decided rather
-  // than defaulted.
+  // Copy left, product right. Ranging the copy left and leaving the right
+  // half empty was worse than centring it: the fold read as half-finished.
+  // The dashboard was already on the page, just below the fold, so it moves
+  // up beside the copy and fills the width it was leaving blank.
   text-align: left;
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  align-items: center;
+  gap: 56px;
+  min-width: 0;
+}
+
+.hero-copy {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 24px;
+  gap: 22px;
   min-width: 0;
-  max-width: 100%;
 }
 
 .hero-badge {
@@ -98,12 +105,12 @@
 .hero-title {
   // 4.5rem at weight 900 fills the viewport and leaves nowhere for the eye to
   // go next. Smaller and lighter, held to a measure, reads as confident.
-  font-size: clamp(2.1rem, 4.4vw, 3.3rem);
+  font-size: clamp(2rem, 3.5vw, 2.95rem);
   font-weight: 700;
   line-height: 1.12;
   letter-spacing: -0.035em;
   color: var(--text-primary);
-  max-width: 17ch;
+  max-width: 15ch;
 }
 
 .hero-subtitle {
@@ -111,7 +118,7 @@
   color: var(--text-secondary);
   // A measure of roughly 70 characters, which is where prose stops being
   // comfortable to read.
-  max-width: 52ch;
+  max-width: 46ch;
   line-height: 1.7;
 }
 
@@ -131,9 +138,9 @@
 .platform-logos {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .platform-label {
@@ -209,8 +216,8 @@
 // empty. Mirrors the real dashboard's structure (chrome bar, Revenue & Orders,
 // Listings Overview) in the site's dark theme.
 .dashboard-preview {
-  max-width: min(1060px, 100%);
-  margin: 44px auto 0;
+  max-width: 100%;
+  margin: 0;
   text-align: left;
   background: rgba(13, 13, 28, 0.72);
   border: 1px solid var(--border);
@@ -310,7 +317,7 @@
     min-width: 0;
   }
 
-  &-3 { grid-template-columns: repeat(3, 1fr); }
+  &-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   &-4 { grid-template-columns: repeat(4, 1fr); }
 
   &:last-child { margin-bottom: 0; }
@@ -430,10 +437,12 @@
 // ── Two-column body: setup/catalogue rail beside stats and activity ────────
 .dash-split {
   display: grid;
-  grid-template-columns: minmax(0, 290px) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: 16px;
   align-items: start;
 }
+
+
 
 .dash-side,
 .dash-main {
@@ -441,6 +450,23 @@
   flex-direction: column;
   gap: 12px;
   min-width: 0;
+}
+
+// Beside the copy there is room for the numbers and the activity feed, not
+// for the setup rail as well. It stays in the markup and comes back where
+// the column is wide enough to carry it.
+.dash-side {
+  display: none;
+}
+
+@media (min-width: 1480px) {
+  .dash-split {
+    grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
+  }
+
+  .dash-side {
+    display: flex;
+  }
 }
 
 .dash-panel {
@@ -648,8 +674,19 @@
   font-variant-numeric: tabular-nums;
 }
 
+// One column below the point where two would squeeze the copy.
+@media (max-width: 1024px) {
+  .hero-content {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+
+  .hero-title {
+    max-width: 20ch;
+  }
+}
+
 @media (max-width: 860px) {
-  .dashboard-preview { margin-top: 48px; }
 
   .dash-row-3,
   .dash-row-4 { grid-template-columns: repeat(2, 1fr); }

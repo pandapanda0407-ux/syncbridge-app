@@ -211,7 +211,7 @@ img {
 }
 
 section {
-  padding: 100px 0;
+  padding: 68px 0;
   // Clears the fixed navbar when a section is targeted by an anchor link.
   scroll-margin-top: 90px;
 }
@@ -255,7 +255,7 @@ section {
 // <details> rather than a click handler: the answers are in the DOM whether
 // or not they are open, which is what the FAQ schema claims is on the page.
 .faq-section {
-  padding: 70px 0;
+  padding: 68px 0;
   background: var(--bg-secondary);
 
   .section-title {
