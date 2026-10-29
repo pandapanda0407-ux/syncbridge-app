@@ -32,8 +32,27 @@ const routes = [
 fs.writeFileSync(path.join(root, 'prerender-routes.txt'), routes.join('\n') + '\n');
 
 const today = new Date().toISOString().slice(0, 10);
-const priority = (r) => (r === '/' ? '1.0' : r === '/blog' || r === '/services' ? '0.9' : '0.7');
-const freq = (r) => (r === '/' || r === '/blog' ? 'weekly' : r === '/privacy-policy' ? 'yearly' : 'monthly');
+// This file is the only author of public/sitemap.xml — it is rewritten on
+// every build, so a priority edited by hand in the XML is gone by the next
+// `npm run build`. Change it here.
+//
+// The integration pages are the commercial pages and carry the pricing, so
+// they rank above a policy page rather than level with one.
+const COMMERCIAL = ['/integrations/ebay', '/integrations/etsy'];
+
+const priority = (r) =>
+  r === '/' ? '1.0'
+  : COMMERCIAL.includes(r) ? '0.9'
+  : r === '/blog' || r === '/services' ? '0.9'
+  : r === '/marketplaces' ? '0.8'
+  : r === '/privacy-policy' ? '0.3'
+  : '0.7';
+
+const freq = (r) =>
+  r === '/' || r === '/blog' ? 'weekly'
+  : COMMERCIAL.includes(r) || r === '/marketplaces' ? 'weekly'
+  : r === '/privacy-policy' ? 'yearly'
+  : 'monthly';
 
 const sitemapUrls = routes;
 const body = sitemapUrls
