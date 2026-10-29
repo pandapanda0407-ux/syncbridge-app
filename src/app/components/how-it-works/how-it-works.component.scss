@@ -15,11 +15,11 @@
 }
 
 .section-header {
-  text-align: center;
+  text-align: left;
   margin-bottom: 64px;
 
   .section-subtitle {
-    margin: 0 auto;
+    margin: 0;
   }
 }
 
@@ -28,7 +28,7 @@
   flex-direction: column;
   gap: 0;
   max-width: 800px;
-  margin: 0 auto;
+  margin: 0;
   position: relative;
 }
 

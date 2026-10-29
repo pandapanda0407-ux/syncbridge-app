@@ -3,10 +3,10 @@
 }
 
 .section-header {
-  text-align: center;
+  text-align: left;
   margin-bottom: 64px;
 
-  .section-subtitle { margin: 0 auto; }
+  .section-subtitle { margin: 0; }
 }
 
 .security-grid {
@@ -57,7 +57,7 @@
   padding: 28px 40px;
   background: rgba(16, 185, 129, 0.05);
   border: 1px solid rgba(16, 185, 129, 0.15);
-  border-radius: 16px;
+  border-radius: var(--radius-md);
 }
 
 .trust-item {

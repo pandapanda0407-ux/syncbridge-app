@@ -3,11 +3,11 @@
 }
 
 .section-header {
-  text-align: center;
+  text-align: left;
   margin-bottom: 44px;
 
   .section-subtitle {
-    margin: 0 auto;
+    margin: 0;
   }
 }
 
@@ -161,7 +161,6 @@
 
 .channels-note {
   margin-top: 28px;
-  text-align: center;
   font-size: 0.88rem;
   color: var(--text-secondary);
 

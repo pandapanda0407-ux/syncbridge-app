@@ -7,7 +7,7 @@
   position: relative;
   padding: 140px 0 70px;
   overflow: hidden;
-  text-align: center;
+  text-align: left;
 
   .hero-bg {
     position: absolute;
@@ -18,8 +18,8 @@
   .orb {
     position: absolute;
     border-radius: 50%;
-    filter: blur(90px);
-    opacity: 0.15;
+    filter: blur(120px);
+    opacity: 0.07;
 
     &-1 {
       width: 380px;
@@ -30,6 +30,7 @@
     }
 
     &-2 {
+      display: none;
       width: 300px;
       height: 300px;
       background: var(--purple);
@@ -49,7 +50,7 @@
   .hero-subtitle {
     position: relative;
     max-width: 640px;
-    margin: 0 auto;
+    margin: 0;
     font-size: 1.05rem;
     color: var(--text-secondary);
     line-height: 1.75;
@@ -83,7 +84,7 @@
 .hero-actions {
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 14px;
   margin-top: 32px;
@@ -142,10 +143,10 @@
 
 .etsy-cta {
   padding: 40px 0 120px;
-  text-align: center;
+  text-align: left;
 
   .section-subtitle {
-    margin: 0 auto 32px;
+    margin: 0 0 32px;
   }
 }
 
