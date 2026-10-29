@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Title, Meta } from '@angular/platform-browser';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { UseCaseComponent } from '../../components/use-case/use-case.component';
 import { IconComponent, IconName } from '../../shared/icon.component';
+import { SeoService } from '../../shared/seo.service';
 
 interface EtsyHighlight {
   icon: IconName;
@@ -59,14 +59,35 @@ export class EtsyComponent implements OnInit {
     }
   ];
 
-  constructor(private titleService: Title, private metaService: Meta) {}
+  faq = [
+    {
+      q: 'How do I sync Etsy and Shopify inventory?',
+      a: 'Authorise both shops through their official APIs and SyncE Bridge keeps one stock figure across the two. A sale on Etsy reduces the Shopify quantity and a Shopify sale updates the Etsy listing, in real time, so neither shop can sell stock the other has just sold.'
+    },
+    {
+      q: 'Can I sell the same products on Etsy and Shopify?',
+      a: 'Yes, and you do not have to split your stock between them. Both shops can carry the full quantity because the sync adjusts the other side the moment an order lands.'
+    },
+    {
+      q: 'Which Etsy permissions does the integration need?',
+      a: 'Only the scopes needed for listings, orders and inventory: listings_r, listings_w, transactions_r, transactions_w, shops_r, inventory_r and inventory_w. We do not request financial reports or payment information, and you authorise on Etsy\'s own page.'
+    },
+    {
+      q: 'When does the Etsy integration launch?',
+      a: 'It launches in October. It is built on the Etsy Open API v3 and is the most complete integration we run.'
+    }
+  ];
+
+  constructor(private seo: SeoService) {}
 
   ngOnInit() {
-    this.titleService.setTitle('Etsy Integration — Sync Etsy & Shopify Inventory | SyncE Bridge');
-    this.metaService.updateTag({
-      name: 'description',
-      content:
-        'Connect Etsy to Shopify with SyncE Bridge. Real-time two-way inventory and order sync via the official Etsy Open API v3, with OAuth-only access and clearly scoped permissions.'
+    this.seo.apply({
+      title: 'Etsy Shopify Integration — Sync Etsy & Shopify Inventory | SyncE Bridge',
+      description:
+        'Connect Etsy to Shopify and keep inventory, orders and listings in sync in real time through the official Etsy Open API v3. OAuth-only access with clearly scoped permissions and no stored credentials.',
+      path: '/integrations/etsy',
+      breadcrumbs: [{ name: 'Marketplaces', path: '/marketplaces' }],
+      faq: this.faq
     });
   }
 }

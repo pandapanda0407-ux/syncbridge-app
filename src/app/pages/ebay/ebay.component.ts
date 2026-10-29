@@ -1,14 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Title, Meta } from '@angular/platform-browser';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { IconComponent, IconName } from '../../shared/icon.component';
+import { SeoService, ORIGIN } from '../../shared/seo.service';
 
 interface EbayHighlight {
   icon: IconName;
   title: string;
   description: string;
+}
+
+interface EbayPlan {
+  name: string;
+  monthly: number;
+  desc: string;
+  /** Shown as the headline allowances, the way the app's cards show them. */
+  products: string;
+  orders: string;
+  features: string[];
+  popular?: boolean;
 }
 
 @Component({
@@ -58,14 +69,168 @@ export class EbayComponent implements OnInit {
     }
   ];
 
-  constructor(private titleService: Title, private metaService: Meta) {}
+  /**
+   * The same ladder the eBay app charges on, kept in step with its
+   * `frontend/src/lib/plans.js`. The app is the source of truth: if a price
+   * changes there, it has to change here too, because this page is what a
+   * seller compares the checkout against.
+   */
+  plans: EbayPlan[] = [
+    {
+      name: 'Starter',
+      monthly: 19,
+      desc: 'For a small catalogue finding its feet on eBay.',
+      products: '2,500 products synced',
+      orders: '100 eBay orders a month',
+      features: [
+        'Price sync (Shopify → eBay)',
+        'Stock sync (Shopify → eBay)',
+        'Activity log (3 days)'
+      ]
+    },
+    {
+      name: 'Standard',
+      monthly: 29,
+      desc: 'For a catalogue that has outgrown the entry tier.',
+      products: '5,000 products synced',
+      orders: '4,000 eBay orders a month',
+      features: [
+        'Auto sync schedule',
+        'Price sync (Shopify → eBay)',
+        'Stock sync (Shopify → eBay)',
+        'Activity log (3 days)'
+      ]
+    },
+    {
+      name: 'Growth',
+      monthly: 59,
+      popular: true,
+      desc: 'For a shop selling steadily on eBay.',
+      products: '10,000 products synced',
+      orders: '7,000 eBay orders a month',
+      features: [
+        'Auto sync schedule',
+        'Price and stock sync (Shopify → eBay)',
+        'Sync manual eBay stock changes',
+        'Activity log (3 days)',
+        'Onboarding meetings & seller groups'
+      ]
+    },
+    {
+      name: 'Pro',
+      monthly: 199,
+      desc: 'For a large catalogue and real order volume.',
+      products: '20,000 products synced',
+      orders: '10,000 eBay orders a month',
+      features: [
+        'Auto sync schedule',
+        'Price and stock sync (Shopify → eBay)',
+        'Sync manual eBay stock changes',
+        'Priority sync support',
+        'Activity log (3 days)',
+        'Onboarding meetings & seller groups'
+      ]
+    },
+    {
+      name: 'Enterprise',
+      monthly: 349,
+      desc: 'For the largest catalogues, with support to match.',
+      products: '30,000 products synced',
+      orders: '15,000 eBay orders a month',
+      features: [
+        'Auto sync schedule',
+        'Price and stock sync (Shopify → eBay)',
+        'Sync manual eBay stock changes',
+        'Priority sync support',
+        'Activity log (3 days)',
+        'Onboarding meetings & seller groups'
+      ]
+    }
+  ];
+
+  /** Carried by every tier, stated once so "on all plans" cannot drift. */
+  commonFeatures: string[] = [
+    'AI help optimising listings',
+    'AI help creating rules',
+    'Email, chat & ticket support'
+  ];
+
+  /**
+   * The questions sellers actually search before they search for an app:
+   * priced, directional and specific. Answered on the page so the FAQ schema
+   * describes visible content rather than markup written only for a crawler.
+   */
+  faq = [
+    {
+      q: 'How do I sync eBay and Shopify inventory?',
+      a: 'Connect both accounts through their official APIs and SyncE Bridge keeps quantities in step automatically. Sell on eBay and the Shopify stock drops; sell on Shopify and the eBay listing updates. Plans start at $19 a month with a 7-day free trial.'
+    },
+    {
+      q: 'How much does the Shopify eBay integration cost?',
+      a: 'Monthly plans run from $19 for 2,500 products and 100 eBay orders a month up to $349 for 30,000 products and 15,000 orders. Bringing an existing eBay catalogue into Shopify is charged once at 10c per listing, from 100 listings up to 200,000.'
+    },
+    {
+      q: 'Can I migrate my eBay listings to Shopify?',
+      a: 'Yes. The import turns your eBay listings into Shopify products, including variations, images and item specifics, and is charged once per listing rather than monthly. Add any monthly plan on top if you also want the two kept in step afterwards.'
+    },
+    {
+      q: 'Does the eBay Shopify sync work in both directions?',
+      a: 'Inventory and orders sync both ways: eBay sales reduce Shopify stock and Shopify sales update the eBay listing, so the same last item cannot be sold twice. Price and listing pushes run from Shopify out to eBay.'
+    },
+    {
+      q: 'Is there a free trial?',
+      a: 'Every monthly plan starts with a 7-day free trial and no credit card is required. You can upgrade or downgrade at any time; a plan change takes effect immediately and Shopify adjusts the charge.'
+    },
+    {
+      q: 'Do I need to share my eBay password?',
+      a: 'No. You authorise through eBay itself and the integration receives a scoped token limited to what it needs. We never see or store your eBay password, and you can revoke access from your eBay account at any time.'
+    }
+  ];
+
+  constructor(private seo: SeoService) {}
 
   ngOnInit() {
-    this.titleService.setTitle('eBay Integration — Sync eBay & Shopify, and Migrate | SyncE Bridge');
-    this.metaService.updateTag({
-      name: 'description',
-      content:
-        'Connect eBay to Shopify with SyncE Bridge: two-way inventory and order sync, eBay to Shopify migration, and AI-assisted listing improvement. Available now as a custom integration scoped to your shop.'
+    this.seo.apply({
+      title: 'eBay Shopify Integration — Two-Way Inventory & Order Sync | SyncE Bridge',
+      description:
+        'Sync eBay and Shopify inventory, orders and listings in real time through the official eBay APIs. Two-way stock sync, eBay to Shopify migration from 10c a listing, and plans from $19/mo with a 7-day free trial.',
+      path: '/integrations/ebay',
+      breadcrumbs: [{ name: 'Marketplaces', path: '/marketplaces' }],
+      faq: this.faq,
+      // Real prices, so the ladder is described as offers rather than left in
+      // prose. The range is what a search result can surface as "from $19".
+      schema: {
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name: 'SyncE Bridge for eBay',
+        applicationCategory: 'BusinessApplication',
+        operatingSystem: 'Web',
+        url: `${ORIGIN}/integrations/ebay`,
+        description:
+          'Two-way inventory, order and listing sync between eBay and Shopify, plus eBay to Shopify catalogue migration.',
+        featureList: [
+          'Two-way eBay and Shopify inventory sync',
+          'eBay orders in the Shopify fulfilment queue',
+          'eBay to Shopify catalogue migration',
+          'AI-assisted eBay listing improvement',
+          'Official eBay API access via OAuth'
+        ],
+        offers: {
+          '@type': 'AggregateOffer',
+          priceCurrency: 'USD',
+          lowPrice: this.plans[0].monthly,
+          highPrice: this.plans[this.plans.length - 1].monthly,
+          offerCount: this.plans.length,
+          offers: this.plans.map(plan => ({
+            '@type': 'Offer',
+            name: plan.name,
+            price: plan.monthly,
+            priceCurrency: 'USD',
+            description: plan.desc,
+            url: `${ORIGIN}/integrations/ebay#pricing`
+          }))
+        }
+      }
     });
   }
 }

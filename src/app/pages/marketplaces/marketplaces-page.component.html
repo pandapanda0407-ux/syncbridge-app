@@ -2,4 +2,25 @@
 <div class="section-page">
   <app-channels />
 </div>
+<section class="faq-section">
+  <div class="container">
+    <h2 class="section-title">Common questions</h2>
+    <div class="faq-list">
+      @for (item of faq; track item.q) {
+        <details class="faq-item glass-card">
+          <summary>
+            <h3>{{ item.q }}</h3>
+            <span class="faq-chevron" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </summary>
+          <p>{{ item.a }}</p>
+        </details>
+      }
+    </div>
+  </div>
+</section>
+
 <app-footer />

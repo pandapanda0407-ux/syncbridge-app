@@ -170,6 +170,268 @@
 }
 
 
+// ── Pricing ────────────────────────────────────────────────────────────────
+// Five tiers, so the cards are narrower than the three-up highlight grid and
+// the feature list carries the weight rather than the padding.
+.pricing-section {
+  padding: 70px 0;
+  background: var(--bg-primary);
+
+  .section-title {
+    text-align: center;
+  }
+
+  .section-subtitle {
+    max-width: 720px;
+    margin: 0 auto 44px;
+    text-align: center;
+  }
+}
+
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.plan-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 24px 20px;
+  height: 100%;
+
+  &.is-popular {
+    border-color: rgba(139, 92, 246, 0.35);
+    box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.12);
+  }
+}
+
+.plan-badge {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  background: var(--purple);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.plan-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.plan-price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.plan-amount {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.9rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.plan-period {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.plan-desc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  min-height: 2.6em;
+}
+
+.plan-features {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 14px 0 0;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 0.78rem;
+    line-height: 1.55;
+    color: var(--text-secondary);
+
+    &::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-size: 0.72rem;
+    }
+
+    &.is-allowance {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+  }
+}
+
+.plans-common {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+// Which direction a block prices, said before the cards rather than left to
+// the bullets — it is the thing that decides what a seller pays.
+.direction-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+  text-align: center;
+
+  p {
+    max-width: 680px;
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+
+  & + .plans-grid,
+  & + .import-grid {
+    margin-top: 0;
+  }
+}
+
+.direction-head:not(:first-of-type) {
+  margin-top: 56px;
+}
+
+.direction-tag {
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+  background: rgba(6, 182, 212, 0.12);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--cyan-light);
+
+  &.is-reverse {
+    background: rgba(139, 92, 246, 0.14);
+    border-color: rgba(139, 92, 246, 0.32);
+    color: var(--purple-light);
+  }
+}
+
+.import-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.import-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 28px;
+
+  &.is-combined {
+    border-color: rgba(139, 92, 246, 0.3);
+  }
+
+  h3 {
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  strong {
+    color: var(--text-primary);
+  }
+}
+
+.import-price {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.import-amount {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.9rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--text-primary);
+}
+
+.import-unit {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.import-note {
+  font-size: 0.84rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.import-caveat {
+  margin-top: 4px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.pricing-cta {
+  margin-top: 32px;
+  text-align: center;
+}
+
+@media (max-width: 1100px) {
+  .plans-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .pricing-section {
+    padding: 50px 0;
+  }
+
+  .plans-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .import-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .plan-desc {
+    min-height: 0;
+  }
+}
+
 .custom-section {
   background: var(--bg-secondary);
   text-align: center;

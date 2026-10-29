@@ -45,6 +45,111 @@
     </div>
   </section>
 
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+      <h2 class="section-title">eBay app pricing</h2>
+      <p class="section-subtitle">
+        Which way your catalogue runs decides what you pay. Syncing a Shopify catalogue out to
+        eBay is a monthly plan. Bringing an existing eBay catalogue into Shopify is charged once,
+        per listing — and the two can be bought together.
+      </p>
+
+      <div class="direction-head">
+        <span class="direction-tag">Shopify → eBay</span>
+        <p>
+          Monthly plans. Every one starts with a 7-day free trial, no credit card required, and
+          you can upgrade or downgrade at any time — a plan change takes effect immediately and
+          Shopify adjusts the charge for you.
+        </p>
+      </div>
+
+      <div class="plans-grid">
+        @for (plan of plans; track plan.name) {
+          <article class="plan-card glass-card" [class.is-popular]="plan.popular">
+            @if (plan.popular) {
+              <span class="plan-badge">Most popular</span>
+            }
+            <h3 class="plan-name">{{ plan.name }}</h3>
+            <p class="plan-price">
+              <span class="plan-amount">${{ plan.monthly }}</span>
+              <span class="plan-period">/mo</span>
+            </p>
+            <p class="plan-desc">{{ plan.desc }}</p>
+            <ul class="plan-features">
+              <li class="is-allowance">{{ plan.products }}</li>
+              <li class="is-allowance">{{ plan.orders }}</li>
+              @for (feature of plan.features; track feature) {
+                <li>{{ feature }}</li>
+              }
+            </ul>
+          </article>
+        }
+      </div>
+
+      <p class="plans-common">
+        On every plan:
+        @for (feature of commonFeatures; track feature; let last = $last) {
+          <span>{{ feature }}{{ last ? '' : ' · ' }}</span>
+        }
+      </p>
+
+      <div class="direction-head">
+        <span class="direction-tag is-reverse">eBay → Shopify</span>
+        <p>
+          Moving an existing eBay catalogue into Shopify. Charged once on the number of listings
+          you bring across, rather than every month for work that happens once.
+        </p>
+      </div>
+
+      <div class="import-grid">
+        <article class="import-card glass-card">
+          <h3>Import only</h3>
+          <p class="import-price">
+            <span class="import-amount">10c</span>
+            <span class="import-unit">per listing, once</span>
+          </p>
+          <p class="import-note">
+            From 100 listings up to 200,000 — so a 1,000-listing catalogue is $100, charged a
+            single time.
+          </p>
+          <ul class="plan-features">
+            <li class="is-allowance">Your eBay listings become Shopify products</li>
+            <li class="is-allowance">Variations, images and item specifics come across</li>
+            <li class="is-allowance">One-time charge, no monthly fee</li>
+          </ul>
+          <p class="import-caveat">
+            The import ends there. Stock, price and orders are <strong>not</strong> kept in step
+            afterwards — this is the right purchase for a catalogue moved across once.
+          </p>
+        </article>
+
+        <article class="import-card glass-card is-combined">
+          <h3>Import + a monthly plan</h3>
+          <p class="import-price">
+            <span class="import-amount">10c</span>
+            <span class="import-unit">per listing, then from $19/mo</span>
+          </p>
+          <p class="import-note">
+            The same one-time import fee, plus whichever tier above covers your catalogue size.
+          </p>
+          <ul class="plan-features">
+            <li class="is-allowance">Everything in the import</li>
+            <li class="is-allowance">Every sync runs after it — stock, price and orders</li>
+            <li class="is-allowance">7-day free trial on the monthly half</li>
+          </ul>
+          <p class="import-caveat">
+            You can also take a monthly plan on its own with no import, if you have no catalogue
+            to bring across and only want new eBay listings turned into products as they appear.
+          </p>
+        </article>
+      </div>
+
+      <div class="pricing-cta">
+        <a routerLink="/contact" class="btn-primary">Ask about an import</a>
+      </div>
+    </div>
+  </section>
+
   <section class="custom-section">
     <div class="container">
       <h2 class="section-title">Why this one is custom</h2>
@@ -60,6 +165,27 @@
         your catalogue, and a build mapped to it. You are not waiting on a roadmap.
       </p>
       <a routerLink="/contact" class="btn-primary">Tell us about your setup</a>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <h2 class="section-title">Common questions</h2>
+      <div class="faq-list">
+        @for (item of faq; track item.q) {
+          <details class="faq-item glass-card">
+            <summary>
+              <h3>{{ item.q }}</h3>
+              <span class="faq-chevron" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </summary>
+            <p>{{ item.a }}</p>
+          </details>
+        }
+      </div>
     </div>
   </section>
 
